@@ -1,0 +1,39 @@
+@import '../../../../colors.scss';
+
+.mat-drawer:not(.mat-drawer-side) {
+  position: fixed;
+}
+
+.mat-drawer-backdrop {
+  position: fixed !important;
+}
+
+.example-sidenav1 {
+  padding: 20px;
+  width: 250px;
+}
+
+@media (max-width: 760px) {
+  .example-sidenav {
+    width: 80%;
+  }
+}
+
+ul.navbar-nav {
+  img {
+    margin-bottom: 2rem;
+  }
+  li {
+    color: $primary-color;
+    text-transform: uppercase;
+    font-weight: bold;
+    text-align: center;
+  }
+}
+
+.navbar-nav .nav-item .nav-link.titleCase {
+  text-transform: none;
+}
+.mat-drawer-container{
+  z-index: 1000;
+}

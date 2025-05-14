@@ -1,0 +1,19 @@
+<div
+  class="modal-content"
+  id="comingSoon"
+  tabindex="-1"
+  role="dialog"
+  aria-hidden="true"
+>
+  <div class="modal-header">
+    <h4>{{ title || 'Alert!' }}</h4>
+  </div>
+  <div class="modal-body">
+    <h2>{{ message || 'OOOPS!' }}</h2>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-primary" (click)="close()">
+      Got It !
+    </button>
+  </div>
+</div>

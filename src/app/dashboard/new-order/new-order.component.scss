@@ -1,0 +1,62 @@
+@import '../../../colors.scss';
+
+.card:hover {
+    transform: scale(1.04);
+    z-index: 2;
+    overflow: hidden;
+    background: rgba(0, 0, 0, 0.02);
+}
+
+input{
+    height:2.4rem !important; 
+    border-radius: 3px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+
+}
+.btn{
+    line-height: 0.75rem;
+}
+::ng-deep {
+    .c-token {
+        background: #ed4545 !important;
+    }
+    .pure-checkbox input[type="checkbox"] + label:before {
+        color: #ed4545;
+        border: 1px solid #ed4545;
+    }
+    .pure-checkbox input[type="checkbox"]:checked + label:before {
+        background: #ed4545;
+    }
+    .c-remove .clear-all{
+        margin-left: 4px;
+    }
+}
+
+#cart #lblCartCount:after{
+ position:absolute;
+  right:10%;
+  top:8%;
+  content: attr(data-count);
+  font-size:40%;
+  padding:.2em;
+  border-radius:50%;
+  line-height:1em;
+  color: white;
+  text-align:center;
+  min-width: 1em;
+}
+
+.cart {
+    position:absolute;
+    top: 28%;
+    left: 28%;
+}
+
+
+@media only screen and (max-width: 991px) {
+    .cart {
+        position:absolute;
+        top: 28%;
+        left: 7%;
+    }
+}

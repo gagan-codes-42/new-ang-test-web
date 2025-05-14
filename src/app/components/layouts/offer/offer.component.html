@@ -1,0 +1,102 @@
+<section
+  id="offer"
+  class="offer-area ptb-100 jarallax"
+  data-jarallax='{"speed": 0.3}'
+>
+  <div class="container">
+    <div class="section-title">
+      <span>Menu</span>
+      <h2>Our Speciality</h2>
+    </div>
+    <owl-carousel-o [options]="customOptions">
+      <ng-template carouselSlide>
+        <div class="single-offer">
+          <a href="#">
+            <img src="assets/img/panipuriShots2.png" alt="offer-img" />
+          </a>
+
+          <div class="offer-content">
+            <h3>Panipuri Shots</h3>
+            <!-- <p>Pizza 12 inch + 1 Side Dish + 1,5L Coke Bottle Only From 209.000</p> -->
+            <button
+              class="btn btn-primary"
+              (click)="orderNow('Panipuri Shots')"
+            >
+              View More
+            </button>
+          </div>
+        </div>
+      </ng-template>
+      <ng-template carouselSlide>
+        <div class="single-offer">
+          <a href="#">
+            <img src="assets/img/panipuriFills.jpg" alt="offer-img" />
+          </a>
+
+          <div class="offer-content">
+            <h3>Panipuri Fills</h3>
+            <!-- <p>Pizza 12 inch + 1 Side Dish + 1,5L Coke Bottle Only From 209.000</p> -->
+            <button
+              class="btn btn-primary"
+              (click)="orderNow('Panipuri Fills')"
+            >
+              View More
+            </button>
+          </div>
+        </div>
+      </ng-template>
+      <ng-template carouselSlide>
+        <div class="single-offer">
+          <a href="#">
+            <img src="assets/img/panipuriGups.jpg" alt="offer-img" />
+          </a>
+
+          <div class="offer-content">
+            <h3>Panipuri Gups</h3>
+            <!-- <p>Pizza 12 inch + 1 Side Dish + 1,5L Coke Bottle Only From 209.000</p> -->
+            <button class="btn btn-primary" (click)="orderNow('Panipuri Gups')">
+              View More
+            </button>
+          </div>
+        </div>
+      </ng-template>
+      <ng-template carouselSlide>
+        <div class="single-offer">
+          <a href="#">
+            <img src="assets/img/panipuriMix2.jpg" alt="offer-img" />
+          </a>
+
+          <div class="offer-content">
+            <h3>Panipuri Mix</h3>
+            <!-- <p>Pizza 25 inch + 1 Side Dish + 1,5L Coke Bottle Only From 209.000</p> -->
+            <button class="btn btn-primary" (click)="orderNow('Panipuri Mix')">
+              View More
+            </button>
+          </div>
+        </div>
+      </ng-template>
+    </owl-carousel-o>
+  </div>
+  <div class="container mt-5">
+    <div class="row" >
+      <div
+        class="col-lg-5 offset-lg-7 col-md-10 offset-md-1 mb-2 text-center"
+      >
+        <button class="btn btn-primary" (click)="openRegistrationPage()">
+          Partner With Us ->
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<app-modal #orderNowModal [title]="title">
+  <accordion [isAnimated]="true" [closeOthers]="true">
+    <accordion-group *ngFor="let item of accordionItem" #groupval>
+      <div class="btn btn-link btn-block clearfix" accordion-heading>
+        <div class="pull-left float-left">{{ item.heading }}</div>
+      </div>
+      <p>{{ item.content }}</p>
+    </accordion-group>
+  </accordion>
+</app-modal>

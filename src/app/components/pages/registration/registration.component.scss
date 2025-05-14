@@ -1,0 +1,84 @@
+@import '../../../../colors.scss';
+
+.contianer-div {
+  height: 100%;
+}
+
+.container-row {
+  height: 100%;
+  align-items: flex-start;
+  margin-top: 5rem;
+  justify-content: center;
+}
+
+.container-col {
+  @include flex(row, center, space-between);
+  margin: 1rem;
+  @include flex(column, flex-start, space-between);
+  .heading-div {
+    @include flex(column, center, center);
+    width: 100%;
+    div img {
+      height: 5rem;
+      width: 5rem;
+      margin: 1rem;
+      margin-bottom: 2rem;
+    }
+  }
+
+  .ph-number-div {
+    @include flex(row, center, flex-start);
+    width: 100%;
+
+    .hint-text {
+      margin-right: 1rem;
+    }
+  }
+  .actions-div {
+    width: 100%;
+    @include flex(row, center, flex-end);
+
+    button {
+      width: 100%;
+      height: 2rem;
+    }
+
+    .secondary-button {
+      margin-right: 1rem;
+    }
+  }
+}
+.resend-btn {
+  margin: 0.3rem 0;
+  &:hover {
+    cursor: pointer;
+    color: $primary-color;
+    text-decoration: underline;
+  }
+}
+.otp-heading-div {
+  @include flex(row, center, space-between);
+  width: 100%;
+}
+.icon-div {
+  padding: 0.3rem 0.7rem;
+  border-radius: 50%;
+  &:hover {
+    background-color: $primary-color;
+    color: white;
+    cursor: pointer;
+  }
+}
+.number-input-div {
+  div {
+    display: inline-block;
+  }
+  
+  width: inherit;
+}
+.form-group {
+  margin-bottom: 2rem;
+  div {
+    float: right;
+  }
+}

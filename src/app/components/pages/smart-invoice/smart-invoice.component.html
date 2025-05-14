@@ -1,0 +1,183 @@
+<div class="container-fluid h-100" *ngIf="isOrderIdPresent" >
+  <div class="row h-100 row-1 container-row" style="margin-top:50px">
+    <div class="col-md-12">
+      <div class="row">
+        <div class="col-md-8 col-sm-12">
+          <img class="image-container-card"
+            src="https://storage.googleapis.com/pictures_store_app/merchant_pictures/1779/ilBiEVSimqBOPLi8YPGb1hB20yKzNnIWt7VwJAnx.jpeg"
+            alt="logo" />
+
+          <h4>E-panipuricart</h4>
+          <p class="header-top-left-items">
+            {{orderDetails?.customerName}}
+            <br />
+            {{orderDetails?.customerPhone}}
+            <br />
+            {{orderDetails?.customerEmail}}
+            <br />
+          </p>
+          <div class="pt-2 pb-2">
+            <p class="label-text">PAYMENT MODE</p>
+            <h5 class="pb-2">{{['gpay','phonepe','paytm'].includes(orderDetails?.modeOfPayment)  ? 'UPI' : 'CASH'}}</h5>
+          </div>
+          <div class="label-text mb-4">
+            <div style="color: #ed4545;">
+              Download bill <span class="ml-2">
+                <fa-icon [icon]="faDownload" class="fa-lg" style="cursor: pointer;" (click)="downloadBill()"> </fa-icon>
+              </span>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-2 col-sm-12"></div>
+        <div class="col-md-2 col-sm-12">
+          <div class="reduce-space mb-3">
+            <p class="label-text">ORDER ID</p>
+            <h5>{{orderDetails?.orderId}}</h5>
+          </div>
+          <div class="reduce-space mb-3">
+            <p class="label-text">DATE</p>
+            <h5>{{getDate(orderDetails?.timestamp)}}</h5>
+          </div>
+          <div class="reduce-space mb-3">
+            <p class="label-text">Address</p>
+            <h5>{{orderDetails?.deliveryAddress}}</h5>
+          </div>
+
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12 col-sm-12">
+          <table class="table table-bordered table-responsive-sm">
+            <tbody>
+              <tr>
+                <th style="width: 53% ; background-color: #b8daff; color: black !important;">ITEM</th>
+                <th style="width: 20% ; background-color: #b8daff; color: black !important;">QUANTITY</th>
+                <th style="width: 20% ; background-color: #b8daff; color: black !important;">UNIT PRICE</th>
+                <th style="width: 10% ; background-color: #b8daff; color: black !important;">TOTAL PRICE</th>
+              </tr>
+              <tr *ngFor="let item of orderDetails?.items">
+                <td class="item">{{item.itemName}}</td>
+                <td class="item">{{item.qty}}</td>
+                <td class="item"><span>&#8377;</span>&nbsp;{{item.price | number : '1.2-2'}}</td>
+                <td class="item"><span>&#8377;</span>&nbsp;{{item.price * item.qty | number : '1.2-2'}}</td>
+              </tr>
+              <tr>
+                <td class="item" colspan="2"></td>
+                <td class="item font-weight-bold">Sub Total</td>
+                <td class="item"><span>&#8377;</span>&nbsp;{{orderDetails?.subTotal | number : '1.2-2'}}</td>
+              </tr>
+              <tr>
+                <td class="item" colspan="2"></td>
+                <td class="item font-weight-bold">Packing Charges</td>
+                <td class="item"><span>&#8377;</span>&nbsp;{{orderDetails?.packingCharge | number : '1.2-2'}}</td>
+              </tr>
+              <tr>
+                <td class="item" colspan="2"></td>
+                <td class="item font-weight-bold">Delivery Charges</td>
+                <td class="item"><span>&#8377;</span>&nbsp;{{orderDetails?.deliveryCharge | number : '1.2-2'}}</td>
+              </tr>
+              <tr>
+                <td class="item" colspan="2"></td>
+                <td class="item font-weight-bold">Total Amount</td>
+                <td class="item"><span>&#8377;</span>&nbsp;{{orderDetails?.total | number : '1.2-2'}}</td>
+              </tr>
+
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+
+
+    </div>
+
+  </div>
+
+</div>
+
+
+<div class="container-fluid h-100" *ngIf="!isOrderIdPresent">
+  <div class="row h-100 row-1" style="margin-top: 135px;">
+    <div class="col-md-6 offset-md-3 card-non-hover">
+      <div class="sub-heading-text-1-semi-bold" style="margin: 1rem 0 2rem 0; padding: 0 1rem">
+      </div>
+      <div class="row text-center mx-auto d-block">
+        <div class="swal2-icon swal2-error swal2-animate-error-icon" style="display: flex;">
+          <span class="swal2-x-mark">
+            <span class="swal2-x-mark-line-left">
+            </span><span class="swal2-x-mark-line-right"></span></span>
+        </div>
+        <div>
+          <div class="confirm-text">Order Not Found!</div>
+        </div>
+
+      </div>
+
+
+    </div>
+
+  </div>
+</div>
+<div class="container-fluid h-100 mb-2" *ngIf="userPaymentData?.length && isNumberPresent">
+  <div class="row h-100 row-1 ml-2">
+    <h4 class="mr-2">Please Pay using </h4>
+    <div class="col-md-2" *ngFor="let item of userPaymentData">
+      <img class="image-container-cardLogo mr-2" src="../../../../assets/img/logo/google-pay-seeklogo.com.svg" alt="logo"
+        *ngIf="item.paymentMode ==='gpay' && item?.phoneNumber" />
+      <h4 style="display: inline-block;" *ngIf="item.paymentMode ==='gpay' && item?.phoneNumber">{{item?.phoneNumber}}</h4>
+      <img class="image-container-cardLogo  mr-2" src="../../../../assets/img/logo/phonepe-seeklogo.com.svg" alt="logo"
+        *ngIf="item.paymentMode ==='phonepe' && item?.phoneNumber" />
+      <h4 style="display: inline-block;" *ngIf="item.paymentMode ==='phonepe' && item?.phoneNumber">{{item?.phoneNumber}} </h4>
+      <img class="image-container-cardLogo  mr-2" src="../../../../assets/img/logo/Paytm-Logo.wine.svg" alt="logo"
+        *ngIf="item.paymentMode ==='paytm' && item?.phoneNumber" />
+      <h4 style="display: inline-block;" *ngIf="item.paymentMode ==='paytm' && item?.phoneNumber">{{item?.phoneNumber}}</h4>
+    </div>
+  </div>
+</div>
+
+<div class="partner-area">
+  <div class="container">
+    <div class="section-title">
+      <h2>Follow us on</h2>
+    </div>
+
+    <div class="row socials-row">
+      <div class="social-icons">
+        <a href="https://g.page/Epanipuriikartz?we" target="_blank">
+          <i class="icofont-google-plus"></i>
+        </a>
+      </div>
+      <div class="social-icons">
+        <a href="https://www.linkedin.com/company/e-panipuri-cart" target="_blank">
+          <i class="icofont-linkedin"></i>
+        </a>
+      </div>
+
+      <div class="social-icons">
+        <a href="https://www.facebook.com/epanipuricart" target="_blank">
+          <i class="icofont-facebook"></i>
+        </a>
+      </div>
+      <div class="social-icons">
+        <a href="https://twitter.com/Epanipurikartz" target="_blank">
+          <i class="icofont-twitter"></i>
+        </a>
+      </div>
+      <div class="social-icons">
+        <a href="https://www.instagram.com/epanipuriikartz" target="_blank">
+          <i class="icofont-instagram"></i>
+        </a>
+      </div>
+      <div class="social-icons">
+        <a href="https://www.youtube.com/channel/UCtTWRxZArJDl2PDZTgLygCQ" target="_blank">
+          <i class="icofont-youtube-play"></i>
+        </a>
+      </div>
+      <div class="social-icons">
+        <a href="https://www.youtube.com/channel/UCtTWRxZArJDl2PDZTgLygCQ" target="_blank">
+          <i class="icofont-share-alt"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

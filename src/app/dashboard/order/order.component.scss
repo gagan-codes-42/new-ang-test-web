@@ -1,0 +1,155 @@
+.wrapper {
+  font-family: 'Helvetica';
+  font-size: 14px;
+}
+.StepProgress {
+  position: relative;
+  padding-left: 45px;
+  list-style: none;
+}
+.StepProgress::before {
+  display: inline-block;
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 15px;
+  width: 10px;
+  height: 95%;
+  border-left: 2px solid #ccc;
+}
+.StepProgress-item {
+  position: relative;
+  counter-increment: list;
+}
+.StepProgress-item:not(:last-child) {
+  padding-bottom: 20px;
+}
+.StepProgress-item::before {
+  display: inline-block;
+  content: '';
+  position: absolute;
+  left: -30px;
+  height: 100%;
+  width: 10px;
+}
+.StepProgress-item::after {
+  content: '';
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  left: -35px;
+  width: 12px;
+  height: 12px;
+  border: 2px solid #ccc;
+  border-radius: 50%;
+  background-color: #fff;
+}
+.StepProgress-item.is-done::before {
+  border-left: 2px solid #26a541;
+}
+.StepProgress-item.is-done::after {
+  // content: "✔";
+  // font-size: 6px;
+  color: #fff;
+  text-align: center;
+  border: 2px solid #26a541;
+  background-color: #26a541;
+}
+.StepProgress-item.current::before {
+  border-left: 2px solid #26a541;
+}
+.StepProgress-item.current::after {
+  // content: counter(list);
+  padding-top: 1px;
+  width: 12px;
+  height: 12px;
+  top: -4px;
+  left: -35px;
+  font-size: 14px;
+  text-align: center;
+  color: #26a541;
+  border: 2px solid #26a541;
+  background-color: #26a541;
+}
+.StepProgress strong {
+  display: block;
+}
+
+.card:hover {
+  cursor: pointer;
+  box-shadow: 0 14px 28px rgba(153, 150, 150, 0.25),
+    0 10px 10px rgba(153, 150, 150, 0.22);
+}
+
+.card-no-border .card {
+  border: 0px;
+  border-radius: 4px;
+  -webkit-box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.05);
+  box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.05);
+}
+
+.card-body {
+  -ms-flex: 1 1 auto;
+  flex: 1 1 auto;
+  padding: 1.25rem;
+}
+
+.comment-widgets .comment-row:hover {
+  background: rgba(0, 0, 0, 0.02);
+  cursor: pointer;
+}
+
+.comment-widgets .comment-row {
+  border-bottom: 1px solid rgba(120, 130, 140, 0.13);
+  padding: 15px;
+}
+
+.label {
+  padding: 3px 10px;
+  line-height: 13px;
+  color: #ffffff;
+  font-weight: 400;
+  border-radius: 4px;
+  font-size: 75%;
+}
+
+.round img {
+  border-radius: 100%;
+}
+
+.label-info {
+  background-color: #1976d2;
+}
+
+.label-success {
+  background-color: green;
+}
+
+.comment-time {
+  float: right;
+}
+
+.mt-100 {
+  margin-top: 100px;
+}
+
+.mb-100 {
+  margin-bottom: 100px;
+}
+.label-danger {
+  background-color: #d43f3a;
+}
+.label-primary {
+  background-color: #26a541;
+}
+.nozzelName {
+  font-size: 1vw;
+  font-weight: bolder;
+  color: #2e3135;
+}
+@media screen and (max-width: 600px) {
+  .nozzelName {
+    font-size: 4vw;
+    line-height: 2rem;
+  }
+}

@@ -1,0 +1,35 @@
+@import '../../../../colors.scss';
+.container-row {
+  height: 100%;
+  align-items: flex-start;
+  margin-top: 5rem;
+}
+
+.construction-msg {
+  margin-top: 5rem;
+}
+
+.row-1 {
+  align-items: center;
+  padding: 1rem;
+}
+.custom-accordion {
+  padding-top: 10px;
+}
+
+.read-more {
+  color: $primary-color;
+  font-size: large;
+  text-transform: uppercase;
+  font-weight: 800;
+}
+.row {
+  padding-bottom: 30px;
+}
+
+.is-active {
+  color: #e84a66;
+}
+.is-inActive {
+  color: lightgrey;
+}

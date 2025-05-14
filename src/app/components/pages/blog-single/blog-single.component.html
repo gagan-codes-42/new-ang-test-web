@@ -1,0 +1,8 @@
+<app-blank-header></app-blank-header>
+<div class="blogs-container" *ngIf="blogTitle">
+  <panipuri-react-blogs-single
+    serverURL="{{ serverURL }}"
+    blogTitle="{{ blogTitle }}"
+    (show-home)="showHomePage()"
+  ></panipuri-react-blogs-single>
+</div>

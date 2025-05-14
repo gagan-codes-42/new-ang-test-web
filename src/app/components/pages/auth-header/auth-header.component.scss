@@ -1,0 +1,22 @@
+$primary-color: #ed4545;
+
+.navbar-brand {
+  img {
+    height: 70px;
+  }
+}
+
+ul.navbar-nav.auth-page {
+  .nav-item {
+    .nav-link {
+      color: black;
+    }
+    .nav-link:hover {
+      color: $primary-color;
+    }
+    .material-icons
+    {
+      color:black;
+    }
+  }
+}

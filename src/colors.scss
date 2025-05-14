@@ -1,0 +1,19 @@
+$primary-color: #ed4545;
+$success-color: #27b43e;
+$button-primary-hover-color: #c83a3a;
+$button-radius: 4px;
+$hint-color: #979797;
+$base-text-color: #2e3135;
+$warning-color: #f5a623;
+$bg-prime: #ffebd0;
+$bg-dark: #2c1a06;
+
+$text-yellow: #f4a53e;
+$text-red: #ea0001;
+
+@mixin flex($direction, $align-items, $justify-content) {
+  display: flex;
+  flex-direction: $direction;
+  align-items: $align-items;
+  justify-content: $justify-content;
+}

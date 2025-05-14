@@ -1,0 +1,126 @@
+<header class="top-area">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light transparent-navbar">
+    <div class="container">
+      <a class="navbar-brand oval-crop" routerLink="/">
+        <img src="assets/img/epanipuricart.png" alt="EPanipuri Cart" />
+      </a>
+      <a class="navbar-brand black-logo oval-crop" routerLink="/">
+        <img src="assets/img/epanipuricart.png" alt="EPanipuri Cart" />
+      </a>
+
+      <button
+        class="navbar-toggler auth-header"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav auth-page ml-auto">
+          
+          <li class="nav-item" *ngIf="mobileMode">
+            <div class="nav-link cursor-pointer" (click)="navigateToCurrent()">
+              About Franchise
+            </div>
+          </li>
+          <!-- <li class="nav-item">
+            <div class="nav-link cursor-pointer" (click)="navigateToAdvantage()">
+              Advantage
+            </div>
+          </li>
+          <li class="nav-item">
+            <div class="nav-link cursor-pointer" (click)="navigateToApprovalProccess()">
+              Approval Process
+            </div>
+          </li> -->
+          <li class="nav-item" *ngIf="!showDashboardLink && mobileMode">
+            <div class="nav-link cursor-pointer" (click)="navigateTo()">
+              Apply Now
+            </div>
+          </li>
+          <li class="nav-item" *ngIf="showDashboardLink && mobileMode">
+            <div
+              class="nav-link cursor-pointer"
+              (click)="navigateToDashboard()"
+            >
+              Dashboard
+            </div>
+          </li>
+
+          <li class="nav-item" *ngIf="mobileMode">
+            <div class="nav-link cursor-pointer" (click)="logout()">Logout</div>
+          </li>
+          
+
+          
+          <li class="nav-item" *ngIf="!showDashboardLink">
+            <div class="nav-link cursor-pointer">
+              <div
+                id="forms"
+                class="Floatbtn op5"
+                container="body"
+                placement="left"
+                containerClass="cursor-pointer"
+              >
+                <a href="tel:+917676135136" target="_blank"
+                  ><i id="addIcon" class="material-icons">phone</i></a
+                >
+              </div>
+            </div>
+          </li>
+          <!-- collapse show -->
+          <li class="nav-item" *ngIf="!showDashboardLink">
+            <div class="nav-link cursor-pointer">
+              <div
+                id="drawings"
+                class="Floatbtn op4"
+                container="body"
+                placement="left"
+                containerClass="cursor-pointer"
+              >
+                <a href="mailto:info@epanipuricart.in" target="_blank">
+                  <i id="addIcon" class="material-icons"> email </i>
+                </a>
+              </div>
+            </div>
+          </li>
+          <li class="nav-item">
+            <div class="nav-link cursor-pointer">
+              <div
+                id="forms"
+                class="Floatbtn op5 text-white"
+                container="body"
+                placement="left"
+                containerClass="cursor-pointer"
+              >
+                <div (click)="createVideoRoom()">
+                  <i id="addIcon" class="material-icons">video_call</i>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="nav-item" *ngIf="!mobileMode" (click)="sharedSvc.toggleSidebar1()">
+            <div class="nav-link cursor-pointer">
+              <div
+                id="forms"
+                class="Floatbtn op5 text-white"
+                container="body"
+                placement="left"
+                containerClass="cursor-pointer"
+              >
+                <div >
+                  <i id="addIcon"  class="material-icons">menu</i>
+                </div>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>

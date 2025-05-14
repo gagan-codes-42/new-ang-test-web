@@ -1,0 +1,38 @@
+<div
+  class="modal-content"
+  id="comingSoon"
+  tabindex="-1"
+  role="dialog"
+  aria-hidden="true"
+>
+  <div class="modal-header">
+    <h4>{{ title }} - {{state}}</h4>
+  </div>
+  <div class="modal-body">
+    <table class="table table-bordered">
+        <thead>
+          <tr>         
+         
+            <th scope="col">City</th>
+            <th scope="col">Location</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of details">
+            <ng-container *ngFor="let strDetails of item.storeDetails">
+            <td> {{strDetails.City}}</td>
+            <td> <ul><li *ngFor="let innerItem of strDetails.locations"> {{innerItem}}</li>
+           </ul> </td>
+            </ng-container>
+            
+          </tr>
+
+        </tbody>
+      </table>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-primary" (click)="close()">
+      Got It !
+    </button>
+  </div>
+</div>

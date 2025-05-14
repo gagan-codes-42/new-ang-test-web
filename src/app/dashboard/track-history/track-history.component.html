@@ -1,0 +1,111 @@
+
+
+<div class="container-fluid h-100">
+    <div class="row h-100 row-1 container-row" style="margin-top: 135px;">
+      <div class="col-md-6 offset-md-3 card-non-hover">
+        <div class="sub-heading-text-1-semi-bold" style="margin: 1rem 0 2rem 0; padding: 0 1rem">
+            ORDER DETAILS - {{trackingOrderId?.order_id}}         
+        </div> 
+        <div class="row">
+            <div class="col-lg-12 col-sm-12 col-md-12" >
+                <div class="col-lg-3 col-sm-12 col-md-3 float-right"><button class=" primary-button rounded" type="button" [disabled]="!(currentState?.status === 'ready')" (click)="inspectNow()">Inspect now</button> </div>
+                   
+            </div>
+        </div>     
+        <div>
+            <div class="card w-100 mb-2">
+                <div class="card-body">
+                    <div class="page-content page-container" id="page-content">
+                        <div class="padding">
+                            <div class="row">
+                                <div class="col-lg-6 col-sm-6 col-md-6">
+                                    <div>
+                                        <div class="tl-item" [ngClass]="{'active': currentState?.status === 'placed'}">
+                                            <div class="tl1-dot b-warning" [ngClass]="{'b-primary': completedState.includes('placed') , 'tl-dot': completedState.includes('placed')}"></div>
+                                            <div class="tl-content">
+                                                <div class="">Placed</div>
+                                                <div class="tl-date text-muted mt-1">{{getDate('placed')}}</div>
+                                            </div>
+                                        </div>
+                                        <div class="tl-item" *ngIf="completedState.includes('rejected')" [ngClass]="{'active': currentState?.status === 'rejected'}">
+                                            <div class="tl1-dot b-warning" [ngClass]="{ 'tl2-dot': completedState.includes('rejected')}"></div>
+                                            <div class="tl-content">
+                                                <div class="">Rejected</div>
+                                                <div class="tl-date text-muted mt-1">{{getDate('rejected')}}</div>
+                                            </div>
+                                        </div>
+                                        <div class="tl-item"  *ngIf="!completedState.includes('rejected')" [ngClass]="{'active': currentState?.status === 'confirmed'}">
+                                            <div class="tl1-dot b-warning" [ngClass]="{'b-primary': completedState.includes('confirmed') , 'tl-dot': completedState.includes('confirmed')}"></div>
+                                            <div class="tl-content">
+                                                <div class="">Confirmed</div>
+                                                <div class="tl-date text-muted mt-1">{{getDate('confirmed')}}</div>
+                                            </div>
+                                        </div>
+                                        <div class="tl-item"  *ngIf="!completedState.includes('rejected')" [ngClass]="{'active': currentState?.status === 'ready'}">
+                                            <div class="tl1-dot b-warning" [ngClass]="{'b-primary': completedState.includes('ready') , 'tl-dot': completedState.includes('ready')}"></div>
+                                            <div class="tl-content">
+                                                <div class="">Ready for inspection</div>
+                                                <div class="tl-date text-muted mt-1">{{getDate('ready')}}</div>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="tl-item"  *ngIf="!completedState.includes('rejected')" [ngClass]="{'active': currentState?.status === 'packed'}">
+                                            <div class="tl1-dot b-warning" [ngClass]="{'b-primary': completedState.includes('packed') , 'tl-dot': completedState.includes('packed')}"></div>
+                                            <div class="tl-content">
+                                                <div class="">Packed</div>
+                                                <div class="tl-date text-muted mt-1">{{getDate('packed')}}</div>
+                                            </div>
+                                        </div>
+                                        <div class="tl-item"  *ngIf="!completedState.includes('rejected')" [ngClass]="{'active': currentState?.status === 'shipped'}">
+                                            <div class="tl1-dot b-warning " [ngClass]="{'b-primary':  completedState.includes('shipped') , 'tl-dot': completedState.includes('shipped')}"></div>
+                                            <div class="tl-content">
+                                                <div class="">Shipped</div>
+                                                <div class="tl-date text-muted mt-1">{{getDate('shipped')}}</div>
+                                            </div>
+                                        </div>
+                                        <div class="tl-item"  *ngIf="!completedState.includes('rejected')" [ngClass]="{'active': currentState?.status === 'delivered'}">
+                                            <div class="tl1-dot b-warning"[ngClass]="{'b-primary': completedState.includes('delivered') , 'tl-dot': completedState.includes('delivered')}"></div>
+                                            <div class="tl-content">
+                                                <div class="">Delivered</div>
+                                                <div class="tl-date text-muted mt-1">{{getDate('delivered')}}</div>
+                                            </div>
+                                        </div>
+                                        <div class="tl-item"  *ngIf="!completedState.includes('rejected')" [ngClass]="{'active': currentState?.status === 'installed'}" >
+                                            <div class="tl1-dot b-warning" [ngClass]="{'b-primary': completedState.includes('installed') , 'tl-dot': completedState.includes('installed')}"></div>
+                                            <div class="tl-content">
+                                                <div class="">Installed</div>
+                                                <div class="tl-date text-muted mt-1">{{getDate('installed')}}</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-sm-6 col-md-6">
+                                    <div>
+                                      <div class="card mb-3">
+                                        <img class="card-img-top" width="192" height="200"
+                                        [src]="imageToShow" alt="Card image cap">
+
+                                      </div>
+
+                                      <p mt-2>Delivered by</p>
+                                      <p mt-2 *ngIf="trackingOrderId?.deliveryDate ; else noDate">
+                                        {{ trackingOrderId?.deliveryDate | date :'MMM d, y'}}</p>
+                                      <ng-template #noDate>
+                                        <label id="exampleInputEmail1"> - </label>
+                                      </ng-template>
+                                    </div>
+                                   
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                 
+                
+                </div>               
+              </div>
+            
+        </div>
+    </div>
+    </div>
+  </div>

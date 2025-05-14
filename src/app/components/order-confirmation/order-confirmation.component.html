@@ -1,0 +1,32 @@
+<app-blank-header></app-blank-header>
+<div class="container-fluid h-100">
+  <div class="row h-100 row-1 container-row" style="margin-top: 100px;">
+    <div class="col-md-6 offset-md-3 card-non-hover">
+      <div class="sub-heading-text-1-semi-bold" style="margin: 1rem 0 2rem 0; padding: 0 1rem">
+        Order Confirmation
+      </div>
+      <div class="row text-center mx-auto d-block">
+          <fa-icon [icon]="faCheckCircle" class="fa-4x" style="color: green;">
+         </fa-icon>
+         <p>Your order is placed .Your order Id is <b>{{ orderId }}</b>.You shall receive an invite for agreement signing within 48 hours.</p>
+      </div>
+      <div class="row">
+        <div class="col-md-4 col-sm-6 mt-4 float-left">
+            <button type="button" class="secondary-button" (click)="gotoHome()" style="margin-bottom: 1rem">
+              START AGAIN
+            </button>
+          </div>
+          <div class="col-md-4 d-none d-sm-block col-sm-6 mt-4 float-left"></div>
+          <div class="col-md-4  col-sm-6 mt-4 float-left">
+            <button type="button" (click)="viewDASHBOARD()"  class="primary-button" style="margin-bottom: 1rem">
+              VIEW DASHBOARD
+            </button>
+  
+          </div>
+    </div>
+      
+    </div>
+    
+  </div>
+</div>
+

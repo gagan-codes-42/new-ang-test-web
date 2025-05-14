@@ -1,0 +1,94 @@
+<div class="container-fluid h-100">
+    <div class="row h-100 row-1 container-row" style="margin-top: 135px;">
+        <div class="col-md-6 offset-md-3 card-non-hover">
+            <div class="sub-heading-text-1-semi-bold">
+                Order Summary
+            </div>
+            <div class="total-info" style="margin-bottom:10px;">
+                <div>E-Panipuri kartz
+                    <div>{{location}}{{location ? ',':''}} {{city}}</div>
+                </div>
+            </div>
+            <div class="total-info" style="margin-bottom:10px;">
+                <div style="color: #ed4545;">
+                    Download bill <span class="ml-2">
+                        <fa-icon [icon]="faFileDownload" class="fa-lg" style="cursor: pointer;" (click)="downloadBill(orderDetails.orderId)"> </fa-icon>
+                    </span>
+                </div>
+            </div>
+            <div class="total-info pr-0">
+                <div style="font-size: 20px; color: black;">
+                    Your Order
+                </div>
+                <div style="font-size: 15px">
+                    <span class="label" 
+                    [ngClass]="{'label-info' : orderDetails?.orderStatus === 'placed' , 
+                    'label-danger':  orderDetails?.orderStatus === 'rejected', 'label-primary': orderDetails?.orderStatus === 'confirmed' , 
+                    'label-warning' : orderDetails?.orderStatus === 'pending',
+                    'label-cancel':orderDetails?.orderStatus === 'canceled',
+                  'label-delivered': orderDetails?.orderStatus === 'delivered',
+                'label-dispatched' : orderDetails?.orderStatus === 'dispatched'}">{{orderDetails?.orderStatus |  uppercase}}</span>
+                </div>
+            </div>
+            <div class="total-info">
+                <div>Order Type : {{getOrderType()}}</div>
+            </div>
+            <div>
+                <div class="card w-100 mb-2">
+                    <div class="cart-component container" style="padding-left: 20px;">
+                        <ul>
+                            <li class="wow fadeInUp" style="margin:10px 0px;" data-wow-duration="300ms"
+                                data-wow-delay="300ms" *ngFor="let item of orderItems">
+                                <div class="item">
+                                    <div class="item-title">
+                                        <h2>
+
+                                            <img class="symbol"
+                                                src="https://img.icons8.com/color/24/000000/vegetarian-food-symbol.png" />
+                                            {{ item.itemName}}
+                                        </h2>
+                                        <div style="font-family: 'Roboto';;font-size: 12px;font-weight: 400;letter-spacing: 0.2px; margin-left: 2px">
+                                                {{item.qty }}  x  <span>&#8377;</span>{{item.price}}                             
+                                            <span class="float-right"
+                                                style="font-family: 'Roboto';font-weight: 500; font-size: small"><span>&#8377;</span>
+                                                {{getItemTotal(item)}} 
+                                            </span>
+                                        </div>
+                                        <div class="border-bottom mt-2">
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="container">
+                        <div class="total-info" style="margin-top:10px; padding-right: 0px;">
+                            <div>Items Total</div>
+                            <div><span>&#8377;</span>&nbsp;{{ orderDetails?.subTotal| number:'1.2-2'}}</div>
+                        </div>
+                        <div class="total-info" style="padding-right: 0px;">
+                            <div>Delivery Charges</div>
+                            <div>
+                                <span>&#8377;</span>&nbsp;{{ orderDetails?.deliveryCharge| number:'1.2-2'}}
+                            </div>
+                        </div>
+                        <div class="total-info" style="padding-right: 0px;">
+                            <div>Packing Charges</div>
+                            <div>
+                                 <span>&#8377;</span>&nbsp;{{ orderDetails?.packingCharge| number:'1.2-2'}} 
+                            </div>
+                        </div>
+                        <div class="mb-3 mt-3" style="padding:0px 0px 0px 5px;">
+                            <span class="total">Grand Total :</span>
+                            <span class="float-right total"><span>&#8377;</span>&nbsp;{{
+                                orderDetails?.total | number:'1.2-2'
+                        }}</span>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

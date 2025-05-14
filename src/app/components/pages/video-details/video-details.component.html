@@ -1,0 +1,110 @@
+<div
+  class="modal-content"
+  id="comingSoon"
+  tabindex="-1"
+  role="dialog"
+  aria-hidden="true"
+>
+  <div class="modal-header">
+    <h4>{{ title || "Alert" }}</h4>
+  </div>
+  <div class="modal-body">
+    <form [formGroup]="videoForm" (ngSubmit)="confirm()">
+      <div class="row">
+        <div class="col-md-12 col-sm-12">
+          <div class="form-group">
+            <label class="form-check-label hint-text required" for="emailId">
+              Email Id
+            </label>
+            <input
+              type="text"
+              id="emailId"
+              placeholder="Enter your Email ID"
+              [formControlName]="'email'" [ngClass]="{
+                inputError:
+                videoForm.controls.email.invalid &&
+                videoForm.controls.email.dirty
+              }"
+            />
+            <div
+            *ngIf="
+            videoForm.controls.email.invalid &&
+            videoForm.controls.email.dirty
+            "
+          >
+            <div
+              *ngIf="videoForm.controls.email.errors?.required"
+              class="error-text"
+            >
+             Email ID is required
+            </div>
+            <div
+              *ngIf="videoForm.controls.email.errors?.email"
+              class="error-text"
+            >
+            Email ID format is invalid
+            </div>
+          </div>
+          </div>
+        </div>
+        <div class="col-md-12 col-sm-12">
+          <div class="form-group">
+            <label class="form-check-label hint-text required" for="phone">
+              Phone No
+            </label>
+            <input
+              id="phone"
+              type="phone"
+              placeholder="Enter your phone number"
+              [formControlName]="'phone'"
+              maxlength="10"
+              minlength="10" (keypress)="validateNumber($event)" [ngClass]="{
+                inputError:
+                videoForm.controls.phone.invalid &&
+                videoForm.controls.phone.dirty
+              }"
+            />
+            <div
+            *ngIf="
+            videoForm.controls.phone.invalid &&
+            videoForm.controls.phone.dirty
+            "
+          >
+            <div
+              *ngIf="videoForm.controls.phone.errors?.required"
+              class="error-text"
+            >
+            Phone is required
+            </div>
+
+            <div
+              *ngIf="videoForm.controls.phone.errors?.minlength"
+              class="error-text"
+            >
+            Please enter correct mobile number
+            </div>
+          </div>
+          </div>
+        </div>
+      </div>
+      <div class="">
+        <div class="row">
+          <div class="col-md-6 col-sm-12">
+            <button
+              type="submit"
+              class="primary-button"
+              [disabled]="videoForm.invalid"
+            >
+              Confirm
+            </button>
+          </div>
+          <div class="col-md-6 col-sm-12">
+          <button type="button" class="secondary-button" (click)="close()">
+            Cancel
+          </button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

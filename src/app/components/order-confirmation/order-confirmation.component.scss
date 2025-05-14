@@ -1,0 +1,11 @@
+@import '../../../colors.scss';
+
+.icon-div {
+  padding: 0.55rem 0.8rem;
+  border-radius: 50%;
+  &:hover {
+    background-color: $primary-color;
+    color: white;
+    cursor: pointer;
+  }
+}

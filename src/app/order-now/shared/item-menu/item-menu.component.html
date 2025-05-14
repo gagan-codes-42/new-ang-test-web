@@ -1,0 +1,50 @@
+<mat-card class="item-card">
+    <img mat-card-image class="item-image" [src]="data.item.src ? env.SERVER_URL + data.item.src : genericImgSrc"
+        [alt]="data.item.name" />
+    <mat-card-content>
+        <div class="item-desc-div">
+            <div class="item-desc text-truncate">
+                <div matRipple mat-button class="action-btns text-wrap text-left back-btn" (click)="onNoClick()">
+                    Back
+                </div>
+            </div>
+            <div>
+                <span>&#8377;</span>
+                {{ data.item.price }}
+            </div>
+        </div>
+        <div  class="quantity-div">
+            <form [formGroup]="itemForm">
+                <mat-radio-group aria-labelledby="quantity-radio-group" class="q-radio-group"
+                    formControlName="customization">
+                    <div class="asd" *ngFor="let option of data.item.availableQuantity">
+                        <mat-radio-button class="q-radio text-capitalize" [value]="option.name">
+                            {{ option.name }}
+                        </mat-radio-button>
+                        <div class="price-div">
+                            <span>&#8377;</span>{{ option.price }}
+                        </div>
+                    </div>
+                </mat-radio-group>
+            </form>
+        </div>
+    </mat-card-content>
+    <div class="card-actions-div">
+         <div matRipple mat-button class="action-btns text-wrap text-center back-btn">            
+        </div>
+        <div class="text-center">
+            <app-quantity [hidden]="!itemInCart()" [minQuantity]="0" [type]="getCustomization()" [quantityShow]="quantity"
+            (quantityChanges)="onQuantityChanges($event)"></app-quantity>
+        </div>
+        <div *ngIf="itemInCart()" matRipple mat-button class="action-btns text-wrap text-center back-btn">            
+        </div>
+
+        <button *ngIf="!itemInCart()" class="action-btns text-wrap" mat-button (click)="onAddToCart()"
+            [disabled]="!itemForm.valid">
+            Add to cart
+        </button>
+        <!-- <button *ngIf="itemInCart()" class="action-btns text-wrap" mat-button color="warn" (click)="onRemoveFromCart(true)">
+            Remove
+        </button> -->
+    </div>
+</mat-card>

@@ -1,0 +1,144 @@
+<app-auth-header></app-auth-header>
+<div class="container-fluid h-100">
+  <div class="row h-100 row-1 container-row">
+    <div class="col-md-6 offset-md-3 card-non-hover">
+      <div class="icon-div cursor-pointer" (click)="showLanding()">
+        <fa-icon class="float-right" [icon]="faArrowLeft"></fa-icon>
+      </div>
+      <div
+        class="sub-heading-text-1-semi-bold"
+        style="margin: 1rem 0 2rem 0; padding: 0 1rem"
+      >
+        Application Approved
+      </div>
+      <div>
+        <div class="review-icon">
+          <fa-icon [icon]="faUserCheck" class="fa-md"></fa-icon>
+        </div>
+        <p style="display: inline; margin-left: 10px">
+          <b
+            >Your Application is Approved. Please pay the advance payment
+            against the link sent to your email id.</b
+          >
+        </p>
+        <!-- <div class="row">
+          <div class="col-8 offset-2">
+            <form [formGroup]="prePaymentForm" class="w-100">
+              <div class="form-group">
+                <label class="form-label hint-text" for="price">Price</label>
+                <div class="input-group">
+                  <input
+                    type="text"
+                    formControlName="price"
+                    id="price"
+                    name="price"
+                    placeholder="Select a Model to see the price"
+                    [ngClass]="{
+                      'form-control': true,
+                      inputError:
+                        prePaymentForm.controls.price.invalid &&
+                        prePaymentForm.controls.price.dirty
+                    }"
+                    aria-describedby="basic-addon2"
+                  />
+                  <div
+                    class="input-group-append"
+                    *ngIf="
+                      prePaymentForm.controls.price.value ||
+                      prePaymentForm.controls.price.value === 0
+                    "
+                  >
+                    <span class="input-group-text" id="basic-addon2">
+                      + 18% GST
+                    </span>
+                  </div>
+                  <div
+                    *ngIf="
+                      prePaymentForm.controls.price.invalid &&
+                      prePaymentForm.controls.price.dirty
+                    "
+                  >
+                    <div
+                      *ngIf="prePaymentForm.controls.price.errors?.required"
+                      class="error-text"
+                    >
+                      Price is required
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <button
+                  type="button"
+                  class="primary-button"
+                  style="margin-bottom: 1rem"
+                  [disabled]="prePaymentForm.invalid"
+                  (click)="proceedToPayment()"
+                >
+                  Proceed to Payment
+                </button>
+              </div>
+            </form>
+          </div>
+        </div> -->
+      </div>
+    </div>
+  </div>
+</div>
+<div  *ngIf="orderDetails" class="container-fluid h-100">
+  <div class="row h-100 row-1 container-row" style="margin-top: 10px;">
+    <div class="col-md-6 offset-md-3 card-non-hover">
+      <div class="sub-heading-text-1-semi-bold" style="margin: 1rem 0 2rem 0; padding: 0 1rem">
+        Order Summary
+      </div>        
+      <p></p>
+      <div class="row d-sm-none d-none d-md-block d-lg-block">
+        <table class="table table-bordered ">
+          <thead>
+            <tr>
+              <th scope="col">Customer Name</th>
+              <th scope="col">Email</th>
+              <th *ngIf="(orderDetails.franchise_type === 'franchise')" scope="col">Model</th>
+              <th *ngIf="!(orderDetails.franchise_type === 'franchise')" scope="col">Category</th>
+              <th scope="col">Status</th>
+              <th scope="col">Address</th>
+              <th scope="col">Town</th>
+              <th scope="col">State</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>{{ orderDetails.title + ' ' + orderDetails.firstName + ' ' + orderDetails.lastName}}</td>
+              <td>{{ orderDetails?.email}}</td>
+              <td *ngIf="(orderDetails.franchise_type === 'franchise')">{{ orderDetails?.model_name + ' ' + orderDetails?.model_extension | titlecase}}</td>
+              <th *ngIf="!(orderDetails.franchise_type === 'franchise')" scope="col">{{orderDetails?.franchise_type | titlecase}}</th>
+              <td *ngIf="(orderDetails.status === 'in_review')">In Review</td>
+              <td *ngIf="!(orderDetails.status === 'in_review')">{{ orderDetails?.status | titlecase }}</td>
+              <td>{{ orderDetails?.shipping_address | titlecase}}</td>
+              <td>{{ orderDetails?.town || 'NA'}}</td>
+              <td>{{ orderDetails?.state}}</td>
+            </tr>
+          </tbody>
+        </table>
+        
+      </div> 
+      <!-- <div class="row d-md-none d-lg-none d-sm-block d-block mb-4">
+        <div class="card  mb-4" *ngFor="let item of tableData">
+         
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item"><b>Customer Id :</b> {{ item?.device_id}}</li>
+            <li class="list-group-item"><b>Order Id :</b> {{ item?.order_id}}</li>
+            <li class="list-group-item"><b>Order Date :</b> {{ getDate(item?.launchWizobj?.date)}}</li>
+            <li class="list-group-item"><b>Order Status :</b>{{ item?.launchWizobj?.status}}</li>
+          </ul>
+          <div class="card-body">
+            <button class="primary-button rounded" (click)="launchWizard()">Launch Wizard</button>
+          </div>
+        </div>
+        
+      </div>  -->
+      
+  </div>   
+  </div>
+</div>
+

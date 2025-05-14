@@ -1,0 +1,98 @@
+<div class="container h-100 card-non-hover" style="margin-top: 135px">
+  <div class="row h-100 row-1 container-row">
+    <div class="col-md-12">
+      <div class="sub-heading-text-1-semi-bold" style="margin: 1rem 0 2rem 0; padding: 0 1rem">
+        {{ "DASHBOARD.NEW_ORDER" | translate }}
+      </div>
+      <p></p>
+      <section id="products">
+        <div class="">
+          <div class="row g-3">
+            <div class="col-md-3 col-sm-12">
+              <div class="form-group">
+                <label class="form-check-label hint-text" for="category">
+                  Category
+                </label>
+                <angular2-multiselect [data]="dropdownList" [(ngModel)]="selectedItems" id="category"
+                [settings]="dropdownSettings" 
+                (onSelect)="updateItem($event)" 
+                (onDeSelect)="updateItem($event)"
+                (onSelectAll)="updateItem($event)"
+                (onDeSelectAll)="updateItem($event)"
+                 >
+                </angular2-multiselect>
+              </div>
+            </div>
+            <div class="col-md-3 col-sm-12">
+              <div class="form-group">
+                <label class="form-check-label hint-text" for="search">
+                  Search
+                </label>
+                <div class="input-group">
+                  <input id="search" type="text" [(ngModel)]="filtertext" placeholder="Search..." />
+                </div>
+              </div>
+            </div>
+            <div class="col-md-2 col-sm-12">
+              <div class="form-group">
+                <label></label>
+                <div class="input-group-append">
+                  <button class="btn btn-danger w-100" type="button" (click)="filterResult()">
+                    <fa-icon [icon]="faSearch" class="fa-xs"></fa-icon>
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-1 col-sm-12 pull-right" id="cart" style="margin-top: 4px;">
+              <div class="form-group">
+                <label></label>
+                <div class="input-group-append">
+                  <div class="w-100" (click)="openCart()">
+                    <fa-icon [icon]="faShoppingCart" class="fa-md" style="cursor: pointer;" > </fa-icon>
+                    <span class='badge badge-warning badge-pill cart' id='lblCartCount' *ngIf="getCartCount() > 0"> {{getCartCount()}} </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+         
+    
+          <div class="d-flex flex-row">
+            <div class="text-muted m-2" id="res">Showing {{getResultCount()}} results</div>
+          </div>
+          <div class="row">
+            <ng-container class="col-lg-12 col-md-12"  *ngFor="let category of tempCategoryItems" >
+             
+            <div class="col-lg-3 col-md-6 col-sm-10 offset-md-0 offset-sm-1 mb-3" *ngFor="let item of category.items ; let i = index">
+              <div class="card">
+                <img class="card-img-top" [src]="item.imgSrc || defaultImage"  />
+                <div class="card-body">
+                  <h5>
+                    <b>{{ item.name }}</b>
+                  </h5>
+                  <div class="d-flex flex-row my-2">
+                    <div class="text-muted">{{ item.price }}/piece</div>
+                    <div class="ml-auto">
+                      <fa-icon [icon]="faPlus" class="fa-xs"> </fa-icon>
+                      <span class="px-sm-1">1</span>
+                      <fa-icon [icon]="faMinus" class="fa-xs"> </fa-icon>
+                    </div>
+                  </div>
+                  <button class="primary-button w-100 rounded my-2" (click)="addToCart(item)">
+                    <fa-icon [icon]="faShoppingCart" class="fa-xs"> </fa-icon><span class="ml-2"></span>
+                    {{ "DASHBOARD.ADD_TO_CART" | translate }}
+                  </button>
+                </div>
+              </div>
+            </div>
+          </ng-container>
+          </div>
+        </div>
+      </section>
+    </div>
+    
+  </div>
+  
+</div>
+<app-modal #AggModal [title]="'Shopping Cart'">
+</app-modal>

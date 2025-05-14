@@ -1,0 +1,38 @@
+<div class="partner-area ptb-100">
+  <div class="container">
+    <div class="section-title">
+      <span>Priceless Aid</span>
+      <h2>Supported By</h2>
+    </div>
+    <!-- <div class="row">
+      <div class="col-sm-3 mb-2" *ngFor="let item of supportedbyObj">
+        <div class="card h-100 border-secondary">
+          <a href="{{ item.url }}" target="_blank" class="card-img-top"
+            ><img src="{{ item.imgSrc }}" width="{{item.width}}" height="{{item.height}}" class="imageconfig" alt="image"
+          /></a>
+          <div class="card-body">
+            <span>
+              <p class="card-text text-center">{{ item.title }}</p></span
+            >
+          </div>
+        </div>
+      </div>
+    </div> -->
+
+    <div class="wrapper">
+      <owl-carousel-o [options]="customOptions">
+        <ng-container *ngFor="let image of supportedbyObj">
+          <ng-template carouselSlide let-owlItem class="h-100 border-secondary">
+              <div class="single-offer">
+              <div class="slide" [@activeSlide]="owlItem.isCentered ? 'active' : 'inActive'">
+                <a href="{{ image.url }}" target="_blank">
+              <img [src]="image.imgSrc" class="rounded" alt="image" class="imageconfig" [title]="image.title" width = "150" height = "150">
+              </a>
+            </div>
+          </div>
+          </ng-template>
+        </ng-container>
+      </owl-carousel-o>
+    </div>
+  </div>
+</div>

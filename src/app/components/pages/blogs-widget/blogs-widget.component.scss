@@ -1,0 +1,29 @@
+@import '../../../../colors.scss';
+.blogs-container {
+  margin-top: 5rem;
+  min-height: 80vh;
+}
+
+.read-more {
+  color: $primary-color;
+  text-transform: uppercase;
+  font-weight: 800;
+}
+
+.read-more {
+  border: 2px solid $text-red;
+}
+.blog-widget-wrapper{
+  justify-content: center;
+  h3 {
+    display: -webkit-box; /* Required for line-clamp */
+    -webkit-line-clamp: 2; /* Limit to 2 lines */
+    -webkit-box-orient: vertical; /* Ensure text wraps vertically */
+    overflow: hidden;
+    font-size: 24px;
+  }
+}
+
+.far.fa-spinner-third.fa-spin {
+font-size: 60px;
+}

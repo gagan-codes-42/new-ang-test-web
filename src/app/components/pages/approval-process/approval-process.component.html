@@ -1,0 +1,189 @@
+<app-auth-header></app-auth-header>
+<ngx-spinner
+  bdColor="rgba(0, 0, 0, 0.8)"
+  size="default"
+  color="#ed4545"
+  type="ball-spin-clockwise"
+  [fullScreen]="true"
+  ><p style="color: white">Loading...</p></ngx-spinner
+>
+<div class="container-fluid container-col" style="margin-top: 160px">
+  <div class="row h-100 row-1 container-row">
+    <div class="col-md-6 offset-md-3 card-non-hover">
+      <div
+        class="sub-heading-text-1-semi-bold"
+        style="margin: 1rem 0 2rem 0; padding: 0 1rem"
+      >
+        Approval Process
+      </div>
+      <div>
+        <ul class="nav nav-pills">
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              [ngClass]="isSelected === '1' ? 'activetab' : ''"
+              (click)="selectTab('1')"
+              >Franchise</a
+            >
+          </li>
+          <li class="nav-item">
+            <a
+              div
+              class="nav-link"
+              [ngClass]="isSelected === '2' ? 'activetab' : ''"
+              (click)="selectTab('2')"
+              >Master Franchise</a
+            >
+          </li>
+        </ul>
+        <div class="col-md-12 mt-5" *ngIf="isSelected === '1'">
+          <h4>Franchise</h4>
+          <div class="row">
+            <div
+              class="col-lg-4 col-md-6 col-sm-10 mb-3"
+              *ngFor="let item of franchiseeData"
+            >
+              <div class="card">
+                <img
+                  class="card-img-top"
+                  [src]="item.imgSrc ? item.imgSrc : defaultImage"
+                />
+                <div class="card-body text-center">
+                  <h5>
+                    <b>{{ item.extension + ' ' + item.name }}</b>
+                  </h5>
+                  <div class="row mt-4 pb-0">
+                    <div class="col-md-12 text-center m-2 p-0">
+                      <fa-icon
+                        [icon]="faHeart"
+                        class="fa-lg"
+                        [ngClass]="
+                          item.isFavourite ? 'is-active' : 'is-inActive'
+                        "
+                        style="cursor: pointer"
+                        (click)="sendEstimates(item)"
+                      >
+                      </fa-icon
+                      ><span class="ml-2"></span>
+                    </div>
+                    <div class="col-md-12 p-0">
+                      <button
+                        class="primary-button btn-small float-right"
+                        type="button"
+                        (click)="showApprovalDialog()"
+                      >
+                        Approval Process
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-12 mt-5" *ngIf="isSelected === '2'">
+          <h4>Master Franchise</h4>
+          <div class="row">
+            <div
+              class="col-lg-4 col-md-6 col-sm-10 mb-3"
+              *ngFor="let item of masterData"
+            >
+              <div class="card">
+                <img
+                  class="card-img-top"
+                  [src]="item.imgSrc ? item.imgSrc : defaultImage"
+                />
+                <div class="card-body text-center">
+                  <h5>
+                    <b>{{ item.extension + ' ' + item.name }}</b>
+                  </h5>
+                  <div class="row mt-4 pb-0">
+                    <div class="col-md-12 text-center m-2 p-0">
+                      <fa-icon
+                        [icon]="faHeart"
+                        class="fa-lg"
+                        [ngClass]="
+                          item.isFavourite ? 'is-active' : 'is-inActive'
+                        "
+                        style="cursor: pointer"
+                        (click)="sendEstimates(item)"
+                      >
+                      </fa-icon
+                      ><span class="ml-2"></span>
+                    </div>
+                    <div class="col-md-12 p-0">
+                      <button
+                        class="primary-button btn-small float-right"
+                        type="button"
+                        (click)="showApprovalDialog()"
+                      >
+                        Approval Process
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<app-modal #ApprovalProcessModal>
+  <div class="row">
+    <div class="col-md-6 col-sm-12 mb-2">
+      <div class="card h-100">
+        <div class="card-body text-center">
+          <fa-icon
+            [icon]="faMale"
+            style="font-size: 40px; color: #ed4545"
+          ></fa-icon>
+          <h5>Step 1</h5>
+          <p style="font-size: small">Click on Apply Now</p>
+        </div>
+      </div>
+    </div>
+    <!-- <fa-icon [icon]="faArrowRight"></fa-icon> -->
+    <div class="col-md-6 col-sm-12 mb-2">
+      <div class="card h-100">
+        <div class="card-body text-center">
+          <fa-icon
+            [icon]="faFolder"
+            style="font-size: 40px; color: #ed4545"
+          ></fa-icon>
+          <h5>Step 2</h5>
+          <p style="font-size: small">
+            Fill out the application form. Select your model of choice
+          </p>
+        </div>
+      </div>
+    </div>
+    <!-- <fa-icon [icon]="faArrowRight"></fa-icon> -->
+    <div class="col-md-6 col-sm-12 mb-2">
+      <div class="card h-100">
+        <div class="card-body text-center">
+          <fa-icon
+            [icon]="faPiggyBank"
+            style="font-size: 40px; color: #ed4545"
+          ></fa-icon>
+          <h5>Step 3</h5>
+          <p style="font-size: small">Pay 50% In Advance</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6 col-sm-12 mb-2">
+      <div class="card h-100">
+        <div class="card-body text-center">
+          <fa-icon
+            [icon]="faCheckCircle"
+            style="font-size: 40px; color: #ed4545"
+          ></fa-icon>
+          <h5>Step 4</h5>
+          <p style="font-size: small">Document Verification</p>
+        </div>
+      </div>
+    </div>
+    <!-- <fa-icon [icon]="faArrowRight"></fa-icon> -->
+  </div>
+</app-modal>

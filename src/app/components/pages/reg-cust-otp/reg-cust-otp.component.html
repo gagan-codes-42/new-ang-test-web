@@ -1,0 +1,158 @@
+<app-blank-header></app-blank-header>
+<div class="container contianer-div">
+  <div class="row container-row">
+    <div
+      class="col-md-4 offset-md-4 container-col card-non-hover"
+      *ngIf="!otpScreenActive && !otpVerified"
+    >
+      <div class="heading-div">
+        <div>
+          <img src="assets/logos/phone.png" />
+        </div>
+        <div class="side-heading-text-1 text-center">Phone Number</div>
+      </div>
+      <div class="ph-number-div">
+        <div class="hint-text" style="margin-bottom: 1.8rem">+91</div>
+        <div class="number-input-div">
+          <input
+            type="number"
+            id="phNumber"
+            class="side-heading-text-1"
+            [(ngModel)]="phoneNumber"
+            [ngClass]="{
+              inputError:
+                (phNumber.dirty && phNumber.invalid) ||
+                (phNumber.dirty && !phNumberLengthValid),
+              inputDefault:
+                (phNumber.dirty && phNumber.valid && phNumberLengthValid) ||
+                phNumber.pristine
+            }"
+            name="phoneNumber"
+            required
+            placeholder="xxx-xxx-xxxx"
+            #phNumber="ngModel"
+            (keyup)="checkPhoneNumberLength()"
+          />
+          <div *ngIf="phNumber.dirty && phNumber.invalid" class="error-text">
+            Phone number is required
+          </div>
+          <div
+            *ngIf="phNumber.dirty && !phNumberLengthValid && !phNumber.invalid"
+            class="error-text"
+          >
+            Phone number is invalid
+          </div>
+          <div class="float-right">&nbsp;</div>
+        </div>
+      </div>
+      <div class="actions-div">
+        <button class="secondary-button" (click)="phNumber.reset()">
+          Reset
+        </button>
+        <button
+          type="submit"
+          [disabled]="
+            !(phNumber.dirty && phNumber.valid && phNumberLengthValid)
+          "
+          class="primary-button"
+          (click)="sendOTP()"
+        >
+          <span
+            *ngIf="loading"
+            class="spinner-border spinner-border-sm"
+            role="status"
+          ></span>
+          <span *ngIf="!loading">Send OTP</span>
+        </button>
+      </div>
+    </div>
+    <div
+      class="col-md-4 offset-md-4 container-col card-non-hover"
+      *ngIf="otpScreenActive && !otpVerified"
+    >
+      <div style="margin-top: 2rem" class="otp-heading-div">
+        <div class="heading-text-1 text-left">OTP</div>
+        <div
+          class="icon-div"
+          (click)="otpScreenActive = false; otpNumber.reset(); goBack()"
+        >
+          <fa-icon class="float-right" [icon]="faArrowLeft"></fa-icon>
+        </div>
+      </div>
+      <div class="number-input-div">
+        <input
+          type="tel"
+          pattern="[0-9]*"
+          maxlength="6"
+          id="otpNumber"
+          class="sub-heading-text-1 text-center"
+          placeholder="- - - - - -"
+          [(ngModel)]="otp"
+          name="otp"
+          #otpNumber="ngModel"
+          required
+          (keyup)="checkOTPLength()"
+          [ngClass]="{
+            inputError:
+              (otpNumber.dirty && otpNumber.invalid) ||
+              (otpNumber.dirty && !otpLengthValid),
+            inputDefault:
+              (otpNumber.dirty && otpNumber.valid && otpLengthValid) ||
+              otpNumber.pristine
+          }"
+        />
+        <div
+          class="error-text float-left"
+          *ngIf="otpNumber.dirty && otpNumber.invalid"
+        >
+          OTP is required
+        </div>
+        <div
+          class="error-text float-left"
+          *ngIf="otpNumber.dirty && !otpLengthValid && !otpNumber.invalid"
+        >
+          OTP is invalid
+        </div>
+        <div
+          *ngIf="OTPSendCount < 3"
+          class="resend-btn float-right hint-text"
+          (click)="resendOTP()"
+        >
+          Resend OTP
+        </div>
+      </div>
+      <div class="actions-div">
+        <button class="secondary-button" (click)="otpNumber.reset()">
+          Reset
+        </button>
+        <button
+          type="submit"
+          [disabled]="!(otpNumber.dirty && otpNumber.valid && otpLengthValid)"
+          class="primary-button"
+          (click)="verifyOTP()"
+        >
+          <span
+            *ngIf="loading"
+            class="spinner-border spinner-border-sm"
+            role="status"
+          ></span>
+          <span *ngIf="!loading">Verify OTP</span>
+        </button>
+      </div>
+    </div>
+    <div
+      class="col-md-4 offset-md-4 container-col card-non-hover"
+      *ngIf="otpVerified"
+    >
+      <div style="margin-top: 2rem" class="otp-heading-div">
+        <div class="heading-text-2 text-left">Set Password</div>
+        <div class="icon-div" (click)="otpScreenActive = false; goBack()">
+          <fa-icon class="float-right" [icon]="faArrowLeft"></fa-icon>
+        </div>
+      </div>
+      <app-password-input
+        (passwordSubmitted)="startRegistration($event)"
+      ></app-password-input>
+    </div>
+  </div>
+</div>

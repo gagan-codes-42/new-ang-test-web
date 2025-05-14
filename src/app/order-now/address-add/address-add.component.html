@@ -1,0 +1,57 @@
+
+<div class="content-div w-100">
+    <div class="head-text pl-0">Add New Address</div>
+    <form class="form-horizontal" [formGroup]="addressForm">
+       <fieldset>
+           <!-- address-line1 input-->
+           <div class="mt-3 row">
+               <label class="ml-3 mb-1 font-weight-bold">Address Line 1</label>
+               <div class="col-12 ">
+                   <input id="address-line1"  [formControlName]="'addressLine1'" name="address-line1" type="text" placeholder="Address line 1"
+                   class="input-xlarge">
+                  
+               </div>
+           </div>
+           <!-- address-line2 input-->
+           <div class="mt-3 row">
+               <label class="ml-3 mb-1 font-weight-bold">Address Line 2</label>
+               <div class="col-12 ">
+                   <input id="address-line2"  [formControlName]="'addressLine2'" name="address-line2" type="text" placeholder="Address line 2"
+                   class="input-xlarge">
+
+               </div>
+           </div>
+           <!-- city input-->
+           <div class="row mt-3">
+               <label class="ml-3 mb-1 font-weight-bold">City</label>
+               <div class="col-12 ">
+                   <input id="city" name="city"  [formControlName]="'city'" type="text" placeholder="City" class="input-xlarge">
+                   
+               </div>
+           </div>
+           <!-- region input-->
+           <div class="row mt-3">
+               <label class="ml-3 mb-1 font-weight-bold">State</label>
+               <div class="col-12 ">
+                   <input id="region" name="region"  [formControlName]="'state'" type="text" placeholder="State"
+                   class="input-xlarge">
+                  
+               </div>
+           </div>
+           <!-- postal-code input-->
+           <div class="row mt-3">
+               <label class="ml-3 mb-1 font-weight-bold">Pincode</label>
+               <div class="col-12 ">
+                   <input id="postal-code" name="postal-code"   [formControlName]="'zip'"type="text" placeholder="Pincode"
+                   class="input-xlarge">
+                  
+               </div>
+           </div>
+       </fieldset>
+   </form>
+   <div class="btns-div mt-3">
+    <button mat-flat-button class="mat-focus-indicator place-order-btn mat-flat-button mat-button-base" (click)="addNew()" [disabled]="addressForm.invalid">Add</button>
+    <button mat-stroked-button class="mat-focus-indicator mat-flat-button mat-button-base"(click)="_bottomSheetRef.dismiss();" >Cancel</button>
+  </div>
+</div>
+

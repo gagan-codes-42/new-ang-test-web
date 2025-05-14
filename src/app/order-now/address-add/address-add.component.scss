@@ -1,0 +1,97 @@
+@import '../../../colors.scss';
+  .store-icon {
+    display: flex;
+    justify-content: center;
+    img {
+      width: 50px;
+    }
+  }
+
+
+  .example-radio-group {
+    display: flex;
+    flex-direction: column;
+    margin: 15px 0;
+  }
+  
+  .example-radio-button {
+    margin: 5px;
+  }
+
+  ::ng-deep {
+  .mat-radio-button.mat-accent .mat-radio-inner-circle, .mat-radio-button.mat-accent .mat-radio-ripple .mat-ripple-element:not(.mat-radio-persistent-ripple), .mat-radio-button.mat-accent.mat-radio-checked .mat-radio-persistent-ripple, .mat-radio-button.mat-accent:active .mat-radio-persistent-ripple {
+    background-color: #ed4545 !important;
+}
+
+.mat-radio-button.mat-accent.mat-radio-checked .mat-radio-outer-circle {
+    border-color: #ed4545 !important;
+}
+  }
+  .icon-div {
+    padding: 0.55rem 0.8rem;
+    border-radius: 50%;
+    &:hover {
+      background-color: $primary-color;
+      color: white;
+      cursor: pointer;
+    }
+  }
+  ::ng-deep .mat-bottom-sheet-container {
+    padding: 0px;
+    max-height: 20%;
+    min-height: 20%;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+    overflow: none;
+  }
+  
+  ::ng-deep .mat-bottom-sheet-container-medium {
+    min-width: 500px;
+  }
+  .content-div {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 24px;
+    align-items: stretch 
+  }
+  .content-div-row {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 24px;
+  }
+  .head-text {
+    font-size: 18px;
+    font-family: "Open Sans";
+    font-weight: 600;
+    letter-spacing: 0.1px;
+    margin-bottom: 20px;
+  }
+  .btns-div {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    .spinner-bottom-sheet {
+      margin: auto;
+    }
+  }
+  button {
+    min-width: 48%;
+  }
+  .place-order-btn {
+    background-color: #ed4545  !important;
+    color: white !important;
+  }
+  .mat-button.mat-primary, .mat-icon-button.mat-primary, .mat-stroked-button.mat-primary {
+    color: #212121;
+}
+
+.mat-icon {
+    color: #ed4545;
+}
+.mat-button-disabled{
+  background-color: rgba(0,0,0,.12) !important;
+}

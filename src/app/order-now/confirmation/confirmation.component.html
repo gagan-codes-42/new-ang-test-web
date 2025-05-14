@@ -1,0 +1,52 @@
+
+<div class="container-fluid h-100">
+    <div class="row h-100 row-1 container-row" style="margin-top: 135px;">
+        <div class="col-md-6 offset-md-3 card-non-hover">
+            <div class="sub-heading-text-1-semi-bold" style="margin: 1rem 0 2rem 0; padding: 0 1rem">
+            </div>
+            <div class="row text-center mx-auto d-block" *ngIf="orderDetails?.orderStatus === 'placed'">
+                <div class="swal2-icon swal2-success swal2-animate-success-icon" style="display: flex;">
+                    <div class="swal2-success-circular-line-left" style="background-color: rgb(255, 255, 255);"></div>
+                    <span class="swal2-success-line-tip"></span>
+                    <span class="swal2-success-line-long"></span>
+                    <div class="swal2-success-ring"></div>
+                    <div class="swal2-success-fix" style="background-color: rgb(255, 255, 255);"></div>
+                    <div class="swal2-success-circular-line-right" style="background-color: rgb(255, 255, 255);"></div>
+                </div>
+                <div>
+                    <div class="price-text"><b><span>&#8377;</span>{{orderDetails?.total | number:'1.2-2'}} </b></div>
+                </div>
+                <div>
+                    <div class="confirm-text">Your order has been placed!</div>
+                </div>
+                <div>
+                    <div class="details-text">Your order Id:<b>{{orderDetails?.orderId}}</b></div>
+                </div>
+                <div>
+                    <div class="note-text text-wrap">Your order will be confirmed shortly. Delivery and Packing charges
+                        might be extra. We will send an notification once your order has been confirmed</div>
+                </div>
+                <div class="p-2">
+                    <button mat-flat-button color="primary"  (click)="backToMenu()">Go To Menu</button>
+                </div>
+            </div>
+            <div class="row text-center mx-auto d-block" *ngIf="orderDetails?.orderStatus !== 'placed'">
+                <div class="swal2-icon swal2-error swal2-animate-error-icon" style="display: flex;">
+                    <span class="swal2-x-mark">
+                    <span class="swal2-x-mark-line-left">
+                    </span><span class="swal2-x-mark-line-right"></span></span>
+                </div>
+                <div>
+                    <div class="confirm-text">Your order has not been placed!</div>
+                </div>
+                <div class="p-2">
+                    <button mat-flat-button color="primary" (click)="backToMenu()">Go To Menu</button>
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+</div>

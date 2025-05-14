@@ -1,0 +1,29 @@
+<section class="ptb-100">
+  <div class="container">
+    <div class="section-title">
+      <span>Gallery</span>
+      <h2>See Our Gallery</h2>
+    </div>
+    <div class="wrapper">
+      <owl-carousel-o [options]="customOptions">
+        <ng-container *ngFor="let image of imagesData">
+          <ng-template carouselSlide let-owlItem>
+            <div class="single-offer">
+              <div
+                class="slide"
+                [@activeSlide]="owlItem.isCentered ? 'active' : 'inActive'"
+              >
+                <img
+                  [src]="image.src"
+                  class="rounded"
+                  [alt]="image.alt"
+                  [title]="image.title"
+                />
+              </div>
+            </div>
+          </ng-template>
+        </ng-container>
+      </owl-carousel-o>
+    </div>
+  </div>
+</section>

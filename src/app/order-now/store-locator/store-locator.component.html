@@ -1,0 +1,73 @@
+<div class="container mb-5" style="margin-top: 135px">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="col-md-6 offset-md-3 container-col card-non-hover">
+        <div class="heading-div">
+          <div class="store-icon">
+            <img src="assets/logos/store.svg" />
+          </div>
+          <div class="sub-heading-text-1-semi-bold" style="margin: 1rem 0 2rem 0; padding: 0 1rem">
+            Locate Store
+          </div>
+        </div>
+        <div class="content">
+          <form [formGroup]="locationForm">
+            <div class="form-group">
+              <label class="form-check-label hint-text" for="State">
+                State
+              </label>
+              <select formControlName="state" id="State" name="state" placeholder="Select a state" [ngClass]="{
+                  inputError:
+                    locationForm.controls.state.invalid &&
+                    locationForm.controls.state.touched
+                }" (change)="
+                  locationForm.controls.city.setValue('', { emitEvent: false })
+                ">
+                <option hidden selected value="">Select a state</option>
+                <option *ngFor="let state of states | keyvalue" [value]="state.key">
+                  {{ state.key }}
+                </option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-check-label hint-text" for="City">City</label>
+              <select formControlName="city" id="City" name="city" placeholder="Select a city" [ngClass]="{
+                  inputError:
+                    locationForm.controls.city.invalid &&
+                    locationForm.controls.city.touched
+                }">
+                <option hidden selected value="">Select a city</option>
+                <option *ngFor="
+                    let city of cityarray
+                  " [value]="city">
+                  {{ city }}
+                </option>
+              </select>
+            </div>
+          </form>
+          <div *ngIf="!loaded && !loading" class="text-center mt-3">
+            Select State and City to view available store locations
+          </div>
+          <div *ngIf="loading" class="text-center mt-3">
+            <div class="spinner-border spinner-border-sm" role="status"></div>
+            <div>Locating Stores</div>
+          </div>
+          <div *ngIf="loaded && !loading && locations.length === 0" class="text-center mt-3 text-danger">
+            No Stores in this City
+          </div>
+          <div *ngIf="loaded && !loading && locations.length" class="mt-3">
+            <h5>Stores</h5>
+            <ul class="list-group text-primary">
+              <li class="list-group-item cursor-pointer" *ngFor="let location of locations"
+                (click)="onLocationSelected(location.device_id , location.location)">
+                {{ location.location }}
+              </li>
+            </ul>
+            <br />
+            <div class="text-center">Click on Store location to select it</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

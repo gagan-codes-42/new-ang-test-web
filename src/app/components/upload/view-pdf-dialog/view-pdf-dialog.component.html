@@ -1,0 +1,17 @@
+<button mat-icon-button class="close-button" [mat-dialog-close]="true">
+  <mat-icon class="close-icon" color="warn">close</mat-icon>
+</button>
+<h1 mat-dialog-title>Pdf </h1>
+<mat-dialog-content class="mat-typography">
+ 
+  <div class="row" >
+    <div class="col-12">
+            <pdf-viewer [src]="pdfSrc"
+            [render-text]="true"
+            style="display: block;"
+            [external-link-target]="'blank'"
+            [autoresize]="true"
+            ></pdf-viewer>
+    </div>
+  </div>
+</mat-dialog-content>

@@ -1,0 +1,12 @@
+<div class="content-div w-100">
+  <div class="head-text">Order Type</div>
+  <mat-radio-group aria-label="Select an option" [(ngModel)]="selectedOrderType" class="example-radio-group">
+    <mat-radio-button value="delivery">Home Delivery</mat-radio-button>
+    <mat-radio-button value="takeAway">Take Away</mat-radio-button>
+    <mat-radio-button value="dineIn">Dine In </mat-radio-button>
+  </mat-radio-group>
+  <div class="btns-div">
+    <button mat-flat-button class="mat-focus-indicator place-order-btn mat-flat-button mat-button-base" (click)="confirm()">Proceed</button>
+    <button mat-stroked-button class="mat-focus-indicator mat-flat-button mat-button-base" (click)="reject()" >Cancel</button>
+  </div>
+</div>

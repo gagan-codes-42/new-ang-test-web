@@ -1,0 +1,62 @@
+<mat-drawer-container class="example-container" autosize>
+    <mat-drawer
+      opened="{{ sharedService.getSideBarStatus2() }}"
+      (closed)="sharedService.toggleSidebar2(); sharedService.closeSidebar2()"
+      class="example-sidenav2"
+      mode="over"
+      position="end"
+    >
+    <ul class="navbar-nav">
+      <a class="navbar-brand" routerLink="/">
+        <img src="assets/img/epanipuricart.png" alt="EPanipuri Cart" />
+      </a>
+      <li class="nav-item">
+        <div class="nav-link cursor-pointer" (click)="sharedService.closeSidebar2();" [routerLink]="'controlPanel'" routerLinkActive="active">
+          {{ 'DASHBOARD.YOUR_DEVICES' | translate}}
+        </div>
+      </li>
+      <li class="nav-item" >
+        <div class="nav-link cursor-pointer" [routerLink]="'newOrder'" (click)="sharedService.closeSidebar2();" routerLinkActive="active">
+          {{ "DASHBOARD.NEW_ORDER" | translate }}
+        </div>
+      </li>
+      <li class="nav-item">
+        <div class="nav-link cursor-pointer" [routerLink]="'order'" (click)="sharedService.closeSidebar2();" routerLinkActive="active">
+          {{ "DASHBOARD.YOUR_ORDERS" | translate }}
+        </div>
+      </li>
+      <li class="nav-item">
+        <div class="nav-link cursor-pointer" [routerLink]="'payments'" (click)="sharedService.closeSidebar2();" routerLinkActive="active">
+          {{ "DASHBOARD.PAYMENTS" | translate }}
+        </div>
+      </li>
+      <li class="nav-item">
+        <div class="nav-link cursor-pointer" [routerLink]="'apply-again'" (click)="sharedService.closeSidebar2();" routerLinkActive="active">
+          {{ "DASHBOARD.APPLYAGAIN" | translate }}
+        </div>
+      </li>
+  
+      <li class="nav-item">
+        <div class="nav-link cursor-pointer" (click)="logout()">Logout</div>
+      </li>
+      <li class="nav-item" *ngIf="!mobileMode">
+        <ui-switch
+          size="small"
+          color="#ed4545"
+          checkedLabel="English"
+          uncheckedLabel="Hindi"
+          [(ngModel)]="isSwitchedOn"
+          defaultBgColor="#ed4545"
+          (change)="onChange($event)"
+          checkedTextColor="#ffffff"
+          uncheckedTextColor="#ffffff"
+        ></ui-switch>
+      </li>
+    </ul>
+    </mat-drawer>
+    <mat-drawer-content class="example-sidenav-content">
+      <app-header></app-header>
+      <ng-content></ng-content>
+  
+    </mat-drawer-content>
+  </mat-drawer-container>

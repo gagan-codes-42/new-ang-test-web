@@ -1,0 +1,24 @@
+{
+  "DASHBOARD": {
+    "SELECT": "Change language",
+    "AgreementText": "Harish Neotia has invited to sign agreement via e-aadhar sign.",
+    "YOUR_AGREEMENTS": "YOUR AGREEMENTS",
+    "CONTROL_PANEL": "Control Panel",
+    "NEW_ORDER": "NEW ORDER",
+    "YOUR_ORDERS": "YOUR ORDERS",
+    "PAYMENTS": "PAYMENTS",
+    "LOGOUT": "LOGOUT",
+    "ADD_TO_CART":"Add to cart",
+    "DOCUMENT_VERIFICATION":"Document Verification",
+    "YOUR_DEVICES" :"Your Devices",
+    "CHECKOUT":"Checkout",
+    "APPLYAGAIN":"APPLY AGAIN"
+  },
+  "WIZARD" : {
+    "LOGOUT": "LOGOUT",
+    "PROFILE" : "Profile",
+    "IOT":"IOT",
+    "ORDERS":"ORDERS"
+  }
+
+}

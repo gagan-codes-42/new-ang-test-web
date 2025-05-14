@@ -1,0 +1,1515 @@
+<div class="container-fluid h-100" style="margin-top: 135px !important">
+  <div class="row h-100 row-1 container-row">
+    <div class="col-md-6 offset-md-3 card-non-hover">
+      <div
+        class="sub-heading-text-1-semi-bold"
+        style="margin: 1rem 0 2rem 0; padding: 0 1rem"
+      >
+        Partner SignUp
+      </div>
+      <form [formGroup]="partnerSignUpForm" (ngSubmit)="submit(false)">
+        <div class="row">
+          <div class="col-lg-6" style="padding: 0 2rem">
+            <div class="form-group">
+              <label class="form-check-label hint-text required" for="title"
+                >Title</label
+              >
+              <input
+                type="text"
+                formControlName="title"
+                id="title"
+                name="title"
+                [ngClass]="{
+                  inputError:
+                    partnerSignUpForm?.controls?.title?.invalid &&
+                    partnerSignUpForm?.controls?.title?.dirty
+                }"
+                placeholder="Enter title"
+              />
+              <div
+                *ngIf="
+                  partnerSignUpForm?.controls?.title?.invalid &&
+                  partnerSignUpForm?.controls?.title?.dirty
+                "
+              >
+                <div
+                  *ngIf="partnerSignUpForm?.controls?.title?.errors?.required"
+                  class="error-text"
+                >
+                  Title is required
+                </div>
+                <div
+                  *ngIf="partnerSignUpForm?.controls?.title?.errors?.pattern"
+                  class="error-text"
+                >
+                  Title is invalid
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="form-check-label hint-text required" for="fName"
+                >First Name</label
+              >
+              <input
+                type="text"
+                formControlName="firstName"
+                id="fName"
+                name="firstName"
+                [ngClass]="{
+                  inputError:
+                    partnerSignUpForm?.controls?.firstName?.invalid &&
+                    partnerSignUpForm?.controls?.firstName?.dirty
+                }"
+                placeholder="Enter your first name"
+              />
+              <div
+                *ngIf="
+                  partnerSignUpForm?.controls?.firstName?.invalid &&
+                  partnerSignUpForm?.controls?.firstName?.dirty
+                "
+              >
+                <div
+                  *ngIf="
+                    partnerSignUpForm?.controls?.firstName?.errors?.required
+                  "
+                  class="error-text"
+                >
+                  First name is required
+                </div>
+                <div
+                  *ngIf="
+                    partnerSignUpForm?.controls?.firstName?.errors?.pattern
+                  "
+                  class="error-text"
+                >
+                  First name is invalid
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="form-check-label hint-text required" for="lName"
+                >Last Name</label
+              >
+              <input
+                type="text"
+                formControlName="lastName"
+                id="lName"
+                name="lastName"
+                placeholder="Enter your last name"
+                [ngClass]="{
+                  inputError:
+                    partnerSignUpForm?.controls?.lastName?.invalid &&
+                    partnerSignUpForm?.controls?.lastName?.dirty
+                }"
+              />
+              <div
+                *ngIf="
+                  partnerSignUpForm?.controls?.lastName?.invalid &&
+                  partnerSignUpForm?.controls?.lastName?.dirty
+                "
+              >
+                <div
+                  *ngIf="
+                    partnerSignUpForm?.controls?.lastName?.errors?.required
+                  "
+                  class="error-text"
+                >
+                  Last name is required
+                </div>
+                <div
+                  *ngIf="partnerSignUpForm?.controls?.lastName?.errors?.pattern"
+                  class="error-text"
+                >
+                  Last name is invalid
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="form-check-label hint-text required" for="Email"
+                >Email</label
+              >
+              <input
+                type="email"
+                formControlName="email"
+                id="Email"
+                name="email"
+                placeholder="Enter your email address"
+                [ngClass]="{
+                  inputError:
+                    partnerSignUpForm?.controls?.email?.invalid &&
+                    partnerSignUpForm?.controls?.email?.dirty
+                }"
+              />
+              <div
+                *ngIf="
+                  partnerSignUpForm?.controls?.email?.invalid &&
+                  partnerSignUpForm?.controls?.email?.dirty
+                "
+              >
+                <div
+                  *ngIf="partnerSignUpForm?.controls?.email?.errors?.required"
+                  class="error-text"
+                >
+                  Email address is required
+                </div>
+                <div
+                  *ngIf="partnerSignUpForm?.controls?.email?.errors?.email"
+                  class="error-text"
+                >
+                  Email address is invalid
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="form-check-label hint-text required" for="phNumber"
+                >Phone Number</label
+              >
+              <input
+                type="number"
+                formControlName="mobile"
+                id="phNumber"
+                name="mobile"
+                style="letter-spacing: 0.55rem"
+                placeholder="xxx-xxx-xxxx"
+                [ngClass]="{
+                  inputError:
+                    partnerSignUpForm?.controls?.mobile?.invalid &&
+                    partnerSignUpForm?.controls?.mobile?.dirty
+                }"
+              />
+              <div
+                *ngIf="
+                  partnerSignUpForm?.controls?.mobile?.invalid &&
+                  partnerSignUpForm?.controls?.mobile?.dirty
+                "
+              >
+                <div
+                  *ngIf="partnerSignUpForm?.controls?.mobile?.errors?.required"
+                  class="error-text"
+                >
+                  Phone number is required
+                </div>
+                <div
+                  *ngIf="
+                    partnerSignUpForm?.controls?.mobile?.errors?.max ||
+                    partnerSignUpForm?.controls?.mobile?.errors?.min
+                  "
+                  class="error-text"
+                >
+                  Phone number is invalid
+                </div>
+              </div>
+              <div style="margin: 0.3rem 0; float: left">&nbsp;</div>
+            </div>
+            <!-- <div class="form-group">
+                <label
+                  class="form-check-label hint-text required"
+                  for="fatherName"
+                  >Father's Name</label
+                >
+                <input
+                  type="text"
+                  formControlName="fatherName"
+                  id="fatherName"
+                  name="fatherName"
+                  [ngClass]="{
+                    inputError:
+                      partnerSignUpForm.controls.fatherName.invalid &&
+                      partnerSignUpForm.controls.fatherName.dirty
+                  }"
+                  placeholder="Enter Father's Name"
+                />
+                <div
+                  *ngIf="
+                    partnerSignUpForm.controls.fatherName.invalid &&
+                    partnerSignUpForm.controls.fatherName.dirty
+                  "
+                >
+                  <div
+                    *ngIf="
+                      partnerSignUpForm.controls.fatherName.errors?.required
+                    "
+                    class="error-text"
+                  >
+                    Father's Name is required
+                  </div>
+                  <div
+                    *ngIf="
+                      partnerSignUpForm.controls.fatherName.errors?.pattern
+                    "
+                    class="error-text"
+                  >
+                    Father's Name is invalid
+                  </div>
+                </div>
+              </div> -->
+            <div class="form-group">
+              <label class="form-check-label hint-text required" for="Address">
+                Billing Address
+                <!-- Residential Address -->
+              </label>
+              <input
+                type="text"
+                formControlName="address"
+                id="Address"
+                name="address"
+                placeholder="Enter your address"
+                [ngClass]="{
+                  inputError:
+                    partnerSignUpForm?.controls?.address?.invalid &&
+                    partnerSignUpForm?.controls?.address?.dirty
+                }"
+              />
+              <div
+                *ngIf="
+                  partnerSignUpForm?.controls?.address?.invalid &&
+                  partnerSignUpForm?.controls?.address?.dirty
+                "
+              >
+                <div
+                  *ngIf="partnerSignUpForm?.controls?.address?.errors?.required"
+                  class="error-text"
+                >
+                  Address is required
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="form-check-label hint-text required" for="Pincode">
+                Billing Pincode
+                <!-- Pincode -->
+              </label>
+              <input
+                type="number"
+                formControlName="pincode"
+                id="Pincode"
+                name="pincdoe"
+                style="letter-spacing: 0.55rem"
+                class="text-center"
+                [ngClass]="{
+                  inputError:
+                    partnerSignUpForm?.controls?.pincode?.invalid &&
+                    partnerSignUpForm?.controls?.pincode?.dirty
+                }"
+                placeholder="- - - - - -"
+              />
+              <div
+                *ngIf="
+                  partnerSignUpForm?.controls?.pincode?.invalid &&
+                  partnerSignUpForm?.controls?.pincode?.dirty
+                "
+              >
+                <div
+                  *ngIf="partnerSignUpForm?.controls?.pincode?.errors?.required"
+                  class="error-text"
+                >
+                  Pincode is required
+                </div>
+                <div
+                  *ngIf="
+                    partnerSignUpForm?.controls?.pincode?.errors?.max ||
+                    partnerSignUpForm?.controls?.pincode?.errors?.min
+                  "
+                  class="error-text"
+                >
+                  Pincode is invalid
+                </div>
+              </div>
+              <div style="margin: 0.3rem 0; float: left">&nbsp;</div>
+            </div>
+
+            <div class="form-group">
+              <div class="row">
+                <div
+                  class="col-md-12 shipAdrsSmBilAdrs-col pl-0"
+                  style="float: left"
+                >
+                  <div class="form-group">
+                    <input
+                      type="checkbox"
+                      formControlName="shipngAdrsSameAsBilngAdrs"
+                      name="shipAdrs_BilAdrs"
+                      #shipAdrsBilAdrs
+                      id="shipAdrsBilAdrs"
+                      class="shipAdrsSmBilAdrs-checkbox"
+                    />
+                    <label class="hint-text"
+                      >Shipping address same as Billing</label
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div
+              class="form-group"
+              style="margin-top: 2.5rem"
+              *ngIf="
+                partnerSignUpForm?.controls?.shipngAdrsSameAsBilngAdrs?.value ==
+                false
+              "
+            >
+              <label
+                class="form-check-label hint-text required"
+                for="shipAddress"
+              >
+                Shipping Address
+              </label>
+              <input
+                type="text"
+                formControlName="shipngAddress"
+                id="shipAddress"
+                name="ship_Address"
+                placeholder="Enter Shipping address"
+                [ngClass]="{
+                  inputError:
+                    partnerSignUpForm?.controls?.shipngAddress?.invalid &&
+                    partnerSignUpForm?.controls?.shipngAddress?.dirty
+                }"
+              />
+              <div
+                *ngIf="
+                  partnerSignUpForm?.controls?.shipngAddress?.invalid &&
+                  partnerSignUpForm?.controls?.shipngAddress?.dirty
+                "
+              >
+                <div
+                  *ngIf="
+                    partnerSignUpForm?.controls?.shipngAddress?.errors?.required
+                  "
+                  class="error-text"
+                >
+                  Address is required
+                </div>
+              </div>
+            </div>
+
+            <div
+              class="form-group"
+              *ngIf="
+                partnerSignUpForm?.controls?.shipngAdrsSameAsBilngAdrs?.value ==
+                false
+              "
+            >
+              <label
+                class="form-check-label hint-text required"
+                for="shipngPin"
+              >
+                Shipping Pincode</label
+              >
+              <input
+                type="number"
+                formControlName="shipngPincode"
+                id="shipngPin"
+                name="shipng_Pincode"
+                style="letter-spacing: 0.55rem"
+                class="text-center"
+                [ngClass]="{
+                  inputError:
+                    partnerSignUpForm?.controls?.shipngPincode?.invalid &&
+                    partnerSignUpForm?.controls?.shipngPincode?.dirty
+                }"
+                placeholder="- - - - - -"
+              />
+              <div
+                *ngIf="
+                  partnerSignUpForm?.controls?.shipngPincode?.invalid &&
+                  partnerSignUpForm?.controls?.shipngPincode?.dirty
+                "
+              >
+                <div
+                  *ngIf="
+                    partnerSignUpForm?.controls?.shipngPincode?.errors?.required
+                  "
+                  class="error-text"
+                >
+                  Pincode is required
+                </div>
+                <div
+                  *ngIf="
+                    partnerSignUpForm?.controls?.shipngPincode?.errors?.max ||
+                    partnerSignUpForm?.controls?.shipngPincode?.errors?.min
+                  "
+                  class="error-text"
+                >
+                  Pincode is invalid
+                </div>
+              </div>
+              <div style="margin: 0.3rem 0; float: left">&nbsp;</div>
+            </div>
+
+            <!-- <div class="form-group">
+                <label class="form-check-label hint-text required" for="aadhar">
+                  Aadhar Number
+                </label>
+                <input
+                  type="number"
+                  formControlName="aadhar"
+                  id="aadhar"
+                  name="aadhar"
+                  style="letter-spacing: 0.55rem"
+                  class="text-center"
+                  [ngClass]="{
+                    inputError:
+                      partnerSignUpForm.controls.aadhar.invalid &&
+                      partnerSignUpForm.controls.aadhar.dirty
+                  }"
+                  placeholder="- - - - - - - - - - - -"
+                />
+                <div
+                  *ngIf="
+                    partnerSignUpForm.controls.aadhar.invalid &&
+                    partnerSignUpForm.controls.aadhar.dirty
+                  "
+                >
+                  <div
+                    *ngIf="partnerSignUpForm.controls.aadhar.errors?.required"
+                    class="error-text"
+                  >
+                    Aadhar Number is required
+                  </div>
+                  <div
+                    *ngIf="partnerSignUpForm.controls.aadhar.errors?.pattern"
+                    class="error-text"
+                  >
+                    Aadhar Number is invalid
+                  </div>
+                </div>
+                <div style="margin: 0.3rem 0; float: left">&nbsp;</div>
+              </div> -->
+          </div>
+
+          <div class="col-lg-6" style="padding: 0 2rem">
+            <div class="form-group">
+              <label
+                class="form-check-label hint-text required"
+                for="gst_treatment"
+              >
+                Entity type
+              </label>
+              <select
+                formControlName="gst_treatment"
+                id="gst_treatment"
+                name="gst_treatment"
+                [ngClass]="{
+                  inputError:
+                    partnerSignUpForm?.controls?.gst_treatment?.invalid &&
+                    partnerSignUpForm?.controls?.gst_treatment?.touched
+                }"
+              >
+                <option hidden selected value="">Select entity type</option>
+                <ng-container *ngFor="let type of entityTypes">
+                  <option [value]="type.value">
+                    {{ type.label }}
+                  </option>
+                </ng-container>
+              </select>
+              <div
+                *ngIf="
+                  partnerSignUpForm?.controls?.gst_treatment?.invalid &&
+                  partnerSignUpForm?.controls?.gst_treatment?.touched
+                "
+              >
+                <div
+                  *ngIf="
+                    partnerSignUpForm?.controls?.gst_treatment?.errors?.required
+                  "
+                  class="error-text"
+                >
+                  Entity type is required
+                </div>
+              </div>
+            </div>
+            <div
+              class="form-group"
+              *ngIf="
+                partnerSignUpForm?.controls?.gst_treatment?.value ===
+                'business_registered_regular'
+              "
+            >
+              <label
+                class="form-check-label hint-text required"
+                for="tradeName"
+              >
+                Trade Name
+              </label>
+              <input
+                type="text"
+                formControlName="tradeName"
+                id="tradeName"
+                name="tradeName"
+                placeholder="Enter your trade name"
+                [ngClass]="{
+                  inputError:
+                    partnerSignUpForm?.controls?.tradeName?.invalid &&
+                    partnerSignUpForm?.controls?.tradeName?.dirty
+                }"
+              />
+              <div
+                *ngIf="
+                  partnerSignUpForm?.controls?.tradeName?.invalid &&
+                  partnerSignUpForm?.controls?.tradeName?.dirty
+                "
+              >
+                <div
+                  *ngIf="
+                    partnerSignUpForm?.controls?.tradeName?.errors?.required
+                  "
+                  class="error-text"
+                >
+                  Trade Name is required
+                </div>
+              </div>
+            </div>
+            <div
+              class="form-group"
+              *ngIf="
+                partnerSignUpForm?.controls?.gst_treatment?.value ===
+                'business_registered_regular'
+              "
+            >
+              <label class="form-check-label hint-text required" for="gst_no">
+                GSTIN
+              </label>
+              <input
+                type="text"
+                formControlName="gst_no"
+                id="gst_no"
+                name="gst_no"
+                placeholder="Enter your GSTIN"
+                [ngClass]="{
+                  inputError:
+                    partnerSignUpForm?.controls?.gst_no?.invalid &&
+                    partnerSignUpForm?.controls?.gst_no?.dirty
+                }"
+              />
+              <div
+                *ngIf="
+                  partnerSignUpForm?.controls?.gst_no?.invalid &&
+                  partnerSignUpForm?.controls?.gst_no?.dirty
+                "
+              >
+                <div
+                  *ngIf="partnerSignUpForm?.controls?.gst_no?.errors?.required"
+                  class="error-text"
+                >
+                  GSTIN is required
+                </div>
+                <div
+                  *ngIf="partnerSignUpForm?.controls?.gst_no?.errors?.pattern"
+                  class="error-text"
+                >
+                  Invalid GSTIN
+                </div>
+              </div>
+            </div>
+
+            <div
+              class="form-group"
+              *ngIf="
+                partnerSignUpForm?.controls?.gst_treatment?.value ===
+                'business_unregistered'
+              "
+            >
+              <label class="form-check-label hint-text required">
+                Upload Aadhar</label
+              >
+
+              <!-- <ngx-spinner bdColor="rgba(0, 0, 0, 0.8)" size="default" color="#ed4545" type="ball-spin-clockwise" [fullScreen]="true">
+                             <p style="color: white">Uploading...</p></ngx-spinner> -->
+
+              <!-- <button type="button" class="primary-button" style="margin-bottom: 1rem" tooltip="Upload Aadhar"
+                          (click)="openComponent_DocUpload()" placement="top" >
+                    <fa-icon [icon]="faFileUpload"></fa-icon>
+                  </button> -->
+
+              <!-- <div class="row"> -->
+              <!-- <div class="col-md-12"> -->
+
+              <input
+                type="text"
+                readonly
+                for="aadharpic"
+                placeholder="Click to Upload"
+                value="{{ fileNameAadhar }}"
+                (click)="myAadharDoc.click()"
+              />
+              <label class="file">
+                <input
+                  type="file"
+                  #myAadharDoc
+                  id="aadharpic"
+                  accept="image/x-png,image/jpg,image/jpeg"
+                  name="aadharpic"
+                  style="padding: 7px; display: none"
+                  (change)="selectFile_aadhar($event, 'Adhar')"
+                  aria-label="File browser"
+                />
+              </label>
+              <!-- </div> -->
+              <!-- <div class="col-md-2 mt-2" *ngIf="this.fileNameAadhar">
+                    <button type="button" class="primary-button" style="margin-bottom: 1rem" tooltip="Upload Aadhar"
+                            (click)="confirmDoc()" placement="top" >   myAadharDoc.click() 
+                      <fa-icon [icon]="faFileUpload"></fa-icon>
+                    </button>
+                  </div> -->
+              <!-- </div> -->
+            </div>
+
+            <div class="form-group">
+              <label class="form-check-label hint-text required" for="brand">
+                Brand
+              </label>
+              <input
+                type="text"
+                formControlName="brand"
+                id="brand"
+                name="brand"
+                [ngClass]="{
+                  inputError:
+                    partnerSignUpForm?.controls?.brand?.invalid &&
+                    partnerSignUpForm?.controls?.brand?.dirty
+                }"
+              />
+              <div
+                *ngIf="
+                  partnerSignUpForm?.controls?.brand?.invalid &&
+                  partnerSignUpForm?.controls?.brand?.dirty
+                "
+              >
+                <div
+                  *ngIf="partnerSignUpForm?.controls?.brand?.errors?.required"
+                  class="error-text"
+                >
+                  Brand is required
+                </div>
+              </div>
+              <div style="margin: 0.3rem 0; float: left">&nbsp;</div>
+            </div>
+
+            <div class="form-group">
+              <label
+                class="form-check-label hint-text required"
+                for="franchise_mastrId"
+              >
+                Franchise Type</label
+              >
+              <select
+                formControlName="franchiseMastrId"
+                id="franchise_mastrId"
+                name="franchise_mastrId"
+                (change)="
+                  this.partnerSignUpForm?.controls?.franchiseType?.setValue('');
+                  this.partnerSignUpForm?.controls?.state?.setValue('');
+                  this.partnerSignUpForm?.controls?.town?.setValue('');
+                  partnerSignUpForm?.controls?.price?.setValue('');
+                  partnerSignUpForm?.controls?.appPrice?.setValue('');
+                  checkApiCall_GetPricing();
+                  checkConditions_AssociateMessage(true)
+                "
+                [ngClass]="{
+                  inputError:
+                    partnerSignUpForm?.controls?.franchiseMastrId?.invalid &&
+                    partnerSignUpForm?.controls?.franchiseMastrId?.touched
+                }"
+              >
+                <option hidden selected value="">Select Franchise Type</option>
+                <ng-container *ngFor="let itm of lst_franchiseMastr">
+                  <option [value]="itm.id">{{ itm.name }}</option>
+                </ng-container>
+              </select>
+              <div
+                *ngIf="
+                  partnerSignUpForm?.controls?.franchiseMastrId?.invalid &&
+                  partnerSignUpForm?.controls?.franchiseMastrId?.touched
+                "
+              >
+                <div
+                  *ngIf="
+                    partnerSignUpForm?.controls?.franchiseMastrId?.errors
+                      ?.required
+                  "
+                  class="error-text"
+                >
+                  Franchise Type is required
+                </div>
+              </div>
+            </div>
+
+            <div
+              class="form-group"
+              *ngIf="
+                partnerSignUpForm?.controls?.franchiseMastrId?.value === '2'
+              "
+            >
+              <label
+                class="form-check-label hint-text required"
+                for="franchiseType"
+              >
+                Master Franchise Cateogory
+              </label>
+              <select
+                formControlName="franchiseType"
+                id="franchiseType"
+                name="franchiseType"
+                (change)="
+                  this.partnerSignUpForm?.controls?.state?.setValue('');
+                  this.partnerSignUpForm?.controls?.town?.setValue('');
+                  partnerSignUpForm?.controls?.price?.setValue('');
+                  partnerSignUpForm?.controls?.appPrice?.setValue('');
+                  checkApiCall_GetPricing();
+                  checkConditions_AssociateMessage(true)
+                "
+                [ngClass]="{
+                  inputError:
+                    partnerSignUpForm?.controls?.franchiseType?.invalid &&
+                    partnerSignUpForm?.controls?.franchiseType?.touched
+                }"
+              >
+                <option hidden selected value="">Select Cateogory</option>
+                <ng-container *ngFor="let type of kitchenDetails | keyvalue">
+                  <option [value]="type.key" *ngIf="type.key != '2'">
+                    {{ getFranchiseTypeName(type.key) }}
+                  </option>
+                </ng-container>
+              </select>
+              <div
+                *ngIf="
+                  partnerSignUpForm?.controls?.franchiseType?.invalid &&
+                  partnerSignUpForm?.controls?.franchiseType?.touched
+                "
+              >
+                <div
+                  *ngIf="
+                    partnerSignUpForm?.controls?.franchiseType?.errors?.required
+                  "
+                  class="error-text"
+                >
+                  Franchise Cateogory is required
+                </div>
+              </div>
+            </div>
+
+            <!-- <div class="form-group">
+              <label class="form-check-label hint-text" for="billingRequired">
+                Billing Type
+              </label>
+              <select
+                formControlName="billingRequired"
+                id="billingRequired"
+                name="billingRequired"
+                [ngClass]="{
+                  inputError:
+                    partnerSignUpForm.controls.billingRequired.invalid &&
+                    partnerSignUpForm.controls.billingRequired.touched
+                }"
+              >
+                <option *ngFor="let type of billingTypes" [value]="type.value">
+                  {{ type.label }}
+                </option>
+              </select>
+              <div
+                *ngIf="
+                  partnerSignUpForm.controls.billingRequired.invalid &&
+                  partnerSignUpForm.controls.billingRequired.touched
+                "
+              >
+                <div
+                  *ngIf="
+                    partnerSignUpForm.controls.billingRequired.errors?.required
+                  "
+                  class="error-text"
+                >
+                  Billing Type is required
+                </div>
+              </div>
+            </div> -->
+
+            <!-- <div class="form-group">
+              <label class="form-check-label hint-text required" for="stateOperation" > State of Operation </label>
+              <input type="text" formControlName="operation_state" id="stateOperation" name="state_Operation" placeholder="Enter State of Operation"
+                [ngClass]="{ inputError: partnerSignUpForm.controls.operation_state.invalid && partnerSignUpForm.controls.operation_state.dirty }" />
+              <div *ngIf=" partnerSignUpForm.controls.operation_state.invalid && partnerSignUpForm.controls.operation_state.dirty " >
+                <div *ngIf="partnerSignUpForm.controls.operation_state.errors?.required" class="error-text" > State of Operation required </div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-check-label hint-text required" for="cityOperation" > City of Operation </label>
+              <input type="text" formControlName="operation_city" id="cityOperation" name="city_Operation" placeholder="Enter City of Operation"
+                [ngClass]="{ inputError: partnerSignUpForm.controls.operation_city.invalid && partnerSignUpForm.controls.operation_city.dirty }" />
+              <div *ngIf=" partnerSignUpForm.controls.operation_city.invalid && partnerSignUpForm.controls.operation_city.dirty " >
+                <div *ngIf="partnerSignUpForm.controls.operation_city.errors?.required" class="error-text" > City of Operation required </div>
+              </div>
+            </div> -->
+
+            <div class="form-group">
+              <label class="form-check-label hint-text required" for="State">
+                State of Operation
+              </label>
+              <select
+                formControlName="state"
+                id="State"
+                name="state"
+                placeholder="Select a state"
+                [ngClass]="{
+                  inputError:
+                    partnerSignUpForm?.controls?.state?.invalid &&
+                    partnerSignUpForm?.controls?.state?.touched
+                }"
+                (change)="
+                  partnerSignUpForm?.controls?.town?.setValue('');
+                  getCities(partnerSignUpForm?.controls?.state?.value);
+                  checkConditions_AssociateMessage(true)
+                "
+              >
+                <option hidden selected value="">Select a state</option>
+                <option
+                  *ngFor="let state of statesAndCities$ | async | keyvalue"
+                  [value]="state.key"
+                >
+                  {{ state.key }}
+                </option>
+              </select>
+              <div
+                *ngIf="
+                  partnerSignUpForm?.controls?.state?.invalid &&
+                  partnerSignUpForm?.controls?.state?.touched
+                "
+              >
+                <div
+                  *ngIf="partnerSignUpForm?.controls?.state?.errors?.required"
+                  class="error-text"
+                >
+                  State is required
+                </div>
+              </div>
+            </div>
+
+            <div
+              class="form-group"
+              *ngIf="
+                !(
+                  partnerSignUpForm?.controls?.franchiseMastrId?.value == '2' &&
+                  partnerSignUpForm?.controls?.franchiseType?.value == '1'
+                )
+              "
+            >
+              <label class="form-check-label hint-text required" for="City"
+                >City of Operation</label
+              >
+
+              <!-- <select multiple
+              formControlName="town"
+              id="City"
+              name="city"
+              placeholder="Select a city"
+              [ngClass]="{
+                inputError:
+                  partnerSignUpForm.controls.town.invalid &&
+                  partnerSignUpForm.controls.town.touched
+              }"
+            >
+              <option hidden selected value="">Select a city</option>
+              <option *ngFor="let city of cities" [value]="city">
+                {{ city }}
+              </option>
+            </select> -->
+
+              <ng-select
+                [items]="cities"
+                [multiple]="false"
+                placeholder="Select cities"
+                (change)="checkConditions_AssociateMessage(true)"
+                formControlName="town"
+              >
+              </ng-select>
+              <div
+                *ngIf="
+                  partnerSignUpForm?.controls?.town?.invalid &&
+                  partnerSignUpForm?.controls?.town?.touched
+                "
+              >
+                <div
+                  *ngIf="partnerSignUpForm?.controls?.town?.errors?.required"
+                  class="error-text"
+                >
+                  City is required
+                </div>
+              </div>
+            </div>
+
+            <div
+              class="form-group"
+              *ngIf="
+                partnerSignUpForm?.controls?.franchiseMastrId?.value == '1'
+              "
+            >
+              <label
+                class="form-check-label hint-text required"
+                for="purchaseRequired"
+              >
+                Plan Type
+              </label>
+              <select
+                formControlName="purchaseRequired"
+                id="purchaseRequired"
+                name="purchaseRequired"
+                (change)="
+                  partnerSignUpForm?.controls?.price?.setValue('');
+                  partnerSignUpForm?.controls?.appPrice?.setValue('');
+                  checkApiCall_GetPricing()
+                "
+                [ngClass]="{
+                  inputError:
+                    partnerSignUpForm?.controls?.purchaseRequired?.invalid &&
+                    partnerSignUpForm?.controls?.purchaseRequired?.touched
+                }"
+              >
+                <option hidden selected value="">Select Plan Type</option>
+                <option
+                  *ngFor="let type of purchaseTypes"
+                  [value]="type?.label?.toLowerCase()"
+                >
+                  {{ type.label }}
+                </option>
+              </select>
+              <div
+                *ngIf="
+                  partnerSignUpForm?.controls?.purchaseRequired?.invalid &&
+                  partnerSignUpForm?.controls?.purchaseRequired?.touched
+                "
+              >
+                <div
+                  *ngIf="
+                    partnerSignUpForm?.controls?.purchaseRequired?.errors
+                      ?.required
+                  "
+                  class="error-text"
+                >
+                Plan Type is required
+                </div>
+              </div>
+            </div>
+
+            <div
+              *ngIf="
+                partnerSignUpForm?.controls?.franchiseMastrId?.value == '2'
+              "
+            >
+              <div class="form-group">
+                <label class="form-check-label hint-text" for="immediateUnits"
+                  >Monthly Target</label
+                >
+                <input
+                  type="text"
+                  formControlName="immediateUnits"
+                  id="immediateUnits"
+                  name="immediateUnits"
+                  required
+                  (change)="immediateUnitsChange()"
+                  placeholder="Enter your immediate units"
+                  [ngClass]="{
+                    inputError:
+                      partnerSignUpForm?.controls?.immediateUnits?.invalid &&
+                      partnerSignUpForm?.controls?.immediateUnits?.dirty
+                  }"
+                />
+                <div
+                  *ngIf="
+                    partnerSignUpForm?.controls?.immediateUnits?.invalid &&
+                    partnerSignUpForm?.controls?.immediateUnits?.dirty
+                  "
+                >
+                  <div
+                    *ngIf="
+                      partnerSignUpForm?.controls?.immediateUnits?.errors
+                        ?.required
+                    "
+                    class="error-text"
+                  >
+                    Monthly Target is required
+                  </div>
+                  <div
+                    *ngIf="
+                      partnerSignUpForm?.controls?.immediateUnits?.errors
+                        ?.pattern
+                    "
+                    class="error-text"
+                  >
+                    Must be greater then 0 and whole number
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label
+                  class="form-check-label hint-text required"
+                  for="unitsInNxtYr"
+                  >Annual Target</label
+                >
+                <input
+                  type="number"
+                  min="12"
+                  formControlName="unitsInNxtYr"
+                  id="unitsInNxtYr"
+                  name="unitsInNxtYr"
+                  placeholder="Enter your units for next year"
+                  [ngClass]="{
+                    inputError:
+                      partnerSignUpForm?.controls?.unitsInNxtYr?.invalid &&
+                      partnerSignUpForm?.controls?.unitsInNxtYr?.dirty
+                  }"
+                />
+                <div
+                  *ngIf="
+                    partnerSignUpForm?.controls?.unitsInNxtYr?.invalid &&
+                    partnerSignUpForm?.controls?.unitsInNxtYr?.dirty
+                  "
+                >
+                  <div
+                    *ngIf="
+                      partnerSignUpForm?.controls?.unitsInNxtYr?.errors
+                        ?.required
+                    "
+                    class="error-text"
+                  >
+                    Annual Target is required
+                  </div>
+                  <div
+                      *ngIf="
+                        partnerSignUpForm?.controls?.unitsInNxtYr?.errors
+                          ?.min
+                      "
+                      class="error-text"
+                    >
+                      Annual Target Should be at least 12 times of monthly
+                    </div>
+                  <div
+                    *ngIf="
+                      partnerSignUpForm?.controls?.unitsInNxtYr?.errors?.pattern
+                    "
+                    class="error-text"
+                  >
+                    Must be greater then 0 and whole number
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div
+              class="form-group"
+              *ngIf="
+                partnerSignUpForm?.controls?.franchiseMastrId?.value == '1'
+              "
+            >
+              <label
+                class="form-check-label hint-text required"
+                for="modelName"
+              >
+                Model Type
+              </label>
+              <fa-icon
+                class="m-2"
+                [icon]="faInfoCircle"
+                (click)="showinfo()"
+              ></fa-icon>
+              <select
+                formControlName="modelName"
+                id="modelName"
+                name="modelName"
+                [ngClass]="{
+                  inputError:
+                    partnerSignUpForm?.controls?.modelName?.invalid &&
+                    partnerSignUpForm?.controls?.modelName?.touched
+                }"
+              >
+                <!-- <option
+                    hidden
+                    selected
+                    value=""
+                    *ngIf="partnerSignUpForm.controls.franchiseType.value"
+                  >
+                    Select Model Name
+                  </option>
+                  <option
+                    hidden
+                    selected
+                    value=""
+                    *ngIf="!partnerSignUpForm.controls.franchiseType.value"
+                  >
+                    Select Frachise Type First
+                  </option> -->
+                <option
+                  *ngFor="let model of modelData"
+                  [value]="model?.modelName"
+                >
+                  {{ model?.modelName | titlecase }}
+                </option>
+              </select>
+              <div
+                *ngIf="
+                  partnerSignUpForm?.controls?.modelName?.invalid &&
+                  partnerSignUpForm?.controls?.modelName?.touched
+                "
+              >
+                <div
+                  *ngIf="
+                    partnerSignUpForm?.controls?.modelName?.errors?.required
+                  "
+                  class="error-text"
+                >
+                  Model Type is required
+                </div>
+              </div>
+            </div>
+
+            <div
+              class="form-group"
+              *ngIf="
+                partnerSignUpForm?.controls?.franchiseMastrId?.value == '1'
+              "
+            >
+              <label
+                class="form-check-label hint-text required"
+                for="extension"
+              >
+                Extension
+              </label>
+              <select
+                formControlName="extension"
+                id="extension"
+                name="extension"
+                (change)="
+                  partnerSignUpForm?.controls?.price?.setValue('');
+                  partnerSignUpForm?.controls?.appPrice?.setValue('');
+                  checkApiCall_GetPricing()
+                "
+                placeholder="Select Extension"
+                [ngClass]="{
+                  inputError:
+                    partnerSignUpForm?.controls?.extension?.invalid &&
+                    partnerSignUpForm?.controls?.extension?.touched
+                }"
+              >
+                <option hidden selected value="">Select extension</option>
+                <option
+                  *ngFor="
+                    let extension of getExtension(
+                      partnerSignUpForm?.controls?.modelName?.value
+                    )
+                  "
+                  value="{{ extension?.name }}"
+                >
+                  {{ extension?.name }}
+                </option>
+              </select>
+              <div
+                *ngIf="
+                  partnerSignUpForm?.controls?.extension?.invalid &&
+                  partnerSignUpForm?.controls?.extension?.touched
+                "
+              >
+                <div
+                  *ngIf="
+                    partnerSignUpForm?.controls?.extension?.errors?.required
+                  "
+                  class="error-text"
+                >
+                  Extension is required
+                </div>
+              </div>
+            </div>
+
+            <div
+              class="form-group"
+              *ngIf="
+                (partnerSignUpForm?.controls?.franchiseMastrId?.value === '1' &&
+                  partnerSignUpForm?.controls?.extension?.value?.length > 0) ||
+                (partnerSignUpForm?.controls?.franchiseMastrId?.value === '2' &&
+                  (partnerSignUpForm?.controls?.franchiseType?.value === '1' ||
+                    partnerSignUpForm?.controls?.franchiseType?.value === '3'))
+              "
+            >
+              <label class="form-check-label hint-text" for="price">
+                Price</label
+              >
+              <div class="input-group">
+                <input
+                  class="form-control"
+                  type="text"
+                  formControlName="price"
+                  id="price"
+                  name="price"
+                />
+                <div class="input-group-append">
+                  <span class="input-group-text" id="basic-addon2">
+                    +18% GST
+                  </span>
+                </div>
+                <div style="margin: 0.3rem 0; float: left">&nbsp;</div>
+              </div>
+            </div>
+
+            <div
+              class="form-group"
+              *ngIf="
+                (partnerSignUpForm?.controls?.franchiseMastrId?.value === '1' &&
+                  partnerSignUpForm?.controls?.extension?.value?.length > 0) ||
+                (partnerSignUpForm?.controls?.franchiseMastrId?.value === '2' &&
+                  (partnerSignUpForm?.controls?.franchiseType?.value === '1' ||
+                    partnerSignUpForm?.controls?.franchiseType?.value === '3'))
+              "
+            >
+              <label class="form-check-label hint-text" for="appprice">
+                App Price</label
+              >
+              <div class="input-group">
+                <input
+                  class="form-control"
+                  type="text"
+                  formControlName="appPrice"
+                  id="appprice"
+                  name="appprice"
+                />
+                <div class="input-group-append">
+                  <span class="input-group-text" id="basic-addon2">
+                    +18% GST
+                  </span>
+                </div>
+                <div style="margin: 0.3rem 0; float: left">&nbsp;</div>
+              </div>
+            </div>
+
+            <!-- <label class="form-label hint-text required" for="price"
+                >Price</label
+              >
+              <div class="input-group">
+                <input
+                  type="text"
+                  formControlName="price"
+                  id="price"
+                  name="price"
+                  placeholder="Select a Model to see the price"
+                  [ngClass]="{
+                    'form-control': true,
+                    inputError:
+                      partnerSignUpForm.controls.price.invalid &&
+                      partnerSignUpForm.controls.price.dirty
+                  }"
+                  aria-describedby="basic-addon2"
+                />
+                <div
+                  class="input-group-append"
+                  *ngIf="
+                    partnerSignUpForm.controls.price.value ||
+                    partnerSignUpForm.controls.price.value === 0
+                  "
+                >
+                  <span class="input-group-text" id="basic-addon2">
+                    Inclusive of all taxes
+                  </span>
+                </div>
+                <div
+                  *ngIf="
+                    partnerSignUpForm.controls.price.invalid &&
+                    partnerSignUpForm.controls.price.dirty
+                  "
+                >
+                  <div
+                    *ngIf="partnerSignUpForm.controls.price.errors?.required"
+                    class="error-text"
+                  >
+                    price is required
+                  </div>
+                </div>
+              </div>
+              <div
+                *ngIf="partnerSignUpForm.controls.franchiseType.value == '1'"
+              >
+                <label class="form-label hint-text required" for="price"
+                  >App Price</label
+                >
+                <div class="input-group">
+                  <input
+                    type="text"
+                    formControlName="appPrice"
+                    id="appPrice"
+                    name="appPrice"
+                    [ngClass]="{
+                      'form-control': true,
+                      inputError:
+                        partnerSignUpForm.controls.appPrice.invalid &&
+                        partnerSignUpForm.controls.appPrice.dirty
+                    }"
+                    aria-describedby="basic-addon2"
+                  />
+                  <div
+                    class="input-group-append"
+                    *ngIf="
+                      partnerSignUpForm.controls.appPrice.value ||
+                      partnerSignUpForm.controls.appPrice.value === 0
+                    "
+                  >
+                    <span class="input-group-text" id="basic-addon2">
+                      + 18% GST
+                    </span>
+                  </div>
+                  <div
+                    *ngIf="
+                      partnerSignUpForm.controls.appPrice.invalid &&
+                      partnerSignUpForm.controls.appPrice.dirty
+                    "
+                  >
+                    <div
+                      *ngIf="
+                        partnerSignUpForm.controls.appPrice.errors?.required
+                      "
+                      class="error-text"
+                    >
+                      appPrice is required
+                    </div>
+                  </div>
+                </div>
+              </div> -->
+
+            <!-- <div
+                class="form-group"
+                *ngIf="partnerSignUpForm.controls.franchiseType.value !== '3'"
+              >
+                <label
+                  class="form-check-label hint-text required"
+                  for="location"
+                  >Location of Operation</label
+                >
+                <input
+                  type="text"
+                  formControlName="location"
+                  id="location"
+                  name="location"
+                  placeholder="Enter your Location"
+                  [ngClass]="{
+                    inputError:
+                      partnerSignUpForm.controls.location.invalid &&
+                      partnerSignUpForm.controls.location.dirty
+                  }"
+                />
+                <div
+                  *ngIf="
+                    partnerSignUpForm.controls.location.invalid &&
+                    partnerSignUpForm.controls.location.dirty
+                  "
+                >
+                  <div
+                    *ngIf="partnerSignUpForm.controls.location.errors?.required"
+                    class="error-text"
+                  >
+                    Location is required
+                  </div>
+                </div>
+              </div> -->
+          </div>
+        </div>
+        <div
+          class="row"
+          *ngIf="partnerSignUpForm?.controls?.purchaseRequired?.value"
+        >
+          <div class="col-md-12 terms-col">
+            <div class="form-group">
+              <label class="text_small hint-text">
+                <span><b>Note:</b> &nbsp;</span>
+                <span>{{ notes }}</span>
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-12 terms-col">
+            <div class="form-group">
+              <input
+                type="checkbox"
+                formControlName="termsAndConditions"
+                name="terms"
+                #Terms
+                id="Terms"
+                class="terms-checkbox"
+              />
+              <span class="text_small">I agree to the</span
+              ><label
+                class="text_small hint-text"
+                (click)="showTermsAndConditions()"
+                >Terms and conditions</label
+              >
+            </div>
+          </div>
+        </div>
+
+        <div class="row" style="margin: 1rem 0">
+          <div
+            class="
+              col-xs-1
+              offset-xs-1
+              col-md-6 col-lg-3
+              offset-lg-6
+              col-sm-6
+              offset-xs-6
+            "
+          >
+            <button
+              type="button"
+              class="secondary-button"
+              style="margin-bottom: 1rem"
+              (click)="saveDetails()"
+            >
+              Save
+            </button>
+          </div>
+          <div class="col-xs-6 col-md-6 col-lg-3 col-sm-6">
+            <button
+              type="submit"
+              class="primary-button"
+              style="margin-bottom: 1rem"
+              [disabled]="!(partnerSignUpForm?.valid && enableSubmitBtn)"
+            >
+              Submit
+            </button>
+            <!-- {{ enableSubmitBtn }} {{ partnerSignUpForm?.valid }}
+              {{ partnerSignUpForm?.value | json }} -->
+            <!-- {{ partnerSignUpForm?.valid }}
+              {{ findInvalidControls() }} -->
+            <!-- [disabled]="partnerSignUpForm.invalid || enableSubmitBtn == false" -->
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<app-modal #tncModal [title]="'Terms And Conditions'">
+  <h6>Disclaimer : Terms & conditions</h6>
+  <p>
+    order to protect the reputation and goodwill of EpanipuriiKartz, and to
+    maintain high standards of operation under the Trademarks and the System, I
+    shall conduct its business in accordance with the Manual and all other
+    directives of EpanipuriiKartz. I shall treat the Manual, and the information
+    contained therein, as confidential, and shall use all reasonable efforts to
+    maintain such information as secret and confidential.Except for providing
+    the Manual to Sub franchisees and key employees who require access to the
+    Manual for the purpose of discharging their responsibilities, I shall not at
+    any time copies, duplicate, record or otherwise reproduce the foregoing
+    materials, in whole or in part nor otherwise make the same available to any
+    unauthorized person. The Manual, including any copyright therein, shall at
+    all times remain the sole property of EpanipuriiKartz.
+  </p>
+</app-modal>
+<app-modal #infoModal [title]="'Information'">
+  <accordion [isAnimated]="true" [closeOthers]="true">
+    <accordion-group *ngFor="let item of accordionItem" #groupval>
+      <div class="btn btn-link btn-block clearfix" accordion-heading>
+        <div class="pull-left float-left">{{ item.heading }}</div>
+      </div>
+      <p>{{ item.content }}</p>
+    </accordion-group>
+  </accordion>
+</app-modal>

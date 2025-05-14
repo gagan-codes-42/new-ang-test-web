@@ -1,0 +1,60 @@
+
+<div class="container-fluid h-100">
+    <div class="row h-100 row-1 container-row" style="margin-top: 135px;">
+      <div class="col-md-6 offset-md-3 card-non-hover">
+        <div class="sub-heading-text-1-semi-bold" style="margin: 1rem 0 2rem 0; padding: 0 1rem">
+            YOUR ORDERS          
+        </div>        
+        <div>
+            <div class="card w-100 mb-2 d-sm-none d-none d-md-block d-lg-block" *ngFor="let item of mytempOrderList" (click)="getOrderByOrderId(item.orderId)">
+                <div class="card-body">
+                  <div class="m-b-20">
+                    <div class="d-flex flex-row comment-row">
+                        <div class="comment-text w-100 mt-2">
+                            <div class="comment-time"> <span class="label" 
+                              [ngClass]="{'label-info' : item.orderStatus === 'placed' , 
+                              'label-danger':  item.orderStatus === 'rejected', 'label-primary': item.orderStatus === 'confirmed' , 
+                              'label-warning' : item.orderStatus === 'pending',
+                              'label-cancel':item.orderStatus === 'canceled',
+                            'label-delivered': item.orderStatus === 'delivered',
+                          'label-dispatched' : item.orderStatus === 'dispatched'}">{{item.orderStatus |  uppercase}}</span> <span class="action-icons"></span></div>
+                            <div class="mb-1"><b>Order ID</b></div>
+                            <div class="mb-1" style="float: left; ">{{item.orderId}}</div>
+                            
+                            <div style="float: right; ">
+                            <div class="m-0">Order date</div>
+                            <div class="m-0">{{ getDate(item.timestamp) }}</div>
+                          </div>
+                        </div>
+                    </div>
+                </div>
+                  
+                </div> 
+              </div>
+              <div class="card w-100 mb-2 d-md-none d-lg-none d-sm-block d-block" *ngFor="let item of mytempOrderList" (click)="getOrderByOrderId(item.orderId)">
+                <div class="card-body ">
+                    <mat-list>
+                        <mat-list-item><b>Order ID :</b>{{item.orderId}}</mat-list-item>
+                        <mat-list-item> <span class="label" 
+                            [ngClass]="{'label-info' : item.orderStatus === 'placed' , 
+                            'label-danger':  item.orderStatus === 'rejected', 'label-primary': item.orderStatus === 'confirmed' , 
+                            'label-warning' : item.orderStatus === 'pending',
+                            'label-cancel':item.orderStatus === 'canceled',
+                          'label-delivered': item.orderStatus === 'delivered',
+                        'label-dispatched' : item.orderStatus === 'dispatched'}">{{item.orderStatus |  uppercase}}</span> <span class="action-icons"></span> </mat-list-item>
+                        <mat-list-item> Order date </mat-list-item>
+                        <mat-list-item> {{ getDate(item.timestamp) }} </mat-list-item>
+                       </mat-list>
+                </div> 
+              </div>
+              <mat-paginator *ngIf="orderlength > 0" [length]="orderlength"
+               [pageSize]="pageSize"
+               [pageSizeOptions]="pageSizeOptions"
+               (page)="pageEvent = getData($event)">
+</mat-paginator>
+            
+        </div>
+    </div>
+    </div>
+  </div>
+

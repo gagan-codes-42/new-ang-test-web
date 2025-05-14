@@ -1,0 +1,14 @@
+<div class="search-category-div">
+    <input #categorySearch (keyup)="searchCategory(categorySearch.value)" placeholder="Search Category"
+        class="search-input">
+</div>
+<div>
+    <mat-list>
+        <div *ngFor="let category of tempData">
+            <div class="text-div" (click)="setCategory(category.name)">
+                <mat-list-item class="category-name text-truncate">{{category.name}}</mat-list-item>
+            </div>
+            <mat-divider></mat-divider>
+        </div>
+    </mat-list>
+</div>

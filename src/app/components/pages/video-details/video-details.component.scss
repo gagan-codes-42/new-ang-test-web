@@ -1,0 +1,5 @@
+.form-check-label.required:after {
+    content:"*";
+    padding: 4px;
+    color:red;
+  }

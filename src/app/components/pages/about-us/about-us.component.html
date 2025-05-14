@@ -1,0 +1,108 @@
+<app-blank-header></app-blank-header>
+<div class="container-fluid pt-5">
+  <div class="row bg-prime pt-5 ">
+    <div class="col d-flex flex-column align-items-center justify-content-center h-s pt-5 ">
+      <h6 class="who">WHO WE ARE</h6>
+      <!-- <h1 class="d-flex align-items-center justify-content-center">About &nbsp; <span>Us</span>  </h1> -->
+      <h1 class="d-flex align-items-center justify-content-center">E-panipurii &nbsp; <span>Kartz</span></h1>
+      <h5>REDEFINING THE TRADITIONAL PANIPURI EXPERIENCE </h5>
+    </div>
+  </div>
+
+  <div class="page container">
+    <p>Started in Ranchi, E-panipuriikartz – a venture of Water N Spices Foodsz Private Limited– is a revolutionary
+      startup in the Indian street food space, driven by advanced technology. The brand ‘E-panipuriikartz’ serves
+      CONTACTLESS panipuris through its innovative cart and kiosks ensuring complete hygiene, quality, and taste.</p>
+    <p class="heading"><strong>Key Offerings&nbsp;</strong></p>
+    <p>Panipuri Fills | Panipuri Gups | Panipuri Shots | Panipuri Mix&nbsp;</p>
+    <p>In India, panipuri is a highly popular street food that is largely sold by unorganized vendors selling it door to
+      door. To make this segment organized and reach out to taste connoisseurs who would like to not just eat their
+      favorite panipuri for taste but would also like it to be served in an organized way, especially after the Covid-19
+      pandemic</p>
+    <p class="heading"><strong>Comprehensive Operational Support&nbsp;</strong></p>
+    <p>For successful operations, E-panipuriikartz will work with and support its partners for ensuring mutual growth
+      and profitability.&nbsp;</p>
+    <p><strong>Great Reasons to Partner with E-panipuriikartz&nbsp;</strong></p>
+    <ul>
+      <li>A highly demanded product in the Indian street food sector</li>
+      <li>Popular amongst every age group for its tasty, hygienic, and quality panipuris &amp; more&nbsp;</li>
+      <li>Efficiently operated &amp; managed by a highly professional management team</li>
+      <li>Low investment opportunity with attractive ROI and impressive payback</li>
+      <li>Comprehensive setup, training, operations &amp; management support by the brand&nbsp;</li>
+    </ul>
+    <p class="heading"><strong>We are present</strong></p>
+    <p class=""><strong>Store Locator with India Map&nbsp;</strong></p>
+    <p class="heading"><strong>Our Mission</strong></p>
+    <p class=""><strong>Connecting Tradition with Technology!&nbsp;</strong></p>
+    <p>‘E-panipuriikartz’ concept efficiently connects tradition with technology. The E-panipuriikartz has 3nozzles -
+      each one dispenses different panipuri flavor. This, in turn, helps the customers to fill the puris with panipuri
+      flavor on their own.&nbsp;</p>
+    <p><i><strong>What’s more, E-panipuriikartz is IoT enabled, mobile app operated which controls switching on/off,
+          checks Water Level, Water Flow, Filling, Tampering Control, and also provides Live Report.&nbsp;</strong></i>
+    </p>
+    <p><strong>Compliance with&nbsp;</strong></p>
+    <p>IS 16066: 2012 | FOSTAC | FSSAI</p>
+    <p><strong>How E-panipuriikartz is changing the face of street food?&nbsp;</strong></p>
+    <p><i>“Soch Nayi…Swaad Wahi”&nbsp;</i></p>
+    <ul>
+      <li>Flavor: Get your own desired flavor from a wide range of 15 flavors&nbsp;</li>
+      <li>Taste: Enriched with regional taste&nbsp;</li>
+      <li>Variety: Unique style Fills, Gups, Shots&nbsp;</li>
+      <li>Quality: Lab tested, quality ingredients&nbsp;</li>
+    </ul>
+    <p class="heading"><strong>Our Vision</strong></p>
+    <p class=""><strong>EXPANDING FOOTPRINT&nbsp;</strong></p>
+    <p><strong>TAKING THE COLLABORATIVE ROUTE&nbsp;</strong></p>
+    <p>Successfully launched, we are now expanding the footprint of E-panipuriikartz across India in different Table Top
+      Models. Presently, the company is looking for Tie-ups with Food brands, Multi Cuisine Outlets, Fast Food joints
+      etc. We will be providing a Central operating system for a Brand for its Multiple units. Collaboration with Master
+      Brand will be for Machine supply, IT Setup &amp; Maintenance and Spices Supply</p>
+
+    <div class="row pt-4"></div>
+    <div class="team-about">
+
+      <p class="heading pt-4"><strong>Our Team</strong></p>
+      <p class=""><strong>About the Founding Team</strong></p>
+      <p>E-panipuriikartz has been conceptualized by Harish Neotia, Manisha Neotia , Jyoti Prakash Sahoo, Dibya Sundar
+        Rath who are strongly focused on bringing innovative solutions to serve the Indian market. The brand is
+        accomplished by a young energetic team covering every aspect of different portfolios necessary in the company.
+      </p>
+      <div class="row mt-4 pt-4"></div>
+
+      <p class="heading pt-4 text-center pb-4"><strong>Our Team</strong></p>
+
+      <owl-carousel-o [options]="customOptions">
+        <ng-container *ngFor="let team of teamData">
+          <ng-template carouselSlide>
+            <div class="row">
+              <div class="col-12 col-md-3">
+                <div class="namePhotoAndPosition">
+                  <div class="team-image">
+                    <img class="image-style-align-left" [src]="team.img" [alt]="team.name">
+                  </div>
+                  <div><strong>{{team.name}}</strong></div>
+                  <div class="position">{{team.position}}</div>
+                  <div class="linkedin">
+                    <a target="_blank" rel="noopener noreferrer" [href]="team.linkedIn">
+                      <img src="../../../../assets/img/svg/linkedin-app-icon.svg" />
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <div class="col-12 col-md-9">
+                <p>{{team.intro}}</p>
+              </div>
+              <div class="col-12 col-md-12 pt-4">
+                <blockquote>{{team.quote}}</blockquote>
+              </div>
+            </div>
+          </ng-template>
+        </ng-container>
+
+      </owl-carousel-o>
+
+    </div>
+  </div>
+</div>
+
+<div class="row mt-4 pt-4"></div>

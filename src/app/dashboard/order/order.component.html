@@ -1,0 +1,48 @@
+<div class="container-fluid h-100">
+  <div class="row h-100 row-1 container-row" style="margin-top: 135px">
+    <div class="col-md-6 offset-md-3 card-non-hover">
+      <div
+        class="sub-heading-text-1-semi-bold"
+        style="margin: 1rem 0 2rem 0; padding: 0 1rem"
+      >
+        YOUR ORDERS
+      </div>
+      <div>
+        <div
+          class="card w-100 mb-2"
+          *ngFor="let item of myOrderList"
+          (click)="showTracking(item)"
+        >
+          <div class="card-body">
+            <div class="m-b-20">
+              <div class="d-flex flex-row comment-row">
+                <div class="comment-text w-100 mt-2">
+                  <div class="comment-time">
+                    <span
+                      class="label"
+                      [ngClass]="{
+                        'label-info': item.status !== 'rejected',
+                        'label-danger': item.status === 'rejected',
+                        'label-primary': item.status === 'confirmed'
+                      }"
+                      >{{ item.status | uppercase }}</span
+                    >
+                    <span class="action-icons"></span>
+                  </div>
+                  <div class="mb-1">{{ item.order_id }}</div>
+                  <div style="float: left">
+                    <p class="nozzelName">{{ item.model_name }}</p>
+                  </div>
+                  <div style="float: right">
+                    <div class="m-0">Delivered by</div>
+                    <div class="m-0">{{ getDate(item.deliveryDate) }}</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

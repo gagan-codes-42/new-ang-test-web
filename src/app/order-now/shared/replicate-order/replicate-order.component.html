@@ -1,0 +1,12 @@
+<div class="wrapper-div">
+    <div class="info-text">Item already exists in cart</div>
+    <p>Previous Customization : {{ getPrevItem()["customization"] }}</p>
+    <div class="btns-div">
+      <button mat-flat-button color="primary" (click)="onChoose()">
+        I'll Choose
+      </button>
+      <button mat-stroked-button color="primary" (click)="onRepeat()">
+        Repeat
+      </button>
+    </div>
+  </div>

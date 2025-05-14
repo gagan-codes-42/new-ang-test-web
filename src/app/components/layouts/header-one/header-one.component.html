@@ -1,0 +1,188 @@
+<header class="top-area">
+  <div class="container">
+    <!-- <div class="top-bar">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 col-md-6">
+          <div class="call-to-action">
+            <p>
+              <i class="icofont-envelope"></i> Email:
+              <a href="mailto:info@epanipuricart.in">info@epanipuricart.in</a>
+            </p>
+            <p>
+              <i class="icofont-phone"></i> Phone:
+              <a href="tel:+917676135136">+91 7676135136</a>
+            </p>
+          </div>
+        </div>
+
+        <div class="col-lg-6 col-md-6">
+          <ul class="top-social">
+            <li>
+              <a href="#" target="_blank"><i class="icofont-facebook"></i></a>
+            </li>
+            <li>
+              <a href="#" target="_blank"><i class="icofont-twitter"></i></a>
+            </li>
+            <li>
+              <a href="#" target="_blank"><i class="icofont-dribbble"></i></a>
+            </li>
+            <li>
+              <a href="#" target="_blank"><i class="icofont-behance"></i></a>
+            </li>
+            <li>
+              <a href="#" target="_blank"><i class="icofont-rss-feed"></i></a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div> -->
+
+    <nav
+      class="navbar navbar-expand-lg navbar-light bg-light transparent-navbar"
+    >
+      <div class="container">
+        <a class="navbar-brand oval-crop" routerLink="/">
+          <img src="assets/img/epanipuricart.png" alt="EPanipuri Cart" />
+        </a>
+        <a class="navbar-brand black-logo oval-crop" routerLink="/">
+          <img src="assets/img/epanipuricart.png" alt="EPanipuri Cart" />
+        </a>
+
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ml-auto align-items-center">
+            <li class="nav-item">
+              <a class="nav-link" href="#home">HOME</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/aboutus">ABOUT US</a>
+            </li>
+            <!-- <li class="nav-item"><a class="nav-link" href="#offer">Menu</a></li> -->
+            <!-- <li class="nav-item">
+              <a class="nav-link" href="#features">Features</a>
+            </li> -->
+            <!-- <li class="nav-item"><a class="nav-link" href="#menu">Menu</a></li> -->
+            <!-- <li class="nav-item"><a class="nav-link" href="#chefs">Team</a></li> -->
+            <!-- <li class="nav-item">
+            <a class="nav-link" href="#gallery">Gallery</a>
+          </li> -->
+            <!-- <li class="nav-item"><a class="nav-link" href="#blog">Blog</a></li> -->
+            <li class="nav-item">
+              <div
+                class="nav-link cursor-pointer"
+                (click)="routeToLink('blogs')"
+                [ngClass]="{ active: isRouteActive('blogs') }"
+              >
+                BLOGS
+              </div>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#menu">MENU </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#gallery">GALLERY </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" [routerLink]="['/landing']">FRANCHISE </a>
+            </li>
+            
+            <li class="nav-item">
+              <a class="nav-link" href="#contact">CONTACT US </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="https://epanipuricarts.in/">ONLINE STORE </a>
+            </li>
+            <li class="nav-item">
+              <a
+                class="
+                  nav-link
+                  btn btn-primary
+                  d-flex
+                  align-items-center
+                  justify-content-center
+                  text-nowrap p-2
+                "
+              routerLink="/login"
+                >LOGIN
+              </a>
+            </li>
+
+            <!-- <li class="nav-item">
+              <div class="nav-link cursor-pointer">
+                <div id="forms" class="Floatbtn op5 text-white" container="body" placement="left"
+                  containerClass="cursor-pointer">
+                  <a href="tel:+917676135136" target="_blank"><i id="addIcon" class="material-icons">phone</i></a>
+                </div>
+              </div>
+            </li>
+
+            <li class="nav-item">
+              <div class="nav-link cursor-pointer">
+                <div id="drawings" class="Floatbtn op4" container="body" placement="left"
+                  containerClass="cursor-pointer">
+                  <a href="mailto:info@epanipuricart.in" target="_blank">
+                    <i id="addIcon" class="material-icons"> email </i>
+                  </a>
+                </div>
+              </div>
+            </li>
+            <li class="nav-item">
+              <div class="nav-link cursor-pointer">
+                <div id="forms" class="Floatbtn op5 text-white" container="body" placement="left"
+                  containerClass="cursor-pointer">
+                  <div (click)="createVideoRoom()">
+                    <i id="addIcon" class="material-icons">video_call</i>
+                  </div>
+                </div>
+              </div>
+            </li> -->
+
+            <!-- <ng-container *ngIf="mobileMode">
+              <li class="nav-item">
+                <div class="nav-link cursor-pointer" (click)="routeToLink('dashboard/controlPanel')" [ngClass]="{
+                    active: isRouteActive('login'),
+                    titleCase: isLoggedIn
+                  }">
+                  {{ userName | titlecase }}
+                </div>
+              </li>
+              <li class="nav-item" *ngIf="isLoggedIn">
+                <div class="nav-link cursor-pointer" (click)="logout()">
+                  Logout
+                </div>
+              </li>
+              <li class="nav-item" *ngIf="!isLoggedIn">
+                <div class="nav-link cursor-pointer" (click)="routeToLink('register')">
+                  Partner With Us
+                </div>
+              </li>
+            </ng-container> -->
+            <!-- <li class="nav-item" *ngIf="!mobileMode">
+              <div class="nav-link cursor-pointer">
+                <div id="forms" class="Floatbtn op5 text-white" container="body" placement="left"
+                  containerClass="cursor-pointer">
+                  <div (click)="sharedSvc.toggleSidebar()">
+                    <i id="addIcon" class="material-icons">menu</i>
+                  </div>
+                </div>
+              </div>
+            </li> -->
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </div>
+</header>

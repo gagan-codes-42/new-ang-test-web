@@ -1,0 +1,93 @@
+<section id="contact" class="contact-area jarallax" data-jarallax='{"speed": 0.3}'>
+  <div class="container-fluid">
+    <div class="row above"></div>
+    <div class="row text-white text-center above footer pt-5">
+      <div class="col pt-5 head">
+        <p class="text-bold">Contact Us</p>
+        <h6>To Be <span class="text-danger"> Our Partner</span></h6>
+      </div>
+    </div>
+  </div>
+  <div class="container-fluid bg-dark footer pt-4">
+    <div class="container">
+      <div class="row justify-content-between text-white">
+        <div class="col-sm-5 col-12">
+          <p class="divider py-2">SUBSCRIBE NEWSLETTER</p>
+          <form [formGroup]="subscribeForm">
+            <div class="d-flex flex-row">
+              <input type="text" formControlName="email" placeholder="YOUR EMAIL" />
+              <button class="ml-2" (click)="subscribeNewsLetter()">
+                <i class="fal fa-long-arrow-right mx-3"></i>
+              </button>
+            </div>
+          </form>
+          <p class="pt-serif divider py-2 mt-3">
+            WATER N SPICES FOODSZ PRIVATE LIMITED
+          </p>
+         
+          <p class="footerCallEmail">
+            <a href="mailto:info@epanipuricart.in">
+            <i class="fas fa-envelope mr-3 text-warning"></i> info@epanipuricart.in</a>
+          </p>
+          <p class="footerCallEmail">
+            <a href="tel:+917676135136">
+            <i class="fas fa-phone-alt mr-3 text-warning"></i>
+            +91 7676135136
+            </a>
+          </p>
+        </div>
+        <div class="col-sm-5 col-12">
+          <p class="divider py-2 text text-uppercase">Headquarters</p>
+          <div></div>
+          <p class="pt-serif footerCallEmail">
+            <a href="https://g.page/Epanipuriikartz?share" target="_blank"><i class="fad fa-map-marked-alt text-warning mr-2"></i> 203, Liya Complex Hindpiri Main Road, Ranchi, Jharkhand, India, 834001</a>
+          </p>
+          <p class="divider py-2 text text-uppercase">WORKSHOP</p>
+          <p class="pt-serif footerCallEmail">
+           <a href="https://g.co/kgs/aTWfBD" target="_blank"><i class="fad fa-map-marked-alt text-warning mr-2"></i> Plot No. 64, Surya Nagar Unit-7, Bhubaneswar, Odisha, India, 751003</a>
+          </p>
+        </div>
+      </div>
+      <div class="row justify-content-between text-white footerMenu">
+        <div class="col-sm-4 col-12">
+          <p class="divider py-2">OUR COMPANY</p>
+         <ul>
+          <li><a [routerLink]="['/']">Home</a></li>
+          <li><a [routerLink]="['/aboutus']">About us</a></li>
+          <li><a [routerLink]="['/landing']">Product/service Catalogue</a></li>
+          <li><a href="https://epanipuricarts.in">Online Store</a></li>
+         </ul>
+        </div>
+        <div class="col-sm-4 col-12">
+          <p class="divider py-2">USEFUL LINKS</p>
+         <ul>
+          <li><a [routerLink]="['/tnc']">Terms & Condition</a></li>
+          <li><a [routerLink]="['/privacy-policy']">Privacy Policy</a></li>
+          <li><a [routerLink]="['/shipping']">Shipping & Delivery</a></li>
+          <li><a [routerLink]="['/cancellation-policy']">Cancellation Policy</a></li>
+          <li><a [routerLink]="['/refund-policy']">Refund Policy</a></li>
+          <li><a [routerLink]="['/contact-us']">Contact Us</a></li>
+         </ul>
+        </div>
+        <div class="col-sm-4 col-12">
+          <p class="divider py-2">CONNECT WITH US</p>
+         <ul class="footer-social">
+          <li><a href="https://www.youtube.com/c/Epanipuricart"><img src="../../../../assets/img/svg/youtube-color-icon.svg">  YouTube</a></li>
+          <li><a href="https://www.facebook.com/epanipuricart/"><img src="../../../../assets/img/svg/facebook-round-color-icon.svg">  Facebook</a></li>
+          <li><a href="https://www.instagram.com/epanipuricart/"><img src="../../../../assets/img/svg/ig-instagram-icon.svg">  Instagram</a></li>
+          <li><a href="https://www.linkedin.com/company/epanipuricart/"><img src="../../../../assets/img/svg/linkedin-app-icon.svg">  Linkedin</a></li>
+          <li><a href="https://twitter.com/epanipuricart"><img src="../../../../assets/img/svg/twitter-color-icon.svg">  Twitter</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="divider"></div>
+      <div class="row">
+        <div class="col pt-serif botton py-4 ">
+          <span class="cursor-pointer ml-auto">Copyright@2023 Water N Spices Foodsz Pvt. Ltd. All rights reserved
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

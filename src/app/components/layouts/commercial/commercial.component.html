@@ -1,0 +1,130 @@
+<section
+  id="commercial"
+  class="commercial-area ptb-100 jarallax"
+  data-jarallax='{"speed": 0.3}'
+>
+  <div class="container">
+    <div class="section-title">
+      <span>Partners</span>
+      <h2>Salient Features</h2>
+    </div>
+    <owl-carousel-o [options]="customOptions">
+      <ng-template carouselSlide>
+        <div class="single-commercial">
+          <div class="commercial">
+            <div class="card commercial-content">
+              <div class="row">
+                <div class="col-md-6 col-sm-12 commercial-image">
+                  <img
+                    src="assets/img/logo/vending.svg"
+                    alt="Vending machine"
+                  />
+                </div>
+                <div class="col-md-6 col-sm-12 commercial-description">
+                  <div class="h4">Automatic Dispensing Machine</div>
+                  <p>Touchless operated by Mobile App</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </ng-template>
+      <ng-template carouselSlide>
+        <div class="single-commercial">
+          <div class="commercial">
+            <div class="card commercial-content">
+              <div class="row">
+                <div
+                  class="
+                    col-md-5
+                    offset-md-1
+                    col-sm-12
+                    offset-sm-0
+                    commercial-description
+                  "
+                >
+                  <div class="h4">Mobile App Support</div>
+                  <p>Offering:</p>
+                  <ul>
+                    <li>Machine operating Dashboard</li>
+                    <li>Management</li>
+                    <li>Billing</li>
+                    <li>Online Ordering</li>
+                    <li>Payment</li>
+                  </ul>
+                </div>
+                <div class="col-md-6 col-sm-12 commercial-image">
+                  <img src="assets/img/logo/apps.svg" alt="Mobile" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </ng-template>
+      <ng-template carouselSlide>
+        <div class="single-commercial">
+          <div class="commercial">
+            <div class="card commercial-content">
+              <div class="row">
+                <div class="col-md-6 col-sm-12 commercial-image">
+                  <img
+                    src="assets/img/logo/ingredients.svg"
+                    alt="Raw Materials"
+                  />
+                </div>
+                <div class="col-md-6 col-sm-12 commercial-description">
+                  <div class="h4">Raw Materials</div>
+                  <ul>
+                    <li>Panipuri Flavours</li>
+                    <li>Chutneys</li>
+                    <li>Spices</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </ng-template>
+      <ng-template carouselSlide>
+        <div class="single-commercial">
+          <div class="commercial">
+            <div class="card commercial-content">
+              <div class="row">
+                <div
+                  class="
+                    col-md-5
+                    offset-md-1
+                    col-sm-12
+                    offset-sm-0
+                    commercial-description
+                  "
+                >
+                  <ul>
+                    <li>No Franchise fees</li>
+                    <li>No Royalty</li>
+                  </ul>
+                  <div class="h5 mt-2">Prices Starting from ₹25,000*</div>
+                  <p class="mt-2">*Terms & conditions apply</p>
+                </div>
+                <div class="col-md-6 col-sm-12 commercial-image">
+                  <img src="assets/img/logo/deal.svg" alt="Deal" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </ng-template>
+    </owl-carousel-o>
+    <div class="container mt-2">
+      <div class="row" *ngIf="!isFranchise">
+        <div
+          class="col-lg-5 offset-lg-7 col-md-10 offset-md-1 mb-2 text-center"
+        >
+          <button class="btn btn-primary" (click)="openRegistrationPage()">
+            Partner With Us ->
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

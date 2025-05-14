@@ -1,0 +1,54 @@
+<section class="feedback-area ptb-100 jarallax" data-jarallax='{"speed": 0.3}'>
+  <div class="container">
+    <div class="section-title">
+      <span>Testimonials</span>
+      <h2>What Customers Are Saying</h2>
+    </div>
+    <owl-carousel-o [options]="customOptions">
+      <ng-template carouselSlide>
+        <div class="single-feedback">
+          <p>They serve exclusive gapagaps and shots....must try!</p>
+
+          <div class="client-info">
+            <h3>Pragya Kashyap</h3>
+            <!-- <span>Developer</span> -->
+          </div>
+        </div>
+      </ng-template>
+      <ng-template carouselSlide>
+        <div class="single-feedback">
+          <p>Quick delivery and food is fresh.</p>
+
+          <div class="client-info">
+            <h3>Twinkle Kumari</h3>
+            <!-- <span>Designer</span> -->
+          </div>
+        </div>
+      </ng-template>
+      <ng-template carouselSlide>
+        <div class="single-feedback">
+          <p>
+            So many panipuris to taste & customisations at e-panipuri cart, you
+            can get your own-styled panipuris.
+          </p>
+
+          <div class="client-info">
+            <h3>Sneha Srivastava</h3>
+            <!-- <span>Teacher</span> -->
+          </div>
+        </div>
+      </ng-template>
+    </owl-carousel-o>
+  </div>
+  <div class="container mt-5">
+    <div class="row" >
+      <div
+        class="col-lg-5 offset-lg-7 col-md-10 offset-md-1 mb-2 text-center"
+      >
+        <button class="btn btn-primary" (click)="openRegistrationPage()">
+          Partner With Us ->
+        </button>
+      </div>
+    </div>
+  </div>
+</section>

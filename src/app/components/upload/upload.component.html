@@ -1,0 +1,199 @@
+<app-blank-header></app-blank-header>
+<ngx-spinner
+  bdColor="rgba(0, 0, 0, 0.8)"
+  size="default"
+  color="#ed4545"
+  type="ball-spin-clockwise"
+  [fullScreen]="true"
+  ><p style="color: white">Uploading...</p></ngx-spinner
+>
+<div class="container-fluid h-100">
+  <div class="row h-100 row-1 container-row" style="margin-top: 100px">
+    <div class="col-md-6 offset-md-3 card-non-hover">
+      <div
+        class="sub-heading-text-1-semi-bold"
+        style="margin: 1rem 0 2rem 0; padding: 0 1rem"
+      >
+        {{ "DASHBOARD.DOCUMENT_VERIFICATION" | translate }}
+
+        <fa-icon
+          style="font-size: 1rem"
+          class="fa-xs icon-div float-right"
+          [icon]="faArrowLeft"
+          (click)="backtoLanding()"
+        ></fa-icon>
+      </div>
+
+      <p>
+        You are almost there.Upload the below documents for verification which
+        shall be used for agreement signing.
+      </p>
+      <form [formGroup]="docFormGroup">
+        <div class="row">
+          <div class="col-md-6 mt-2">
+            <input
+              type="text"
+              readonly
+              for="filePhotograph"
+              placeholder="Upload Photograph...."
+              value="{{ fileNamePhotograph }}"
+              (click)="myPhotograph.click()"
+            />
+            <label class="file">
+              <input
+                type="file"
+                #myPhotograph
+                id="filePhotograph"
+                accept="image/x-png,image/jpg,image/jpeg"
+                name="filePhotograph"
+                style="padding: 7px; display: none"
+                (change)="selectFile($event, 'Photograph')"
+                aria-label="File browser example"
+              />
+            </label>
+          </div>
+          <div class="col-md-2 mt-2">
+            <button
+              type="button"
+              class="primary-button"
+              style="margin-bottom: 1rem"
+              tooltip="Upload Photograph"
+              (click)="myPhotograph.click()"
+              placement="top"
+            >
+              <fa-icon [icon]="faFileUpload"></fa-icon>
+            </button>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6 mt-2">
+            <input
+              type="text"
+              readonly
+              for="fileAdhar"
+              placeholder="Upload Adhar...."
+              value="{{ fileNameAdhar }}"
+              (click)="myAdhar.click()"
+            />
+            <label class="file">
+              <input
+                type="file"
+                #myAdhar
+                id="fileAdhar"
+                accept="image/x-png,image/jpg,image/jpeg"
+                name="fileAdhar"
+                style="padding: 7px; display: none"
+                (change)="selectFile($event, 'Adhar')"
+                aria-label="File browser example"
+              />
+            </label>
+          </div>
+          <div class="col-md-2 mt-2">
+            <button
+              type="button"
+              class="primary-button"
+              style="margin-bottom: 1rem"
+              (click)="myAdhar.click()"
+              tooltip="Upload Adhar"
+              placement="top"
+            >
+              <fa-icon [icon]="faFileUpload"></fa-icon>
+            </button>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6 mt-2">
+            <input
+              type="text"
+              formControlName="paninput"
+              readonly
+              for="filePan"
+              placeholder="Upload PAN...."
+              value="{{ fileNamePan }}"
+              (click)="myPAN.click()"
+            />
+            <label class="file">
+              <input
+                type="file"
+                #myPAN
+                id="filePan"
+                accept="image/x-png,image/jpg,image/jpeg"
+                name="filePan"
+                style="padding: 7px; display: none"
+                (change)="selectFile($event, 'PAN')"
+                aria-label="File browser example"
+              />
+            </label>
+          </div>
+          <div class="col-md-2 mt-2">
+            <button
+              type="button"
+              class="primary-button"
+              style="margin-bottom: 1rem"
+              tooltip="Upload PAN"
+              (click)="myPAN.click()"
+              placement="top"
+            >
+              <fa-icon [icon]="faFileUpload"></fa-icon>
+            </button>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-3 col-sm-6 mt-4 float-left">
+            <button
+              type="button"
+              (click)="generateSamplePdf()"
+              class="secondary-button"
+              style="margin-bottom: 1rem"
+            >
+             View Sample
+             
+            </button>
+          </div>
+          <div class="col-md-3 col-sm-6 mt-4 float-left">
+            <button
+              type="button"
+              (click)="confirmDoc()"
+              [disabled]="docFormGroup.invalid"
+              class="primary-button"
+              style="margin-bottom: 1rem"
+            >
+              Confirm
+            </button>
+          </div>
+        </div>
+      </form>
+      <div class="row">
+        <img
+          id="Photograph"
+          *ngIf="selectedPhotoFiles"
+          src="http://placehold.it/180"
+          class="rounded float-left"
+          width="180"
+          height="180"
+          class="img-thumbnail zoom m-3"
+          alt="..."
+        />
+        <img
+          id="Adhar"
+          *ngIf="selectedAdharFiles"
+          src="http://placehold.it/180"
+          class="rounded float-right"
+          width="180"
+          height="180"
+          class="img-thumbnail zoom m-3"
+          alt="..."
+        />
+        <img
+          id="PAN"
+          *ngIf="selectedPANFiles"
+          src="http://placehold.it/180"
+          alt="your image"
+          width="180"
+          height="180"
+          class="img-thumbnail zoom m-3"
+        />
+      </div>
+    </div>
+  </div>
+</div>

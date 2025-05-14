@@ -1,0 +1,108 @@
+@import '../../../colors.scss';
+
+.row-1 {
+  align-items: center;
+  padding: 1rem;
+}
+
+.container-row {
+  height: 100%;
+  margin-top: 5rem;
+}
+
+.terms-col {
+  padding: 0 2rem;
+  .terms-checkbox {
+    height: 2rem;
+    width: inherit;
+    margin-right: 0.3rem;
+    &:hover {
+      cursor: pointer;
+    }
+    &:checked {
+      background-color: $primary-color;
+    }
+  }
+  label {
+    margin: 0;
+    &:hover {
+      text-decoration: underline;
+      color: $primary-color;
+      cursor: pointer;
+    }
+  }
+  .form-group {
+    @include flex(row, center, flex-start);
+    margin: 0;
+  }
+}
+
+// rrc
+.shipAdrsSmBilAdrs-col {
+  padding: -5px 2rem;
+  float: left !important;
+  .shipAdrsSmBilAdrs-checkbox {
+    height: 2rem;
+    width: inherit;
+    margin-right: 0.3rem;
+    margin-left: 0;
+    &:hover {
+      cursor: pointer;
+    }
+    &:checked {
+      background-color: $primary-color;
+    }
+  }
+  label {
+    margin: 0;
+  }
+  .form-group {
+    @include flex(row, center, flex-start);
+    margin: 0;
+    float: none;
+  }
+}
+// rrc
+
+// .form-group,
+// .input-group {
+//   margin-bottom: 1.5rem;
+//   div {
+//     float: right;
+//   }
+// }
+::ng-deep {
+  .panel-heading {
+    padding-left: 5px !important ;
+    padding-top: 3px !important;
+    padding-bottom: 3px !important;
+    padding-right: 5px !important;
+  }
+}
+
+::ng-deep .ng-select-container {
+  min-height: 45px !important;
+  border-radius: 8px;
+}
+
+::ng-deep .ng-select input {
+  height: unset;
+  width: unset;
+  border-radius: unset;
+  border: unset;
+  padding: unset;
+}
+
+.form-check-label.required:after {
+  content: '*';
+  padding: 4px;
+  color: red;
+}
+
+select:disabled {
+  cursor: not-allowed !important;
+  color: -internal-light-dark(rgb(84, 84, 84), rgb(170, 170, 170));
+  border-color: rgba(118, 118, 118, 0.3);
+  background-color: #e9ecef;
+  opacity: 1;
+}

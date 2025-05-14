@@ -1,0 +1,18 @@
+{
+  "DASHBOARD": {
+    "TITLE": "अब आज्ञा दें",
+    "SELECT": "भाषा बदलें",
+    "AgreementText": "हरीश नेवतिया ने ई-आधार साइन के माध्यम से समझौते पर हस्ताक्षर करने के लिए आमंत्रित किया है",
+    "YOUR_AGREEMENTS": "आपके समझौते",
+    "CONTROL_PANEL": "कंट्रोल पैनल",
+    "NEW_ORDER": "खरीदारी करें",
+    "YOUR_ORDERS": "आपकी पिछली खरीदारी",
+    "PAYMENTS": "भुगतान",
+    "LOGOUT": "लॉग आउट",
+    "ADD_TO_CART":"कार्ट में जोड़ें",
+    "DOCUMENT_VERIFICATION" :"दस्तावेज़ सत्यापन",
+    "YOUR_DEVICES" :"आपके उपकरण",
+    "CHECKOUT":"चेक आउट",
+    "APPLYAGAIN":"दोबारा आवेदन करें"
+  }
+}

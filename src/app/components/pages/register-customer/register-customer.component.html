@@ -1,0 +1,161 @@
+<app-blank-header></app-blank-header>
+<div class="container-fluid h-100">
+  <div class="row h-100 row-1 container-row">
+    <div class="col-md-6 offset-md-3 container-col card-non-hover">
+      <div style="margin-top: 2rem" class="otp-heading-div">
+        <div
+          class="sub-heading-text-1-semi-bold"
+          style="margin: 1rem 0 2rem 0; padding: 0 1rem"
+        >
+          Register
+        </div>
+        <div class="icon-div" (click)="onClickClose()">
+          <fa-icon class="float-right" [icon]="faHome"></fa-icon>
+        </div>
+      </div>
+      <form [formGroup]="registerForm" (ngSubmit)="startRegistration()">
+        <div class="row justify-content-center">
+          <div class="col-md-6 col-sm-12">
+            <div class="form-group">
+              <label class="form-check-label hint-text" for="fname">
+                Title
+              </label>
+              <select
+                id="title"
+                [formControlName]="'title'"
+                [ngClass]="{
+                  inputError: showError('title')
+                }"
+              >
+                <option value="" selected disabled>Select a Title</option>
+                <option *ngFor="let title of titles" [value]="title">
+                  {{ title }}
+                </option>
+              </select>
+              <div *ngIf="showError('title')">
+                <div
+                  *ngIf="registerForm.get('title')?.hasError('required')"
+                  class="error-text"
+                >
+                  Title is required
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-sm-12">
+            <div class="form-group">
+              <label class="form-check-label hint-text" for="fname">
+                First Name
+              </label>
+              <input
+                id="fname"
+                type="text"
+                placeholder="Your First Name"
+                [formControlName]="'firstName'"
+                [ngClass]="{
+                  inputError: showError('firstName')
+                }"
+              />
+              <div *ngIf="showError('firstName')">
+                <div
+                  *ngIf="registerForm.get('firstName')?.hasError('required')"
+                  class="error-text"
+                >
+                  First name is required
+                </div>
+                <div
+                  *ngIf="registerForm.get('firstName')?.hasError('pattern')"
+                  class="error-text"
+                >
+                  First name is invalid
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-sm-12">
+            <div class="form-group">
+              <label class="form-check-label hint-text" for="lname">
+                Last Name
+              </label>
+              <input
+                id="lname"
+                type="text"
+                placeholder="Your Last Name"
+                [formControlName]="'lastName'"
+                [ngClass]="{
+                  inputError: showError('lastName')
+                }"
+              />
+              <div *ngIf="showError('lastName')">
+                <div
+                  *ngIf="registerForm.get('lastName')?.hasError('required')"
+                  class="error-text"
+                >
+                  Last name is required
+                </div>
+                <div
+                  *ngIf="registerForm.get('lastName')?.hasError('pattern')"
+                  class="error-text"
+                >
+                  Last name is invalid
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-sm-12">
+            <div class="form-group">
+              <label class="form-check-label hint-text" for="email">
+                Email ID
+              </label>
+              <input
+                id="email"
+                type="email"
+                placeholder="Your Email Id"
+                [formControlName]="'email'"
+                [ngClass]="{
+                  inputError: showError('email')
+                }"
+              />
+              <div *ngIf="showError('email')">
+                <div
+                  *ngIf="registerForm.get('email')?.hasError('required')"
+                  class="error-text"
+                >
+                  Email Id is required
+                </div>
+                <div
+                  *ngIf="registerForm.get('email')?.hasError('email')"
+                  class="error-text"
+                >
+                  Email Id is invalid
+                </div>
+                <div
+                  *ngIf="registerForm.get('email')?.hasError('emailTaken')"
+                  class="error-text"
+                >
+                  Email Id is already taken
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-sm-12">
+            <div class="form-group w-100">
+              <button
+                type="submit"
+                class="primary-button"
+                [disabled]="registerForm.invalid"
+              >
+                Proceed To Next
+              </button>
+            </div>
+          </div>
+          <hr class="w-100" />
+          <div class="col-md-6 col-sm-12 text-center">
+            <p>Already a User? <a [routerLink]="'/order-login'">Login Now</a></p>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+

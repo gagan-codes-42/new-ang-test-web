@@ -1,0 +1,6 @@
+<div class="row  mt-4" >
+  <div class="col-12 showHideButonWrapper" [class.showShadow]="!isExpand">
+    <button (click)="onClick()" class="expandBtn"><span *ngIf="isExpand">Collapse</span><span *ngIf="!isExpand">Expand</span></button>
+  </div>
+
+

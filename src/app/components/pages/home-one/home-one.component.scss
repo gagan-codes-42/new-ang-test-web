@@ -1,0 +1,137 @@
+@import '../../../../colors.scss';
+
+.mat-drawer:not(.mat-drawer-side) {
+  position: fixed;
+}
+
+.mat-drawer-backdrop {
+  position: fixed !important;
+}
+
+.example-sidenav {
+  padding: 20px;
+  width: 250px;
+}
+
+@media (max-width: 760px) {
+  .example-sidenav {
+    width: 80%;
+  }
+}
+
+ul.navbar-nav {
+  img {
+    margin-bottom: 2rem;
+  }
+  li {
+    color: $primary-color;
+    text-transform: uppercase;
+    font-weight: bold;
+    text-align: center;
+  }
+}
+
+.navbar-nav .nav-item .nav-link.titleCase {
+  text-transform: none;
+}
+.pani {
+  color: white;
+}
+
+:host ::ng-deep {
+  .mat-drawer-content {
+    overflow: visible !important;
+  }
+}
+
+.notification-popup {
+  width: 400px;
+  height: 280px;
+  background-color: #fff;
+  position: fixed;
+  top: 100px;
+  right: 50%;
+  margin-right: -200px;
+  z-index: 999;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  animation: appear-from-top 0.5s;
+  -webkit-animation: appear-from-top 0.5s;
+
+  .header {
+    display: flex;
+    flex-direction: row-reverse;
+  }
+
+  .content {
+    display: flex;
+    padding: 20px;
+    height: 60%;
+    text-align: center;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  .buttons {
+    button {
+      width: 50%;
+    }
+    height: 20%;
+    padding: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+  }
+}
+
+@media only screen and (max-width: 420px) {
+  .notification-popup {
+    width: 92%;
+    margin-right: -46%;
+  }
+}
+
+.notification-popup.closed {
+  top: -280px;
+  animation: disappear-to-top 0.5s;
+  -webkit-animation: disappear-to-top 0.5s;
+}
+
+@keyframes appear-from-top {
+  0% {
+    top: -280px;
+  }
+  100% {
+    top: 100px;
+  }
+}
+
+@-webkit-keyframes appear-from-top {
+  0% {
+    top: -280px;
+  }
+  100% {
+    top: 100px;
+  }
+}
+
+@keyframes disappear-to-top {
+  0% {
+    top: 100px;
+  }
+  100% {
+    top: -280px;
+  }
+}
+
+@-webkit-keyframes disappear-to-top {
+  0% {
+    top: 100px;
+  }
+  100% {
+    top: -280px;
+    display: none;
+  }
+}

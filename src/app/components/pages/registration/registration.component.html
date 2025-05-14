@@ -1,0 +1,334 @@
+<app-blank-header></app-blank-header>
+<div class="container-fluid h-100">
+  <div class="row h-100 row-1 container-row">
+    <div class="col-md-6 offset-md-3 container-col card-non-hover">
+      <div style="margin-top: 2rem" class="otp-heading-div">
+        <div
+          class="sub-heading-text-1-semi-bold"
+          style="margin: 1rem 0 2rem 0; padding: 0 1rem"
+        >
+          Register
+        </div>
+        <div class="icon-div" (click)="onClickClose()">
+          <fa-icon class="float-right" [icon]="faHome"></fa-icon>
+        </div>
+      </div>
+      <form [formGroup]="registerForm" (ngSubmit)="sendOTP()">
+        <div class="row justify-content-center">
+          <div class="col-md-6 col-sm-12">
+            <div class="form-group">
+              <label class="form-check-label hint-text" for="fname">
+                Title
+              </label>
+              <select
+                id="title"
+                [formControlName]="'title'"
+                [ngClass]="{
+                  inputError: showError('title')
+                }"
+              >
+                <option value="" selected disabled>Select a Title</option>
+                <option *ngFor="let title of titles" [value]="title">
+                  {{ title }}
+                </option>
+              </select>
+              <div *ngIf="showError('title')">
+                <div
+                  *ngIf="registerForm.get('title')?.hasError('required')"
+                  class="error-text"
+                >
+                  Title is required
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-sm-12">
+            <div class="form-group">
+              <label class="form-check-label hint-text" for="fname">
+                First Name
+              </label>
+              <input
+                id="fname"
+                type="text"
+                placeholder="Your First Name"
+                [formControlName]="'firstName'"
+                [ngClass]="{
+                  inputError: showError('firstName')
+                }"
+              />
+              <div *ngIf="showError('firstName')">
+                <div
+                  *ngIf="registerForm.get('firstName')?.hasError('required')"
+                  class="error-text"
+                >
+                  First name is required
+                </div>
+                <div
+                  *ngIf="registerForm.get('firstName')?.hasError('pattern')"
+                  class="error-text"
+                >
+                  First name is invalid
+                </div>
+                <div
+                  *ngIf="registerForm.get('firstName')?.hasError('maxlength')"
+                  class="error-text"
+                >
+                  First name can not be more than 15 character
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-sm-12">
+            <div class="form-group">
+              <label class="form-check-label hint-text" for="lname">
+                Last Name
+              </label>
+              <input
+                id="lname"
+                type="text"
+                placeholder="Your Last Name"
+                [formControlName]="'lastName'"
+                [ngClass]="{
+                  inputError: showError('lastName')
+                }"
+              />
+              <div *ngIf="showError('lastName')">
+                <div
+                  *ngIf="registerForm.get('lastName')?.hasError('required')"
+                  class="error-text"
+                >
+                  Last name is required
+                </div>
+                <div
+                  *ngIf="registerForm.get('lastName')?.hasError('pattern')"
+                  class="error-text"
+                >
+                  Last name is invalid
+                </div>
+                <div
+                *ngIf="registerForm.get('lastName')?.hasError('maxlength')"
+                class="error-text"
+              >
+                Last name can not be more than 15 character
+              </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-sm-12">
+            <div class="form-group">
+              <label class="form-check-label hint-text" for="email">
+                Email ID
+              </label>
+              <input
+                id="email"
+                type="email"
+                placeholder="Your Email Id"
+                [formControlName]="'email'"
+                [ngClass]="{
+                  inputError: showError('email')
+                }"
+              />
+              <div *ngIf="showError('email')">
+                <div
+                  *ngIf="registerForm.get('email')?.hasError('required')"
+                  class="error-text"
+                >
+                  Email Id is required
+                </div>
+                <div
+                  *ngIf="registerForm.get('email')?.hasError('email')"
+                  class="error-text"
+                >
+                  Email Id is invalid
+                </div>
+                <div
+                  *ngIf="registerForm.get('email')?.hasError('emailTaken')"
+                  class="error-text"
+                >
+                  Email Id is already taken
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-sm-12">
+            <div class="form-group">
+              <label class="form-check-label hint-text" for="password">
+                Password
+              </label>
+              <input
+                id="password"
+                type="password"
+                placeholder="8-32 Characters"
+                [formControlName]="'password'"
+                [ngClass]="{
+                  inputError: showError('password')
+                }"
+              />
+              <div *ngIf="showError('password')">
+                <div
+                  *ngIf="registerForm.get('password')?.hasError('required')"
+                  class="error-text"
+                >
+                  Password is required
+                </div>
+                <div
+                  *ngIf="registerForm.get('password')?.hasError('pattern')"
+                  class="error-text"
+                >
+                  Password must have 8-32 character
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-sm-12">
+            <div class="form-group">
+              <label class="form-check-label hint-text" for="cpassword">
+                Confirm Password
+              </label>
+              <input
+                id="cpassword"
+                type="password"
+                placeholder="Re-enter your Password"
+                [formControlName]="'confirmPassword'"
+                [ngClass]="{
+                  inputError: showError('confirmPassword')
+                }"
+              />
+              <div *ngIf="showError('confirmPassword')">
+                <div
+                  *ngIf="registerForm.get('confirmPassword')?.hasError('required')"
+                  class="error-text"
+                >
+                  Re-enter your Password
+                </div>
+                <div
+                  *ngIf="
+                    registerForm.get('confirmPassword')?.hasError('passwordNotMatched')
+                  "
+                  class="error-text"
+                >
+                  Passwords don't match
+                </div>
+              </div>
+            </div>
+          </div>
+          <div style="display: flex; justify-content: center" class="col-md-6 col-sm-12 "> 
+            <div class="form-group">
+            <label class="form-check-label hint-text" for="phNumber">
+              Phone number
+            </label>           
+            <div class="ph-number-div">
+              <div class="hint-text" style="margin-bottom: 1.8rem">+91</div>
+              <div class="number-input-div">
+                <input
+                  type="number"
+                  id="phNumber"
+                  class="side-heading-text-1"
+                  [formControlName]="'phoneNumber'"
+                  [ngClass]="{
+                    inputError: registerForm.get('phoneNumber')?.hasError('max')
+                  }"
+                  name="phoneNumber"
+                  required
+                  placeholder="xxx-xxx-xxxx"
+                  (keyup)="checkPhoneNumberLength()"
+                />
+                <div *ngIf="registerForm.get('phoneNumber')?.touched && registerForm.get('phoneNumber')?.hasError('required')" class="error-text">
+                  Phone number is required
+                </div>
+                <div
+                  *ngIf="registerForm.get('phoneNumber')?.touched && registerForm.get('phoneNumber')?.hasError('min')"
+                  class="error-text"
+                >
+                  Phone number is invalid
+                </div>
+                <div
+                  *ngIf="registerForm.get('phoneNumber')?.touched && registerForm.get('phoneNumber')?.hasError('max')"
+                  class="error-text"
+                >
+                  Phone number is invalid
+                </div>
+                <div
+                  *ngIf="registerForm.get('phoneNumber')?.touched && registerForm.get('phoneNumber')?.hasError('maxlength')"
+                  class="error-text"
+                >
+                  Phone number is invalid
+                </div>
+                <div class="float-right">&nbsp;</div>
+              </div>
+            </div>
+          </div>
+          </div>
+         
+          <div
+              class="col-md-6"
+            >
+            <label class="form-check-label hint-text" for="otpNumber">
+              Verify OTP
+            </label> 
+              <div class="number-input-div">
+                <input
+                  type="number"
+                  pattern="[0-9]*"
+                  maxlength="6"
+                  id="otp"
+                  [formControlName]="'otp'"
+                  class="sub-heading-text-1 text-center"
+                  placeholder="- - - - - -"
+                  name="otp"
+                  [disabled]="otpScreenActive && !otpVerified"
+                  (keyup)="checkOTPLength()"
+                  [ngClass]="{
+                    inputError: registerForm.get('otp')?.hasError('minLength')
+                  }"
+                />
+                <div
+                  class="error-text float-left"
+                  *ngIf="registerForm.get('otp')?.touched && registerForm.get('otp')?.hasError('minLength')"
+                >
+                  OTP is required
+                </div>
+                <div
+                  class="error-text float-left"
+                  *ngIf="registerForm.get('otp')?.touched && registerForm.get('otp')?.hasError('minLength')"
+                >
+                  OTP is invalid
+                </div>
+                <div
+                  *ngIf="OTPSendCount < 3"
+                  class="resend-btn float-right hint-text"
+                  (click)="resendOTP()"
+                >
+                  Resend OTP
+                </div>
+              </div>
+            </div>
+            <div *ngIf="otpScreenActive && !otpVerified" class="actions-div col-md-4">
+              <input
+                [disabled]="registerForm.get('otp')?.value < 6"
+                class="primary-button text-center"
+                (click)="verifyOTP()"
+                value="Verify OTP"
+              />
+            </div>
+          <div *ngIf="!otpScreenActive" class="col-md-4 col-sm-12 ">
+            <div class="form-group w-100">
+              <button
+                type="submit"
+                class="primary-button"
+                [disabled]="registerForm.invalid"
+              >
+                Send OTP
+              </button>
+            </div>
+          </div>
+          
+          <hr class="w-100" />
+          <div style="" class="col-md-6 col-sm-12 text-center">
+            <p>Already a User? <a [routerLink]="'/login'">Login Now</a></p>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,119 @@
+<div class="container mb-5 card-non-hover" style="margin-top: 135px;">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="block">
+        <!-- <div class="logo-div">
+          <img class="logo-img" src="assets/img/epanipuricart.png" />
+        </div> -->
+        <div class="text-center mb-4">
+          <img src="{{ getProfileImageURL() }}" alt="Profile picture" style="width:150px ;height:150px" /></div>
+        <div class="text-center mb-4">
+          <!-- <div class="store-icon">
+            <img src="assets/logos/store.svg" />
+          </div> -->
+          <fa-icon style="font-size: 1rem;" class="fa-xs icon-div float-left" [icon]="faArrowLeft"
+            (click)="backtoOrderType()"></fa-icon>
+          <!-- <fa-icon [icon]="faStoreAlt" class="fa-lg"></fa-icon> -->
+         <span style="margin-left: -36px;">Store loaction : {{location}}</span>
+        </div>
+
+
+        <!-- <div class="text-center head-text">{{ restaurantName }}</div> -->
+        <div *ngIf="open" class="search-item-div">
+          <input #itemSearch (keyup)="searchItem(itemSearch.value)" placeholder="Search Items" class="search-input" />
+        </div>
+        <div *ngIf="!open" class="res-closed-div">
+          <img src="assets/img/no order only plate copy.png" style="margin-bottom: 20px" />
+          <div class="closed-text">Currently not accepting orders</div>
+        </div>
+        <div class="pricing-list mt-4" *ngIf="!searchActive && open">
+          <div [id]="category.category" class="mb-3" *ngFor="let category of tempData">
+            <div class="title mb-4">
+              <h1 class="mb-0">
+                <span>{{ category.category }}</span>
+              </h1>
+            </div>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item" *ngFor="let item of category.items">
+                <div (click)="openItem(item)" [ngClass]="item.isOutOfStock ? 'item-os' : 'item'">
+                  <div class="item-details-div">
+                    <img class="symbol" src="https://img.icons8.com/color/24/000000/vegetarian-food-symbol.png" />
+                    <div class="item-name-div">
+                      <div class="item-name">{{ item.name }}</div>
+                      <div class="out-of-stock-text" *ngIf="item.isOutOfStock">
+                        Out of Stock
+                      </div>
+                    </div>
+                  </div>
+                  <div class="item-price">
+                    <div *ngIf="cartService.itemInCart(item.itemId)" class="cart-icon">
+                      <mat-icon style="color: green; font-size: 16px" class="cart-mat-icon">shopping_cart</mat-icon>
+                    </div>
+                    <div class="item-price-child">
+                      <span>&#8377;</span> {{ item.price }}
+                    </div>
+                  </div>
+                </div>
+                <mat-divider></mat-divider>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div *ngIf="searchActive">
+          <ul class="list-group list-group-flush mt-4">
+            <li class="list-group-item" *ngFor="let item of tempAllItems">
+              <div (click)="openItem(item)" class="item">
+                <div class="item-details-div">
+                  <img class="symbol" src="https://img.icons8.com/color/24/000000/vegetarian-food-symbol.png" />
+                  <span class="item-name">{{ item.name }}</span>
+                </div>
+                <div class="item-price">
+                  <div *ngIf="cartService.itemInCart(item.itemId)" class="cart-icon">
+                    <mat-icon style="color: green; font-size: 16px" class="cart-mat-icon">shopping_cart</mat-icon>
+                  </div>
+                  <div class="item-price-child">
+                    <span>&#8377;</span> {{ item.price }}
+                  </div>
+                </div>
+              </div>
+              <mat-divider></mat-divider>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+<app-modal #AddToCart [title]="''">
+  <div class="card mb-3">
+    <img class="card-img-top"
+      src="{{ cartitem?.img || 'https://images.pexels.com/photos/1775043/pexels-photo-1775043.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500'}}"
+      alt="Card image cap">
+    <div class="card-body">
+      <h5 class="card-title">{{cartitem?.name}}</h5>
+      <p class="card-text">{{cartitem?.desc}}</p>
+    </div>
+  </div>
+  <div class="row" style="margin: 1rem 0">
+    <div class="col-xs-1 offset-xs-1 col-md-6 col-lg-3 offset-lg-5 col-sm-6  offset-xs-6 ">
+      <button type="button" class="secondary-button" style="margin-bottom: 1rem" (click)="cancelCart()">
+        cancel
+      </button>
+    </div>
+    <div class="col-xs-6 col-md-6 col-lg-4 col-sm-6">
+      <button type="submit" class="primary-button" style="margin-bottom: 1rem" (click)="addtoCart()">
+        Add to cart
+      </button>
+    </div>
+  </div>
+</app-modal>
+<div class="fab-container">
+  <button mat-fab class="fab-toggler" (click)="openBottomSheet()">
+    <i class="material-icons" [@fabToggler]="{ value: fabTogglerState }">restaurant</i>
+
+  </button>
+</div>

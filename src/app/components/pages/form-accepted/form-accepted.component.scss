@@ -1,0 +1,72 @@
+@import '../../../../colors.scss';
+
+.row-1 {
+  align-items: center;
+  padding: 1rem;
+}
+
+.container-row {
+  height: 100%;
+  margin-top: 5rem;
+}
+
+.terms-col {
+  padding: 0 2rem;
+  .terms-checkbox {
+    height: 2rem;
+    width: inherit;
+    margin-right: 0.3rem;
+    &:hover {
+      cursor: pointer;
+    }
+    &:checked {
+      background-color: $primary-color;
+    }
+  }
+  label {
+    margin: 0;
+    &:hover {
+      text-decoration: underline;
+      color: $primary-color;
+      cursor: pointer;
+    }
+  }
+  .form-group {
+    @include flex(row, center, flex-start);
+    margin: 0;
+  }
+}
+.form-group,
+.input-group {
+  margin-bottom: 1.5rem;
+  div {
+    float: right;
+  }
+}
+::ng-deep {
+  .panel-heading {
+    padding-left: 5px !important ;
+    padding-top: 3px !important;
+    padding-bottom: 3px !important;
+    padding-right: 5px !important;
+  }
+}
+
+::ng-deep .ng-select-container {
+  min-height: 45px !important;
+  border-radius: 8px;
+}
+
+::ng-deep .ng-select input {
+  height: unset;
+  width: unset;
+  border-radius: unset;
+  border: unset;
+  padding: unset;
+}
+
+.review-icon {
+  font-size: larger;
+  display: inline;
+  color: $success-color;
+}

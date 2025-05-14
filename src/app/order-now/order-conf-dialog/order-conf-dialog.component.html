@@ -1,0 +1,47 @@
+<h2 mat-dialog-title>Order Confirmation</h2>
+<mat-dialog-content class="mat-typography">
+    <div class="row" >
+        <div class="col-12 text-center">
+          <img height="200"  src="assets/img/orderConfirmation.jpeg" alt="Confirmed" />
+        </div>
+      </div>
+    <div class="row">
+        <div class="details-text col-6">Your order Id</div>
+        <div class="details-text col-6"><b>{{getdata?.orderId}}</b></div>
+    </div>
+    <div class="row">
+        <div class="details-text col-6">Previous total</div>
+        <div class="details-text col-6"><b> <span>&#8377;</span>&nbsp;{{previousTotal}}</b></div>
+    </div>
+    <div class="row">
+        <div class="details-text col-6">Delivery Charge</div>
+        <div class="details-text col-6"><b> <span>&#8377;</span>&nbsp;{{getdata?.deliveryCharge}}</b></div>
+    </div>
+    <div class="row">
+        <div class="details-text col-6">Packing Charge</div>
+        <div class="details-text col-6"><b>  <span>&#8377;</span>&nbsp;{{getdata?.packingCharge}}</b></div>
+    </div>
+    <div class="row">
+        <div class="details-text col-6">Total</div>
+        <div class="details-text col-6"><b> <span>&#8377;</span>&nbsp;{{getdata?.total}}</b></div>
+    </div>
+</mat-dialog-content>
+
+    <div class="row">
+        <div class="col-6">
+            <mat-dialog-actions>
+                <button  mat-flat-button color="primary" [mat-dialog-close]="true" cdkFocusInitial (click)="clickHandler(getdata.orderId,'A')">Accept</button>
+            </mat-dialog-actions>
+         
+        </div>
+        <div class="col-6">
+            <mat-dialog-actions align="end">
+                <button  mat-raised-button [mat-dialog-close]="true" (click)="clickHandler(getdata.orderId,'R')">Reject</button>
+            </mat-dialog-actions>
+          
+        </div>
+    </div>
+  
+ 
+
+

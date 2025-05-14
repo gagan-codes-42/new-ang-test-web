@@ -1,0 +1,17 @@
+@import '../../../../colors.scss';
+
+.social-icons {
+  display: inline-block;
+  a {
+    i {
+      color: $primary-color;
+      font-size: 2.5rem;
+    }
+  }
+}
+
+.socials-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}

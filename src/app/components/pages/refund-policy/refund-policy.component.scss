@@ -1,0 +1,24 @@
+.container{
+    padding-top: 110px;
+    padding-bottom: 10px;
+}
+.top-heading {
+    margin-top: 25px;
+    text-align: center;
+}
+.text-center {
+    text-align: center;
+}
+table {
+    margin-bottom: 30px;
+}
+th {
+    padding: 10px;
+}
+td {
+    padding: 10px;
+}
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+  }

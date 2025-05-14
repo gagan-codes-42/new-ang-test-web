@@ -1,0 +1,42 @@
+<mat-drawer-container class="example-container" autosize>
+  <mat-drawer
+    opened="{{ sharedService.getSideBarStatus1() }}"
+    (closed)="sharedService.toggleSidebar1()"
+    class="example-sidenav1"
+    mode="over"
+    position="end"
+  >
+  <ul class="navbar-nav">
+    <a class="navbar-brand" routerLink="/">
+      <img src="assets/img/epanipuricart.png" alt="EPanipuri Cart" />
+    </a>
+    <li class="nav-item">
+      <div class="nav-link cursor-pointer" (click)="navigateToCurrent()">
+        About Franchise
+      </div>
+    </li>
+    <li class="nav-item" *ngIf="!showDashboardLink">
+      <div class="nav-link cursor-pointer" (click)="navigateTo()">
+        Apply Now
+      </div>
+    </li>
+    <li class="nav-item" *ngIf="showDashboardLink">
+      <div
+        class="nav-link cursor-pointer"
+        (click)="navigateToDashboard()"
+      >
+        Dashboard
+      </div>
+    </li>
+
+    <li class="nav-item">
+      <div class="nav-link cursor-pointer" (click)="logout()">Logout</div>
+    </li>
+  </ul>
+  </mat-drawer>
+  <mat-drawer-content class="example-sidenav-content">
+    <app-auth-header></app-auth-header>
+    <ng-content></ng-content>
+
+  </mat-drawer-content>
+</mat-drawer-container>

@@ -1,0 +1,22 @@
+<div class="content-div-row w-100 pb-0">
+    
+        <div class="head-text col-11">Address</div>
+        <div class="col-1 float-right" style="cursor: pointer;"><mat-icon class="icon" (click)="addnewAddress()"> add_circle_outline</mat-icon></div>
+
+  </div>
+
+  <div class="content-div w-100">
+        <ng-container *ngFor="let item of addressData">
+            <mat-radio-group aria-label="Select an option" [(ngModel)]="selectedOrderType">
+                  <mat-card class="m-3"><mat-radio-button value="{{item.addressId}}"></mat-radio-button>{{item.addressData}}</mat-card>
+            </mat-radio-group>
+      </ng-container>
+
+      <div class="btns-div mt-3" *ngIf="addressData?.length">
+            <button mat-flat-button class="mat-focus-indicator place-order-btn mat-flat-button mat-button-base" (click)="ProceedToNext()">Proceed</button>
+            <button mat-stroked-button class="mat-focus-indicator mat-flat-button mat-button-base" (click)="_bottomSheetRef.dismiss()" >Cancel</button>
+          </div>
+
+</div>
+
+

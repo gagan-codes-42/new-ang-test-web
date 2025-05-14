@@ -1,0 +1,102 @@
+@import '~@angular/material/prebuilt-themes/indigo-pink.css';
+
+.item-card {
+    max-width: 300px;
+  }
+  .item-image{
+    height:300px;
+    width:300px;
+  }
+  .card-actions-div{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .item-desc-div{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    color:rgb(0, 0, 0);
+  }
+  .item-desc{
+    font-family: "Open Sans";
+    font-size:14px;
+    font-weight: 600;
+    max-width: 80%;
+  }
+  
+  ::ng-deep .mat-button-focus-overlay {
+    background-color: transparent!important;
+  }
+  
+  ::ng-deep .mat-card-actions, .mat-card-subtitle, .mat-card-content{
+    margin-bottom:0px;
+  }
+  
+  ::ng-deep .mat-radio-button.mat-accent.mat-radio-checked .mat-radio-outer-circle{
+    // background-color: black;
+  }
+  
+  ::ng-deep .mat-radio-button.mat-accent .mat-radio-inner-circle, .mat-radio-button.mat-accent .mat-radio-ripple .mat-ripple-element:not(.mat-radio-persistent-ripple), .mat-radio-button.mat-accent.mat-radio-checked .mat-radio-persistent-ripple, .mat-radio-button.mat-accent:active .mat-radio-persistent-ripple{
+    background-color: black;
+  }
+  
+  :ng-deep .mat-radio-button.mat-accent.mat-radio-checked .mat-radio-outer-circle{
+    border-color: black;
+  }
+  
+  ::ng-deep .mat-radio-button.mat-accent.mat-radio-checked .mat-radio-outer-circle{
+    border-color: black;
+  }
+  
+  .action-btns{
+    padding:0px;
+    font-weight: 600;
+  }
+  
+  app-quantity{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+  
+  .quantity-div{
+    display: flex;
+    flex-direction: row;
+    margin-top:10px;
+  }
+  .q-radio-group{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    width: 100%;
+  }
+  
+  .q-radio{
+    margin-right: 10px;
+  }
+  .asd{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+  }
+  .price-div{
+    padding-bottom: 8px;
+  }
+  
+  .back-btn:hover{
+    cursor: pointer;
+  }
+  
+  img {
+    max-width: fit-content !important
+  }
+  .quantity-text {
+    font-size: small;
+    font-weight: 400;
+}

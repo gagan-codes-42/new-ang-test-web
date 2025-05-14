@@ -1,0 +1,45 @@
+<section class="partner-area ptb-100">
+  <div class="container">
+    <div class="section-title">
+      <span>Our Statistics</span>
+      <h2>Facts & Figures</h2>
+    </div>
+    <div class="row text-center">
+      <div class="col-lg-2 offset-lg-2 fnf-item mb-8 col-md-6">
+        <div class="icon-container">
+          <i class="icofont-map"></i>
+        </div>
+        {{ (figures$ | async)?.state }}
+        <div class="fnf-desc-text">State</div>
+      </div>
+      <div class="col-lg-2 fnf-item mb-8 col-md-6">
+        <div class="icon-container">
+          <i class="icofont-map-pins"></i>
+        </div>
+        {{ (figures$ | async)?.town }}
+        <div class="fnf-desc-text">Towns</div>
+      </div>
+      <div class="col-lg-2 fnf-item col-md-6">
+        <div class="icon-container">
+          <i class="icofont-food-cart"></i>
+        </div>
+        {{ (figures$ | async)?.ePanipuriKartz }}
+        <div class="fnf-desc-text">E-Panipurii Kartz</div>
+      </div>
+      <!-- <div class="col-lg-2 fnf-item col-md-6">
+        <div class="icon-container">
+          <i class="icofont-people"></i>
+        </div>
+        {{ (figures$ | async)?.customer }}
+        <div class="fnf-desc-text">Customers Served</div>
+      </div> -->
+      <div class="col-lg-2 fnf-item mb-8 col-md-6">
+        <div class="icon-container">
+          <i class="icofont-cocktail"></i>
+        </div>
+        {{ (figures$ | async)?.panipuriShots }}
+        <div class="fnf-desc-text">Panipuri Shots</div>
+      </div>
+    </div>
+  </div>
+</section>

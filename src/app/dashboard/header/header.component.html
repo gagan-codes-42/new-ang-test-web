@@ -1,0 +1,104 @@
+<header class="top-area">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light transparent-navbar">
+    <div class="container">
+      <a class="navbar-brand oval-crop" routerLink="/">
+        <img src="assets/img/epanipuricart.png" alt="EPanipuri Cart" />
+      </a>
+      <a class="navbar-brand black-logo oval-crop" routerLink="/">
+        <img src="assets/img/epanipuricart.png" alt="EPanipuri Cart" />
+      </a>
+
+      <button
+        class="navbar-toggler auth-header"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav auth-page ml-auto">
+          <li class="nav-item"  *ngIf="mobileMode">
+            <div class="nav-link" [routerLink]="'controlPanel'" routerLinkActive="active">
+              {{ 'DASHBOARD.YOUR_DEVICES' | translate}}
+            </div>
+          </li>
+          <!-- <li class="nav-item">
+            <div class="nav-link" [routerLink]="'agreements'" routerLinkActive="active">
+              {{ "DASHBOARD.YOUR_AGREEMENTS" | translate }}
+              <span
+                class="badge badge-danger"
+                *ngIf="pendingAggrement > 0"
+                style="padding-top: 5px; padding-bottom: 2px"
+                >{{ pendingAggrement }}</span
+              >
+            </div>
+          </li> -->
+          <li class="nav-item" *ngIf="mobileMode">
+            <div class="nav-link" [routerLink]="'newOrder'" routerLinkActive="active">
+              {{ "DASHBOARD.NEW_ORDER" | translate }}
+            </div>
+          </li>
+          <li class="nav-item" *ngIf="mobileMode">
+            <div class="nav-link" [routerLink]="'order'" routerLinkActive="active">
+              {{ "DASHBOARD.YOUR_ORDERS" | translate }}
+            </div>
+          </li>
+          <li class="nav-item" *ngIf="mobileMode">
+            <div class="nav-link" [routerLink]="'payments'" routerLinkActive="active">
+              {{ "DASHBOARD.PAYMENTS" | translate }}
+            </div>
+          </li>
+          <li class="nav-item" *ngIf="mobileMode">
+            <div class="nav-link" [routerLink]="'apply-again'" routerLinkActive="active">
+              {{ "DASHBOARD.APPLYAGAIN" | translate }}
+            </div>
+          </li>
+          <li class="nav-item" *ngIf="mobileMode">
+            <div class="nav-link" (click)="logout()" routerLinkActive="active">
+              {{ "DASHBOARD.LOGOUT" | translate }}
+            </div>
+          </li>
+          <!-- <li class="nav-item">
+            <div class="nav-link" style="position: relative;">
+            <fa-icon [icon]="faShoppingCart" class="fa-md" > </fa-icon>
+            <span class='badge badge-warning badge-pill cart' id='lblCartCount'> 5 </span>
+          </div>
+          </li> -->
+          <li class="nav-item"  *ngIf="mobileMode">
+            <ui-switch
+              size="small"
+              color="#ed4545"
+              checkedLabel="English"
+              uncheckedLabel="Hindi"
+              [(ngModel)]="isSwitchedOn"
+              defaultBgColor="#ed4545"
+              (change)="onChange($event)"
+              checkedTextColor="#ffffff"
+              uncheckedTextColor="#ffffff"
+            ></ui-switch>
+          </li>
+          <li class="nav-item" *ngIf="!mobileMode" (click)="sharedService.toggleSidebar2()">
+            <div class="nav-link cursor-pointer">
+              <div
+                id="forms"
+                class="Floatbtn op5 text-white"
+                container="body"
+                placement="left"
+                containerClass="cursor-pointer"
+              >
+                <div >
+                  <i id="addIcon"  class="material-icons">menu</i>
+                </div>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>

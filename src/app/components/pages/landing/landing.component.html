@@ -1,0 +1,308 @@
+<!-- <app-auth-header></app-auth-header>
+<app-custom-header></app-custom-header> -->
+<app-custom-header>
+  <div
+    class="container-fluid container-col"
+    style="margin-top: 135px !important"
+  >
+    <div class="row h-100 row-1 container-row">
+      <!-- <h1 class="text-center construction-msg">
+      <i class="icofont-lock"></i>Site Under Construction
+    </h1> -->
+
+      <div class="col-md-6 offset-md-3 card-non-hover">
+        <div
+          class="sub-heading-text-1-semi-bold"
+          style="margin: 1rem 0 2rem 0; padding: 0 1rem"
+        >
+          About Franchise
+        </div>
+        <div class="col-md-12">
+          <p>
+            E-Panipurii Kartz extends an offer to become a franchise owner to
+            people from PAN India. As we know, panipuri lovers are in every
+            corner of India. So, we are planning to reach as many cities as
+            possible.
+            <br />
+          </p>
+          <h3>Our Models</h3>
+          <br />
+          <h4>Franchise</h4>
+          <div class="custom-accordion">
+            <accordion [isAnimated]="true" [closeOthers]="true">
+              <accordion-group *ngFor="let item of accordionItem" #groupval>
+                <div class="btn btn-link btn-block clearfix" accordion-heading>
+                  <div *ngIf="groupval?.isOpen" class="pull-right float-right">
+                    <fa-icon
+                      [icon]="faCaretUp"
+                      class="fa-md"
+                      style="cursor: pointer"
+                    >
+                    </fa-icon>
+                  </div>
+                  <div *ngIf="!groupval?.isOpen" class="pull-right float-right">
+                    <fa-icon
+                      [icon]="faCaretDown"
+                      class="fa-md"
+                      style="cursor: pointer"
+                    >
+                    </fa-icon>
+                  </div>
+                  <div class="pull-left float-left">{{ item.heading }}</div>
+                </div>
+                <div class="sub-content" *ngFor="let ele of item.content">
+                  <h5>
+                    <strong>{{ ele.subHeading }}</strong>
+                  </h5>
+                  <br />
+                  <!-- <img
+                  src="assets/img/panipuriCartCrop.jpg"
+                  width="350"
+                  height="200"
+                /> -->
+                  <!-- <br /><br /> -->
+                  <strong>Description:</strong>
+                  <p>{{ ele.subContent }}</p>
+                  <div class="row">
+                    <div
+                      class="
+                        col-md-4 col-sm-12
+                        cursor-pointer
+                        read-more
+                        text-center
+                        mb-2
+                      "
+                      (click)="sendEstimates(ele); openPitch()"
+                    >
+                      <!-- <fa-icon
+                      [icon]="faPlayCircle"
+                      class="fa-md"
+                      style="cursor: pointer"
+                    ></fa-icon> -->
+                      <button type="button" class="primary-button">
+                        View more
+                      </button>
+                    </div>
+                    <div
+                      class="
+                        col-md-4 col-sm-12
+                        cursor-pointer
+                        read-more
+                        text-center
+                      "
+                      (click)="navigateTo(ele, item)"
+                    >
+                      <button type="button" class="secondary-button">
+                        Apply Now
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </accordion-group>
+            </accordion>
+            <!-- <br />
+          <h4>Master Franchise</h4>
+          <accordion [isAnimated]="true" [closeOthers]="true">
+            <accordion-group *ngFor="let item of accordionItemMaster" #groupval>
+              <div class="btn btn-link btn-block clearfix" accordion-heading>
+                <div *ngIf="groupval?.isOpen" class="pull-right float-right">
+                  <fa-icon
+                    [icon]="faCaretUp"
+                    class="fa-md"
+                    style="cursor: pointer"
+                  >
+                  </fa-icon>
+                </div>
+                <div *ngIf="!groupval?.isOpen" class="pull-right float-right">
+                  <fa-icon
+                    [icon]="faCaretDown"
+                    class="fa-md"
+                    style="cursor: pointer"
+                  >
+                  </fa-icon>
+                </div>
+                <div class="pull-left float-left">{{ item.heading }}</div>
+              </div>
+              <div class="sub-content" *ngFor="let ele of item.content">
+                <h5>{{ ele.subHeading }}</h5>
+                <br />
+                <img
+                  src="assets/img/panipuriCartCrop.jpg"
+                  width="350"
+                  height="200"
+                /><br /><br />
+                <p>{{ ele.subContent }}</p>
+                <div class="row justify-content-between">
+                  <div
+                    class="col-md-4 col-sm-12 cursor-pointer read-more"
+                    (click)="openPitch()"
+                  >
+                    <fa-icon
+                      [icon]="faPlayCircle"
+                      class="fa-md"
+                      style="cursor: pointer"
+                    ></fa-icon>
+                    View More
+                  </div>
+                  <div
+                    class="
+                      col-md-4 col-sm-12
+                      offset-md-2
+                      cursor-pointer
+                      read-more
+                    "
+                  >
+                    <fa-icon
+                      [icon]="faFileDownload"
+                      class="fa-md"
+                      style="cursor: pointer"
+                    ></fa-icon>
+                    Get Brochure
+                  </div>
+                </div>
+              </div>
+            </accordion-group>
+          </accordion> -->
+            <br />
+          </div>
+          <br />
+          <h3 class="mb-4">Approval Process</h3>
+          <div class="row">
+            <div class="col-md-6 col-sm-12 mb-2">
+              <div class="card h-100">
+                <div class="card-body text-center">
+                  <fa-icon
+                    [icon]="faMale"
+                    style="font-size: 40px; color: #ed4545"
+                  ></fa-icon>
+                  <h5>Step 1</h5>
+                  <p style="font-size: small">Click on Apply Now</p>
+                </div>
+              </div>
+            </div>
+            <!-- <fa-icon [icon]="faArrowRight"></fa-icon> -->
+            <div class="col-md-6 col-sm-12 mb-2">
+              <div class="card h-100">
+                <div class="card-body text-center">
+                  <fa-icon
+                    [icon]="faFolder"
+                    style="font-size: 40px; color: #ed4545"
+                  ></fa-icon>
+                  <h5>Step 2</h5>
+                  <p style="font-size: small">
+                    Fill out the application form. Select your model of choice
+                  </p>
+                </div>
+              </div>
+            </div>
+            <!-- <fa-icon [icon]="faArrowRight"></fa-icon> -->
+            <div class="col-md-6 col-sm-12 mb-2">
+              <div class="card h-100">
+                <div class="card-body text-center">
+                  <fa-icon
+                    [icon]="faPiggyBank"
+                    style="font-size: 40px; color: #ed4545"
+                  ></fa-icon>
+                  <h5>Step 3</h5>
+                  <p style="font-size: small">Pay 50% In Advance</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6 col-sm-12 mb-2">
+              <div class="card h-100">
+                <div class="card-body text-center">
+                  <fa-icon
+                    [icon]="faCheckCircle"
+                    style="font-size: 40px; color: #ed4545"
+                  ></fa-icon>
+                  <h5>Step 4</h5>
+                  <p style="font-size: small">Document Verification</p>
+                </div>
+              </div>
+            </div>
+            <!-- <fa-icon [icon]="faArrowRight"></fa-icon> -->
+          </div>
+          <br />
+        </div>
+      </div>
+    </div>
+  </div>
+  <app-modal #ApprovalProcessModal>
+    <div class="row">
+      <div class="col-md-6 col-sm-12 mb-2">
+        <div class="card h-100">
+          <div class="card-body text-center">
+            <fa-icon
+              [icon]="faMale"
+              style="font-size: 40px; color: #ed4545"
+            ></fa-icon>
+            <h5>Step 1</h5>
+            <p style="font-size: small">Click on Apply Now</p>
+          </div>
+        </div>
+      </div>
+      <!-- <fa-icon [icon]="faArrowRight"></fa-icon> -->
+      <div class="col-md-6 col-sm-12 mb-2">
+        <div class="card h-100">
+          <div class="card-body text-center">
+            <fa-icon
+              [icon]="faFolder"
+              style="font-size: 40px; color: #ed4545"
+            ></fa-icon>
+            <h5>Step 2</h5>
+            <p style="font-size: small">
+              Fill out the application form. Select your model of choice
+            </p>
+          </div>
+        </div>
+      </div>
+      <!-- <fa-icon [icon]="faArrowRight"></fa-icon> -->
+      <div class="col-md-6 col-sm-12 mb-2">
+        <div class="card h-100">
+          <div class="card-body text-center">
+            <fa-icon
+              [icon]="faPiggyBank"
+              style="font-size: 40px; color: #ed4545"
+            ></fa-icon>
+            <h5>Step 3</h5>
+            <p style="font-size: small">Pay 50% In Advance</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 col-sm-12 mb-2">
+        <div class="card h-100">
+          <div class="card-body text-center">
+            <fa-icon
+              [icon]="faCheckCircle"
+              style="font-size: 40px; color: #ed4545"
+            ></fa-icon>
+            <h5>Step 4</h5>
+            <p style="font-size: small">Document Verification</p>
+          </div>
+        </div>
+      </div>
+      <!-- <fa-icon [icon]="faArrowRight"></fa-icon> -->
+    </div>
+  </app-modal>
+  <app-modal #AdvantageModal>
+    <h4>Advantages</h4>
+    <div class="row p-2">
+      <p>
+        Becoming E-Panipurii Kartz Franchise owner is not that complicated. If
+        you are anyone with an entrepreneurial mindset, with independence as
+        your aim, this is the perfect business module for you.
+      </p>
+      <p>
+        Usually, every street has a panipuri corner. But this is for the very
+        first time where you will get an opportunity to sell panipuri from
+        absolutely anywhere! As we are extending the option of selling panipuri
+        with super hygienity, which you can sell with no human interference.
+      </p>
+      <p>
+        With E-Panipurii Kartz franchise, you are able to sell Panipuri at any
+        hour. We have made ePanipuri cart available in your town for selling
+        100% contactless panipuri.
+      </p>
+    </div>
+  </app-modal>
+</app-custom-header>

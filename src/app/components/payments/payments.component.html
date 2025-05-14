@@ -1,0 +1,114 @@
+<app-blank-header></app-blank-header>
+<ngx-spinner
+  bdColor="rgba(0, 0, 0, 0.8)"
+  size="default"
+  color="#ed4545"
+  type="ball-spin-clockwise"
+  [fullScreen]="true"
+  ><p style="color: white">Processing...</p></ngx-spinner
+>
+<div class="container-fluid h-100">
+  <div class="row h-100 row-1 container-row" style="margin-top: 100px">
+    <div class="col-md-6 offset-md-3 card-non-hover">
+      <div
+        class="sub-heading-text-1-semi-bold"
+        style="margin: 1rem 0 2rem 0; padding: 0 1rem"
+      >
+        Payment
+        <fa-icon
+          style="font-size: 1rem"
+          class="fa-xs icon-div float-right"
+          [icon]="faArrowLeft"
+          (click)="backtoLanding()"
+        ></fa-icon>
+      </div>
+      <div class="col-md-12">
+        <div class="table-responsive table-bordered">
+          <table class="table mb-0">
+            <tbody>
+              <!-- <tr>
+                <th scope="row">Total Amount Of Model</th>
+                <td>{{ price | currency: "INR":"symbol":"1.2-2" }}</td>
+              </tr> -->
+              <tr>
+                <th scope="row">Advance to be paid</th>
+                <td>{{ advtobePaid | currency: "INR":"symbol":"1.2-2" }}</td>
+              </tr>
+              <!-- <tr>
+                <th scope="row">Total Amount Payable Now</th>
+                <td>{{ advtobePaid | currency: "INR":"symbol":"1.2-2" }}</td>
+              </tr> -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="col-md-3 col-sm-6 mt-4 float-right">
+        <button
+          type="button"
+          class="primary-button"
+          style="margin-bottom: 1rem"
+          (click)="makePayment()"
+        >
+          PayNow
+        </button>
+      </div>
+      <div class="col-md-3 col-sm-6 mt-4 float-right">
+        <button
+          type="button"
+          class="secondary-button"
+          style="margin-bottom: 1rem"
+          (click)="cancelPayment()"
+        >
+          Cancel
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<form
+  id="payuform"
+  name="payuform"
+  #form
+  ngNoForm
+  action="{{ obj.action }}"
+  method="post"
+  target="myWindow"
+>
+  <input type="hidden" name="firstname" value="{{ obj.firstname }}" />
+  <input type="hidden" name="curl" value="{{ obj.curl }}" />
+  <input type="hidden" name="city" value="{{ obj.city }}" />
+  <input type="hidden" name="udf10" value="{{ obj.udf10 }}" />
+
+  <input type="hidden" name="hashString" value="{{ obj.hashString }}" />
+  <input type="hidden" name="udf9" value="{{ obj.udf9 }}" />
+  <input type="hidden" name="udf7" value="{{ obj.udf7 }}" />
+  <input type="hidden" name="udf8" value="{{ obj.udf8 }}" />
+  <input type="hidden" name="state" value="{{ obj.state }}" />
+
+  <input type="hidden" name="key" value="{{ obj.key }}" />
+  <input type="hidden" name="email" value="{{ obj.email }}" />
+  <input type="hidden" name="txnid" value="{{ obj.txnid }}" />
+  <input type="hidden" name="amount" value="{{ obj.amount }}" />
+  <input type="hidden" name="address2" value="{{ obj.address2 }}" />
+
+  <input type="hidden" name="address1" value="{{ obj.address1 }}" />
+  <input type="hidden" name="udf5" value="{{ obj.udf5 }}" />
+  <input type="hidden" name="udf6" value="{{ obj.udf6 }}" />
+  <input type="hidden" name="udf3" value="{{ obj.udf3 }}" />
+  <input type="hidden" name="surl" value="{{ obj.surl }}" />
+
+  <input type="hidden" name="udf4" value="{{ obj.udf4 }}" />
+  <input type="hidden" name="udf1" value="{{ obj.udf1 }}" />
+  <input type="hidden" name="udf2" value="{{ obj.udf2 }}" />
+  <input type="hidden" name="lastname" value="{{ obj.lastname }}" />
+  <input type="hidden" name="zipcode" value="{{ obj.zipcode }}" />
+
+  <input type="hidden" name="phone" value="{{ obj.phone }}" />
+  <input type="hidden" name="pg" value="{{ obj.pg }}" />
+  <input type="hidden" name="furl" value="{{ obj.furl }}" />
+  <input type="hidden" name="productinfo" value="{{ obj.productinfo }}" />
+  <input type="hidden" name="hash" value="{{ obj.hash }}" />
+
+  <button style="display: none" type="submit"></button>
+</form>

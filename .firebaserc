@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "e-panipuricart": {
+      "hosting": {
+        "epanipuriCartUI": [
+          "e-panipuricart"
+        ]
+      }
+    }
+  }
+}

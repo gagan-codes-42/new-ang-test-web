@@ -1,0 +1,93 @@
+@import '../../../../colors.scss';
+
+@import url('https://fonts.googleapis.com/css2?family=Lato&family=Montserrat:wght@500&family=Mouse+Memoirs&family=PT+Serif+Caption&display=swap');
+.above {
+  background-color: #ffebd0;
+}
+.bg-dark {
+  background-color: #2f1a01 !important;
+}
+.text-warning {
+  color: #f4a53e !important;
+}
+.footer {
+  background-image: url(../../../../assets/img/footer-bg.png);
+  background-position: center top;
+  background-size: cover;
+}
+.footer .head {
+  padding: 10px 0 0 0;
+}
+.footer .head p {
+  font-weight: 500;
+  text-transform: uppercase;
+  font-family: 'Montserrat', sans-serif !important;
+}
+.footer .head h6 {
+  font-weight: 500;
+  font-size: 65px;
+  font-family: 'Mouse Memoirs', sans-serif;
+}
+.divider {
+  border-bottom: 0.5px solid #ffebd0;
+}
+.footer input {
+  padding: 15px;
+  background: transparent;
+  border: 1px solid #ffebd0;
+  font-size: 12px;
+  flex: auto;
+  color: #fff;
+  border-radius: 0;
+}
+.pt-serif {
+  font-family: 'PT Serif Caption', serif;
+}
+.footer .botton {
+  color: #ffebd0;
+  display: flex;
+  flex: auto;
+  font-size: 11px;
+}
+.footer button {
+  border: none;
+  color: #fff;
+  background-color: red;
+}
+.footer input:focus {
+  outline: none;
+}
+.footer i {
+  font-size: 20px !important;
+}
+
+.footerMenu{
+  margin-top: 20px;
+  ul {
+    padding: 0;
+    list-style: none;
+    a {
+      color: #999999;
+      &:hover {
+        color: #d0d0d0;
+      }
+    }
+  }
+}
+.footer-social{
+  img{
+    max-width: 20px;
+    margin-right: 10px;
+  }
+  li a{
+    display: flex;
+  }
+}
+.footerCallEmail{
+  a {
+    color: #999999;
+    &:hover {
+      color: #d0d0d0;
+    }
+  }
+}

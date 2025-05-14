@@ -1,0 +1,23 @@
+<div class="row blog-widget-wrapper mt-4" *ngIf="blogsData.length > 0 && !isLoading">
+  <div class="col-md-4 col-12 " *ngFor="let blog of blogsData">
+
+    <a [routerLink]="['/blog', blog.formatted_uri]">
+      <h3>{{blog.title}}</h3>
+    </a>
+
+    <p>{{blog.content | BlogContentFormatPipe}}</p>
+  </div>
+
+
+
+
+  <div class="mt-4">
+    <a class="read-more btn text-danger m-0 px-3 py-2 mt-2" routerLink="/blogs">
+      SEE ALL
+    </a>
+  </div>
+</div>
+
+<div class="row blog-widget-wrapper mt-4" *ngIf="isLoading">
+  <div ><i class="far fa-spinner-third fa-spin"></i></div>
+</div>

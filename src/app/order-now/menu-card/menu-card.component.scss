@@ -1,0 +1,197 @@
+@import '~@angular/material/prebuilt-themes/indigo-pink.css';
+@import '../../../colors.scss';
+.symbol {
+    margin-right:8px;
+    margin-left:4px;
+  }
+  .heading{
+    padding:30px 0px;
+  }
+  .logo-div{
+    display: flex;
+    justify-content: center;
+    margin:30px 0px;
+  }
+  .logo-img{
+    height:auto;
+    width: 150px;;
+    box-shadow: 0px 5px 8px 0px rgba(34, 34, 34, 0.219);
+    border-radius: 3px;
+  }
+  .head-text{
+    font-family: "Open Sans";
+    font-size: 24px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    margin-bottom: 30px;
+  }
+  .slogan-text{
+    margin-bottom:30px;
+  }
+  .search-item-div{
+    width:100%;
+  }
+  .search-input{
+    width:100%;
+    height:40px;
+    text-align: center;
+    border-radius: 20px;
+    // border: 1px solid rgb(131, 131, 131);
+    border:none;
+    background-color:rgb(243, 243, 243);
+    font-family: "Open Sans";
+  }
+  input:focus, textarea:focus, select:focus{
+    outline: none;
+    box-shadow:2px 2px 8px rgba(56, 56, 56, 0.404);
+  }
+  .pricing-list{
+    padding-bottom:50px;
+  }
+  .item{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .item-os{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    opacity: 0.5;
+    color:gray;
+  }
+  .item-details-div{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    min-height:60px;
+  }
+  .item-name{
+    font-family: "Open Sans";
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 0.1px;
+  }
+  .item-name-div{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-evenly;
+  }
+  .out-of-stock-text{
+    font-family: "Open Sans";
+    font-size:10px;
+    letter-spacing: 0.05px;
+    font-weight: 600;
+  }
+  .cart-icon{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-right:5px;
+  }
+  .res-closed-div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding:20px 0px;
+  }
+  .closed-text{
+    font-size: 16px;
+    font-weight: 600;
+    font-family: "Open Sans";
+    letter-spacing: 0.2px;
+    color:rgb(22, 22, 22);
+  }
+  .cart-mat-icon{
+    height: 16px;
+    width: 16px;
+  }
+  .item-price{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin-right:5px;
+  }
+  .item-price-child{
+    font-family: "Roboto";
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 0.2px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+  .fab-container {
+    position: fixed;
+    bottom: 90px;
+    right: 15px;
+    z-index: 100;
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+  
+    > div {
+      display: flex;
+      flex-direction: column-reverse;
+      align-items: center;
+      margin-bottom: 5px;
+  
+      button {
+        margin-bottom: 17px;
+      }
+    }
+  }
+  
+  .fab-toggler {
+    float: right;
+    z-index: 100;
+    background-color: #ed4545 !important;
+  }
+  .item:hover {
+    cursor: pointer;
+    background-color: rgb(243, 243, 243);
+    border-radius: 3px;
+  }
+  .loading-component {
+    min-height: 81vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  ::ng-deep .mat-flat-button.mat-accent, .mat-raised-button.mat-accent, .mat-fab.mat-accent, .mat-mini-fab.mat-accent {
+    background-color: rgb(32, 32, 32);
+  }
+  .list-group-item {
+     padding:0 !important;
+     border:0 !important
+  }
+  h1 {
+    font: 400 24px/32px Roboto,Helvetica Neue,sans-serif;
+    letter-spacing: normal;
+    margin: 0 0 16px;
+  }
+  .mat-divider {
+    border-top-color: rgba(0,0,0,.12);
+}
+.store-icon {
+  display: flex;
+  justify-content: center;
+  img {
+    width: 50px;
+  }
+}
+
+.icon-div {
+  padding: 0.55rem 0.8rem;
+  border-radius: 50%;
+  &:hover {
+    background-color: $primary-color;
+    color: white;
+    cursor: pointer;
+  }
+}

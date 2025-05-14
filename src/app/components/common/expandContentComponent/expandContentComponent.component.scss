@@ -1,0 +1,32 @@
+@import '../../../../colors.scss';
+
+.showHideButonWrapper{
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding-bottom: 10px;
+}
+.showShadow{
+  background: linear-gradient(to bottom, rgba(100, 100, 100, 0) 0%, #91919170 75%);
+  height: 100px;
+  margin-top: -124px;
+  position: relative;
+}
+
+.expandBtn {
+  -webkit-border-radius: 28;
+  -moz-border-radius: 28;
+  border-radius: 28px;
+  font-family: Arial;
+  color: #FFF;
+  font-size: 15px;
+  background: #f10909;
+  padding: 8px 20px 8px 20px;
+  text-decoration: none;
+  border: none;
+}
+
+.expandBtn:hover {
+  background: #f10909;
+  text-decoration: none;
+}
